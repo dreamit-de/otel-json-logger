@@ -1,4 +1,7 @@
-import { JsonDiagLogger, loggerConsole } from '@/index'
+import {
+    JsonDiagLogger, 
+    loggerConsole 
+} from '@/index'
 
 describe('Logger writes expected output to command line', () => {
     beforeEach(() => {
