@@ -1,0 +1,7 @@
+/.idea/
+/node_modules/
+/package-lock.json
+/test-report/
+/coverage/
+/build/
+dreamit-graphql-prom-metrics*.*.tgz
