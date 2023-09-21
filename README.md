@@ -17,22 +17,41 @@ TypeScript declarations are provided within the project.
 ## Features
 
 - Provides JSON Logger for OpenTelemetry **DiagLogger** interface
+- Stringifies log arguments to avoid breaking logging tools
+- Create ISODate timestamp for log entry
   
 ## Usage
 
-Create a **JsonDiagLogger** object by providing a fitting logger name and service name. You can additionally add a thrid parameter to define whether debug is enabled or not.
+Create a **JsonDiagLogger** object by providing a fitting *loggerName* and *serviceName*. The logger can be used standalone to log JSON to console as well as
+a global *DiagLogger*. 
 
 ```typescript
-import {JsonDiagLogger} from '@dreamit/otel-json-logger'
-import { diag, DiagConsoleLogger, DiagLogLevel } from "@opentelemetry/api";
+import { JsonDiagLogger } from '@dreamit/otel-json-logger'
+import { diag, DiagLogLevel } from "@opentelemetry/api";
 
 // Standalone
-const logger=  new JsonDiagLogger('test-logger', 'test-service')
+const logger = new JsonDiagLogger({
+    loggerName: 'test-logger', 
+    serviceName: 'test-service'
+})
 logger.debug('test', 1, {name: 'myname'})
 
 // Add as global DiagLogger
 diag.setLogger(logger, DiagLogLevel.ERROR)
 ```
+
+## JsonDiagLogger functions
+
+### General functions
+* **createLogEntry**: Creates and returns a log entry of type **LogEntry** with the provided information.
+* **logMessage**: Central function being called by all **DiagLogger** interface functions. Calls **createLogEntry**, stringifies the result and calls **console.log()**.
+
+### DiagLogger interface functions
+* **debug**: Logs a debug message
+* **error**: Logs an error message
+* **info**: Logs an info message
+* **verbose**: Logs a warn message
+* **warn**: Logs a verbose message
 
 ## Contact
 
@@ -42,6 +61,6 @@ and open a new issue if there are no fitting issues for your topic yet.
 
 ## License
 
-graphql-server is under [MIT-License](./LICENSE).
+otel-json-logger is under [MIT-License](./LICENSE).
 
 [1]: https://github.com/open-telemetry/opentelemetry-js

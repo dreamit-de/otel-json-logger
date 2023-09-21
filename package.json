@@ -1,6 +1,6 @@
 {
   "name": "@dreamit/otel-json-logger",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "JSON diagnose logger for OpenTelemetry",
   "main": "build/src/index.js",
   "types": "build/src/index.d.ts",
@@ -29,7 +29,6 @@
   },
   "homepage": "https://github.com/dreamit-de/otel-json-logger#readme",
   "devDependencies": {
-    "@opentelemetry/api": "^1.6.0",
     "@types/jest": "29.5.5",
     "@types/node": "20.6.2",
     "@typescript-eslint/eslint-plugin": "6.7.2",
