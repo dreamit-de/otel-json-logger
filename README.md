@@ -17,7 +17,7 @@ TypeScript declarations are provided within the project.
 ## Features
 
 - Provides JSON Logger for OpenTelemetry **DiagLogger** interface
-- Stringifies log arguments to avoid breaking logging tools
+- Stringifies messages with objects and arrays as well as log arguments to avoid breaking logging tools
 - Create ISODate timestamp for log entry
   
 ## Usage
@@ -45,6 +45,7 @@ diag.setLogger(logger, DiagLogLevel.ERROR)
 ### General functions
 * **createLogEntry**: Creates and returns a log entry of type **LogEntry** with the provided information.
 * **logMessage**: Central function being called by all **DiagLogger** interface functions. Calls **createLogEntry**, stringifies the result and calls **console.log()**.
+* **formatMessage**: Formats the message. If the message contains an object or array wrap it in JSON.stringify to avoid these being interpreted as JSON objects.
 
 ### DiagLogger interface functions
 * **debug**: Logs a debug message

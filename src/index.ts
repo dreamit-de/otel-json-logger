@@ -93,8 +93,6 @@ export class JsonDiagLogger implements DiagLogger {
         })
     }
 
-   
-
     logMessage(logEntryInput: LogEntryInput): void {
         loggerConsole.log(JSON.stringify(this.createLogEntry(logEntryInput)))
     }
@@ -108,9 +106,23 @@ export class JsonDiagLogger implements DiagLogger {
         return {
             level: loglevel,
             logger: this.loggerOptions.loggerName,
-            message: `${message}. Log arguments are: ${JSON.stringify(logArguments)}`,
+            message: this.formatMessage(message) + 
+            `. Log arguments are: ${JSON.stringify(logArguments)}`,
             serviceName: this.loggerOptions.serviceName,
             timestamp:  new Date().toISOString(),
         }
-    } 
+    }
+
+    /**
+     * Formats the message. If message contains object or array wrap it in 
+     * JSON.stringify to avoid these being interpreted as JSON objects.
+     * @param {message} string - The original message
+     * @returns {string} the formatted message
+     */
+    formatMessage(message: string): string {
+        if (message && (message.indexOf('{') === 0 || message.indexOf('[') === 0)) {
+            return JSON.stringify(message)
+        }
+        return message
+    }
 }
