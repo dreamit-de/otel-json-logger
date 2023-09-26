@@ -37,12 +37,15 @@ export interface LogEntryInput {
  * @param {LogLevel} logLevelForServiceRequestErrorMessages - The log level to use 
  * for error messages "Service request". These contain request information that might not be logged
  * on error level.
+ * @param {LogLevel} logLevelForTimeoutErrorMessages - The log level to use 
+ * for Timeout related messages. These might be of short nature and be downgraded or ignored.
  * @param {LogLevel} logLevelForVerbose - The log level to use for verbose log entries.
  */
 export interface LoggerOptions {
     loggerName: string
     serviceName: string
     logLevelForServiceRequestErrorMessages?: LogLevel
+    logLevelForTimeoutErrorMessages?: LogLevel
     logLevelForVerbose?: LogLevel
 }
 
@@ -78,11 +81,18 @@ export class JsonDiagLogger implements DiagLogger {
     }
 
     error(message: string, ...arguments_: unknown[]): void {
-        const logLevel = 
-            this.loggerOptions.logLevelForServiceRequestErrorMessages 
-                && message === 'Service request' 
-                ? this.loggerOptions.logLevelForServiceRequestErrorMessages 
-                : LogLevel.error
+        let logLevel
+        if (this.loggerOptions.logLevelForServiceRequestErrorMessages 
+            && message === 'Service request') {
+            logLevel = this.loggerOptions.logLevelForServiceRequestErrorMessages
+        } else if (this.loggerOptions.logLevelForTimeoutErrorMessages 
+            && this.containsTimeout(message)) {
+            logLevel = this.loggerOptions.logLevelForTimeoutErrorMessages
+        }
+        else {
+            logLevel = LogLevel.error
+        }
+
         this.logMessage({
             message, 
             logArguments: arguments_, 
@@ -147,4 +157,18 @@ export class JsonDiagLogger implements DiagLogger {
         }
         return message
     }
+
+    /**
+     * Check if the message contains a Timeout information like "4 DEADLINE_EXCEEDED" 
+     * or "14 UNAVAILABLE"
+     * @param {message} string - The original message
+     * @returns {boolean} true if the message contains a Timeout information, false otherwise
+     */
+    containsTimeout(message: string): boolean {
+        // Just to be safe we stringify the message so we can be sure it is a string.
+        const messageAsString = JSON.stringify(message)
+        return messageAsString.includes('4 DEADLINE_EXCEEDED') ||
+            messageAsString.includes('14 UNAVAILABLE')
+    }
+
 }
