@@ -88,8 +88,7 @@ export class JsonDiagLogger implements DiagLogger {
         } else if (this.loggerOptions.logLevelForTimeoutErrorMessages 
             && this.containsTimeout(message)) {
             logLevel = this.loggerOptions.logLevelForTimeoutErrorMessages
-        }
-        else {
+        } else {
             logLevel = LogLevel.error
         }
 
