@@ -31,8 +31,9 @@ import { diag, DiagLogLevel } from "@opentelemetry/api";
 
 // Standalone
 const logger = new JsonDiagLogger({
-    loggerName: 'test-logger', 
-    serviceName: 'test-service'
+    loggerName: 'test-logger', // The loggerName printed in field "logger"
+    serviceName: 'test-service', // The serviceName printed in field "serviceName"
+    logLevelForVerbose: LogLevel.off // Optional: Set LogLevel for verbose entries or ignore them
 })
 logger.debug('test', 1, {name: 'myname'})
 
@@ -46,6 +47,7 @@ diag.setLogger(logger, DiagLogLevel.ERROR)
 * **createLogEntry**: Creates and returns a log entry of type **LogEntry** with the provided information.
 * **logMessage**: Central function being called by all **DiagLogger** interface functions. Calls **createLogEntry**, stringifies the result and calls **console.log()**.
 * **formatMessage**: Formats the message. If the message contains an object or array wrap it in JSON.stringify to avoid these being interpreted as JSON objects.
+* **setOptions**: Sets the **LoggerOptions** to be used for logging. Can be called after constructor call to set new/other options.
 
 ### DiagLogger interface functions
 * **debug**: Logs a debug message
@@ -53,6 +55,14 @@ diag.setLogger(logger, DiagLogLevel.ERROR)
 * **info**: Logs an info message
 * **verbose**: Logs a warn message
 * **warn**: Logs a verbose message
+
+### LogLevel enum values
+* **DEBUG**
+* **ERROR**
+* **INFO**
+* **OFF** : Do not log these entries!
+* **VERBOSE**
+* **WARN**
 
 ## Contact
 

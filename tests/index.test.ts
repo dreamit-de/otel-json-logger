@@ -7,7 +7,7 @@ import {
 
 const logger = new JsonDiagLogger({
     loggerName: 'test-logger', 
-    serviceName: 'test-service'
+    serviceName: 'test-service',
 })
 const testMessage = 'I am a log message!'
 
@@ -36,31 +36,48 @@ test.each`
 describe('Logger writes expected output to command line', () => {
     beforeAll(() => {
         jest.spyOn(loggerConsole, 'log').mockImplementation()
+        jest.useFakeTimers({now: new Date('2023-09-06T00:00:00Z')})
     })
 
     afterAll(() => {
         jest.restoreAllMocks()
+        jest.useRealTimers()
     })
 
     test('Test DiagLogger interface functions', () => {
         // Call each log function once. Should call console.log for all log levels
         logger.debug('test', 1, {name: 'myname'})
-        expect(loggerConsole.log).toHaveBeenCalledTimes(1)
+        expect(loggerConsole.log).toHaveBeenNthCalledWith(1, generateExpectedLogMessage('DEBUG'))
         logger.verbose('test', 1, {name: 'myname'})
-        expect(loggerConsole.log).toHaveBeenCalledTimes(2)
+        expect(loggerConsole.log).toHaveBeenNthCalledWith(2, generateExpectedLogMessage('VERBOSE'))
         logger.info('test', 1, {name: 'myname'})
-        expect(loggerConsole.log).toHaveBeenCalledTimes(3)
+        expect(loggerConsole.log).toHaveBeenNthCalledWith(3, generateExpectedLogMessage('INFO'))
         logger.error('test', 1, {name: 'myname'})
-        expect(loggerConsole.log).toHaveBeenCalledTimes(4)
+        expect(loggerConsole.log).toHaveBeenNthCalledWith(4, generateExpectedLogMessage('ERROR'))
         logger.warn('test', 1, {name: 'myname'})
-        expect(loggerConsole.log).toHaveBeenCalledTimes(5)
+        expect(loggerConsole.log).toHaveBeenNthCalledWith(5, generateExpectedLogMessage('WARN'))
 
-        // For loglevel off no entry is written to console
-        logger.logMessage({
-            loglevel: LogLevel.off,
-            message: 'test',
-            logArguments: [{name: 'myname'}]
+        // Downgrade verbose log entry
+        logger.setOptions({
+            loggerName: 'test-logger', 
+            serviceName: 'test-service',
+            logLevelForVerbose: LogLevel.debug
         })
-        expect(loggerConsole.log).toHaveBeenCalledTimes(5)
+        logger.verbose('test', 1, {name: 'myname'})
+        expect(loggerConsole.log).toHaveBeenNthCalledWith(6, generateExpectedLogMessage('DEBUG'))
+       
+        // Do not log verbose log entry
+        logger.setOptions({
+            loggerName: 'test-logger', 
+            serviceName: 'test-service',
+            logLevelForVerbose: LogLevel.off
+        })
+        logger.verbose('test', 1, {name: 'myname'})
+        expect(loggerConsole.log).toHaveBeenCalledTimes(6)       
+
     })
 })
+
+function generateExpectedLogMessage(loglevel: string): string {
+    return `{"level":"${loglevel}","logger":"test-logger","message":"test. Log arguments are: [1,{\\"name\\":\\"myname\\"}]","serviceName":"test-service","timestamp":"2023-09-06T00:00:00.000Z"}`
+}
