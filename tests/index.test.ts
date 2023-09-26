@@ -47,16 +47,20 @@ describe('Logger writes expected output to command line', () => {
     test('Test DiagLogger interface functions', () => {
         // Call each log function once. Should call console.log for all log levels
         logger.debug('test', 1, {name: 'myname'})
-        expect(loggerConsole.log).toHaveBeenNthCalledWith(1, generateExpectedLogMessage('DEBUG'))
+        expect(loggerConsole.log).toHaveBeenNthCalledWith(1, generateExpectedLogMessage('test', 'DEBUG'))
         logger.verbose('test', 1, {name: 'myname'})
-        expect(loggerConsole.log).toHaveBeenNthCalledWith(2, generateExpectedLogMessage('VERBOSE'))
+        expect(loggerConsole.log).toHaveBeenNthCalledWith(2, generateExpectedLogMessage('test','VERBOSE'))
         logger.info('test', 1, {name: 'myname'})
-        expect(loggerConsole.log).toHaveBeenNthCalledWith(3, generateExpectedLogMessage('INFO'))
+        expect(loggerConsole.log).toHaveBeenNthCalledWith(3, generateExpectedLogMessage('test','INFO'))
         logger.error('test', 1, {name: 'myname'})
-        expect(loggerConsole.log).toHaveBeenNthCalledWith(4, generateExpectedLogMessage('ERROR'))
+        expect(loggerConsole.log).toHaveBeenNthCalledWith(4, generateExpectedLogMessage('test','ERROR'))
         logger.warn('test', 1, {name: 'myname'})
-        expect(loggerConsole.log).toHaveBeenNthCalledWith(5, generateExpectedLogMessage('WARN'))
+        expect(loggerConsole.log).toHaveBeenNthCalledWith(5, generateExpectedLogMessage('test','WARN'))
 
+        // Should log service request message on error if option "logLevelForServiceRequestErrorMessages" is not set
+        logger.error('Service request', 1, {name: 'myname'})
+        expect(loggerConsole.log).toHaveBeenNthCalledWith(6, generateExpectedLogMessage('Service request','ERROR'))
+        
         // Downgrade verbose log entry
         logger.setOptions({
             loggerName: 'test-logger', 
@@ -64,7 +68,7 @@ describe('Logger writes expected output to command line', () => {
             logLevelForVerbose: LogLevel.debug
         })
         logger.verbose('test', 1, {name: 'myname'})
-        expect(loggerConsole.log).toHaveBeenNthCalledWith(6, generateExpectedLogMessage('DEBUG'))
+        expect(loggerConsole.log).toHaveBeenNthCalledWith(7, generateExpectedLogMessage('test','DEBUG'))
        
         // Do not log verbose log entry
         logger.setOptions({
@@ -73,11 +77,19 @@ describe('Logger writes expected output to command line', () => {
             logLevelForVerbose: LogLevel.off
         })
         logger.verbose('test', 1, {name: 'myname'})
-        expect(loggerConsole.log).toHaveBeenCalledTimes(6)       
+        expect(loggerConsole.log).toHaveBeenCalledTimes(7)       
 
+        // Should log service request message on warn if option "logLevelForServiceRequestErrorMessages" is set to WARN
+        logger.setOptions({
+            loggerName: 'test-logger', 
+            serviceName: 'test-service',
+            logLevelForServiceRequestErrorMessages: LogLevel.warn
+        })
+        logger.error('Service request', 1, {name: 'myname'})
+        expect(loggerConsole.log).toHaveBeenNthCalledWith(8, generateExpectedLogMessage('Service request','WARN'))
     })
 })
 
-function generateExpectedLogMessage(loglevel: string): string {
-    return `{"level":"${loglevel}","logger":"test-logger","message":"test. Log arguments are: [1,{\\"name\\":\\"myname\\"}]","serviceName":"test-service","timestamp":"2023-09-06T00:00:00.000Z"}`
+function generateExpectedLogMessage(message: string, loglevel: string): string {
+    return `{"level":"${loglevel}","logger":"test-logger","message":"${message}. Log arguments are: [1,{\\"name\\":\\"myname\\"}]","serviceName":"test-service","timestamp":"2023-09-06T00:00:00.000Z"}`
 }

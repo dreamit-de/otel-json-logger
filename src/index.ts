@@ -34,12 +34,15 @@ export interface LogEntryInput {
  * Will be output to "logger" field in JSON.
  * @param {string} serviceName - The service name of the logger.
  * Will be output to "serviceName" field in JSON.
- *@param {LogLevel} logLevelForVerbose - The log level to use for verbose log entries.
- * Will be output to "serviceName" field in JSON.
+ * @param {LogLevel} logLevelForServiceRequestErrorMessages - The log level to use 
+ * for error messages "Service request". These contain request information that might not be logged
+ * on error level.
+ * @param {LogLevel} logLevelForVerbose - The log level to use for verbose log entries.
  */
 export interface LoggerOptions {
     loggerName: string
     serviceName: string
+    logLevelForServiceRequestErrorMessages?: LogLevel
     logLevelForVerbose?: LogLevel
 }
 
@@ -75,10 +78,15 @@ export class JsonDiagLogger implements DiagLogger {
     }
 
     error(message: string, ...arguments_: unknown[]): void {
+        const logLevel = 
+            this.loggerOptions.logLevelForServiceRequestErrorMessages 
+                && message === 'Service request' 
+                ? this.loggerOptions.logLevelForServiceRequestErrorMessages 
+                : LogLevel.error
         this.logMessage({
             message, 
             logArguments: arguments_, 
-            loglevel: LogLevel.error,
+            loglevel: logLevel,
         })}
 
     info(message: string, ...arguments_: unknown[]): void {

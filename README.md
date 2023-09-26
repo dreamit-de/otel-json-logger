@@ -33,6 +33,7 @@ import { diag, DiagLogLevel } from "@opentelemetry/api";
 const logger = new JsonDiagLogger({
     loggerName: 'test-logger', // The loggerName printed in field "logger"
     serviceName: 'test-service', // The serviceName printed in field "serviceName"
+    logLevelForServiceRequestErrorMessages: LogLevel.info // The log level to use for error message "Service request". These contain request information that might not be logged on error level.
     logLevelForVerbose: LogLevel.off // Optional: Set LogLevel for verbose entries or ignore them
 })
 logger.debug('test', 1, {name: 'myname'})
