@@ -54,5 +54,13 @@ describe('Logger writes expected output to command line', () => {
         expect(loggerConsole.log).toHaveBeenCalledTimes(4)
         logger.warn('test', 1, {name: 'myname'})
         expect(loggerConsole.log).toHaveBeenCalledTimes(5)
+
+        // For loglevel off no entry is written to console
+        logger.logMessage({
+            loglevel: LogLevel.off,
+            message: 'test',
+            logArguments: [{name: 'myname'}]
+        })
+        expect(loggerConsole.log).toHaveBeenCalledTimes(5)
     })
 })

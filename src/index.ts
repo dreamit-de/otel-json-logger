@@ -9,6 +9,7 @@ export enum LogLevel {
     debug = 'DEBUG',
     error = 'ERROR',
     info = 'INFO',
+    off = '',
     warn = 'WARN',
     verbose = 'VERBOSE'
 }
@@ -94,7 +95,9 @@ export class JsonDiagLogger implements DiagLogger {
     }
 
     logMessage(logEntryInput: LogEntryInput): void {
-        loggerConsole.log(JSON.stringify(this.createLogEntry(logEntryInput)))
+        if (logEntryInput.loglevel !== LogLevel.off) {
+            loggerConsole.log(JSON.stringify(this.createLogEntry(logEntryInput)))
+        }
     }
 
     createLogEntry(logEntryInput: LogEntryInput): LogEntry {
