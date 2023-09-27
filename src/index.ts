@@ -1,4 +1,5 @@
 import {Console} from 'node:console'
+import { inspect } from 'node:util'
 import { 
     DiagLogger
 } from '@opentelemetry/api'
@@ -138,7 +139,7 @@ export class JsonDiagLogger implements DiagLogger {
             level: loglevel,
             logger: this.loggerOptions.loggerName,
             message: this.formatMessage(message) + 
-            `. Log arguments are: ${JSON.stringify(logArguments)}`,
+            `. Log arguments are: ${inspect(logArguments)}`,
             serviceName: this.loggerOptions.serviceName,
             timestamp:  new Date().toISOString(),
         }
@@ -152,7 +153,7 @@ export class JsonDiagLogger implements DiagLogger {
      */
     formatMessage(message: string): string {
         if (message && (message.indexOf('{') === 0 || message.indexOf('[') === 0)) {
-            return JSON.stringify(message)
+            return inspect(message)
         }
         return message
     }
@@ -164,8 +165,7 @@ export class JsonDiagLogger implements DiagLogger {
      * @returns {boolean} true if the message contains a Timeout information, false otherwise
      */
     containsTimeout(message: string): boolean {
-        // Just to be safe we stringify the message so we can be sure it is a string.
-        const messageAsString = JSON.stringify(message)
+        const messageAsString = inspect(message)
         return messageAsString.includes('4 DEADLINE_EXCEEDED') ||
             messageAsString.includes('14 UNAVAILABLE')
     }

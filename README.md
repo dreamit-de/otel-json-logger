@@ -16,8 +16,8 @@ TypeScript declarations are provided within the project.
 ## Features
 
 - Provides JSON Logger for OpenTelemetry **DiagLogger** interface
-- Stringifies messages with objects and arrays as well as log arguments to avoid breaking logging tools
-- Create ISODate timestamp for log entry
+- Stringifies/inspects messages with objects and arrays as well as log arguments to avoid breaking logging tools
+- Creates ISODate timestamp for log entry
   
 ## Usage
 

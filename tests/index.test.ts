@@ -11,17 +11,20 @@ const logger = new JsonDiagLogger({
 })
 const testMessage = 'I am a log message!'
 const timeoutMessage = '{"stack":"Error: 14 UNAVAILABLE: No connection established}'
+const circularStructure: unknown[] = [1, 'test']
+circularStructure.push(circularStructure)
 
 test.each`
-    message                             | logArguments                       | loglevel            | expectedLogMessage                                                         | expectedLogLevel 
-    ${undefined}                        | ${undefined}                       | ${LogLevel.verbose} | ${undefined + '. Log arguments are: undefined'}                            | ${LogLevel.verbose}
-    ${testMessage}                      | ${undefined}                       | ${LogLevel.info}    | ${testMessage + '. Log arguments are: undefined'}                          | ${LogLevel.info}
-    ${testMessage}                      | ${1}                               | ${LogLevel.warn}    | ${testMessage + '. Log arguments are: 1'}                                  | ${LogLevel.warn}
-    ${testMessage}                      | ${[1, 'test']}                     | ${LogLevel.error}   | ${testMessage + '. Log arguments are: [1,"test"]'}                         | ${LogLevel.error}
-    ${''}                               | ${[]}                              | ${LogLevel.debug}   | ${'. Log arguments are: []'}                                               | ${LogLevel.debug}
-    ${'{context: {info:"something"}}' } | ${undefined}                       | ${LogLevel.info}    | ${'"{context: {info:\\"something\\"}}". Log arguments are: undefined'}     | ${LogLevel.info}
-    ${'["one", "two"]' }                | ${undefined}                       | ${LogLevel.info}    | ${'"[\\"one\\", \\"two\\"]". Log arguments are: undefined'}                | ${LogLevel.info}
-    ${testMessage}                      | ${[{context: {info:'something'}}]} | ${LogLevel.warn}    | ${testMessage + '. Log arguments are: [{"context":{"info":"something"}}]'} | ${LogLevel.warn}
+    message                             | logArguments                       | loglevel            | expectedLogMessage                                                               | expectedLogLevel 
+    ${undefined}                        | ${undefined}                       | ${LogLevel.verbose} | ${undefined + '. Log arguments are: undefined'}                                  | ${LogLevel.verbose}
+    ${testMessage}                      | ${undefined}                       | ${LogLevel.info}    | ${testMessage + '. Log arguments are: undefined'}                                | ${LogLevel.info}
+    ${testMessage}                      | ${1}                               | ${LogLevel.warn}    | ${testMessage + '. Log arguments are: 1'}                                        | ${LogLevel.warn}
+    ${testMessage}                      | ${[1, 'test']}                     | ${LogLevel.error}   | ${testMessage + '. Log arguments are: [ 1, \'test\' ]'}                          | ${LogLevel.error}
+    ${''}                               | ${[]}                              | ${LogLevel.debug}   | ${'. Log arguments are: []'}                                                     | ${LogLevel.debug}
+    ${'{context: {info:"something"}}' } | ${undefined}                       | ${LogLevel.info}    | ${'\'{context: {info:"something"}}\'. Log arguments are: undefined'}             | ${LogLevel.info}
+    ${'["one", "two"]' }                | ${undefined}                       | ${LogLevel.info}    | ${'\'["one", "two"]\'. Log arguments are: undefined'}                            | ${LogLevel.info}
+    ${testMessage}                      | ${[{context: {info:'something'}}]} | ${LogLevel.warn}    | ${testMessage + '. Log arguments are: [ { context: { info: \'something\' } } ]'} | ${LogLevel.warn}
+    ${testMessage}                      | ${circularStructure}               | ${LogLevel.warn}    | ${testMessage + '. Log arguments are: <ref *1> [ 1, \'test\', [Circular *1] ]'}  | ${LogLevel.warn}
     `('expects a correct logEntry is created for given $message , $logArguments and $loglevel ', ({message, logArguments, loglevel, expectedLogMessage, expectedLogLevel}) => {
     const logEntry = logger.createLogEntry({
         message,
@@ -116,9 +119,9 @@ describe('Logger writes expected output to command line', () => {
 })
 
 function generateExpectedLogMessage(message: string, loglevel: string): string {
-    return `{"level":"${loglevel}","logger":"test-logger","message":"${message}. Log arguments are: [1,{\\"name\\":\\"myname\\"}]","serviceName":"test-service","timestamp":"2023-09-06T00:00:00.000Z"}`
+    return `{"level":"${loglevel}","logger":"test-logger","message":"${message}. Log arguments are: [ 1, { name: 'myname' } ]","serviceName":"test-service","timestamp":"2023-09-06T00:00:00.000Z"}`
 }
 
 function generateExpectedTimeoutMessage(loglevel: string) : string {
-    return `{"level":"${loglevel}","logger":"test-logger","message":"\\"{\\\\\\"stack\\\\\\":\\\\\\"Error: 14 UNAVAILABLE: No connection established}\\". Log arguments are: [1,{\\"name\\":\\"myname\\"}]","serviceName":"test-service","timestamp":"2023-09-06T00:00:00.000Z"}`
+    return `{"level":"${loglevel}","logger":"test-logger","message":"'{\\"stack\\":\\"Error: 14 UNAVAILABLE: No connection established}'. Log arguments are: [ 1, { name: 'myname' } ]","serviceName":"test-service","timestamp":"2023-09-06T00:00:00.000Z"}`
 }
