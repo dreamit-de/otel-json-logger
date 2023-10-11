@@ -139,7 +139,7 @@ export class JsonDiagLogger implements DiagLogger {
             level: loglevel,
             logger: this.loggerOptions.loggerName,
             message: this.formatMessage(message) + 
-            `. Log arguments are: ${inspect(logArguments)}`,
+            `. Log arguments are: ${inspect(logArguments, {depth: 20})}`,
             serviceName: this.loggerOptions.serviceName,
             timestamp:  new Date().toISOString(),
         }
@@ -153,7 +153,7 @@ export class JsonDiagLogger implements DiagLogger {
      */
     formatMessage(message: string): string {
         if (message && (message.indexOf('{') === 0 || message.indexOf('[') === 0)) {
-            return inspect(message)
+            return inspect(message, {depth: 20})
         }
         return message
     }
@@ -165,7 +165,7 @@ export class JsonDiagLogger implements DiagLogger {
      * @returns {boolean} true if the message contains a Timeout information, false otherwise
      */
     containsTimeout(message: string): boolean {
-        const messageAsString = inspect(message)
+        const messageAsString = inspect(message, {depth: 20})
         return messageAsString.includes('4 DEADLINE_EXCEEDED') ||
             messageAsString.includes('14 UNAVAILABLE')
     }
