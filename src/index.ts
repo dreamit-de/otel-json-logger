@@ -41,6 +41,9 @@ export interface LogEntryInput {
  * @param {LogLevel} logLevelForTimeoutErrorMessages - The log level to use 
  * for Timeout related messages. These might be of short nature and be downgraded or ignored.
  * @param {LogLevel} logLevelForVerbose - The log level to use for verbose log entries.
+ * @param {number} truncateLimit - The length of the message before the message gets truncated. 
+ * Default: undefined/0 (off). 
+ * @param {string} truncatedText - The text to display if a message is truncated.
  */
 export interface LoggerOptions {
     loggerName: string
@@ -48,6 +51,8 @@ export interface LoggerOptions {
     logLevelForServiceRequestErrorMessages?: LogLevel
     logLevelForTimeoutErrorMessages?: LogLevel
     logLevelForVerbose?: LogLevel
+    truncateLimit?: number
+    truncatedText?: string
 }
 
 /**
@@ -135,12 +140,31 @@ export class JsonDiagLogger implements DiagLogger {
             logArguments,
             loglevel,
         } = logEntryInput
+
+        const {
+            truncateLimit,
+            truncatedText, 
+            loggerName, 
+            serviceName
+        } = this.loggerOptions
+
+        let logMessage = this.formatMessage(message) + 
+        `. Log arguments are: ${inspect(logArguments, {depth: 20})}`
+        if (truncateLimit && truncateLimit > 0) {
+            const truncatedTextToUse = truncatedText ?? '_TRUNCATED_'
+            if (logMessage.length > truncateLimit + truncatedTextToUse.length) {
+                logMessage = truncateLimit > truncatedTextToUse.length 
+                    ? logMessage.slice(0, truncateLimit - truncatedTextToUse.length) 
+                        + truncatedTextToUse 
+                    : logMessage.slice(0, truncateLimit)
+            }
+        }
+
         return {
             level: loglevel,
-            logger: this.loggerOptions.loggerName,
-            message: this.formatMessage(message) + 
-            `. Log arguments are: ${inspect(logArguments, {depth: 20})}`,
-            serviceName: this.loggerOptions.serviceName,
+            logger: loggerName,
+            message: logMessage,
+            serviceName: serviceName,
             timestamp:  new Date().toISOString(),
         }
     }

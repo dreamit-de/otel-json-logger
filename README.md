@@ -35,6 +35,8 @@ const logger = new JsonDiagLogger({
     logLevelForServiceRequestErrorMessages: LogLevel.info, // Optional: The log level to use for error message "Service request". These contain request information that might not be logged on error level.
     logLevelForTimeoutErrorMessages: LogLevel.info, // Optional: The log level to use for Timeout related messages. These might be of short nature and be downgraded or ignored.
     logLevelForVerbose: LogLevel.off // Optional: Set LogLevel for verbose entries or ignore them
+    truncateLimit: 200 // Optional:  The length of the message before the message gets truncated. Default: undefined/0 (off). 
+    truncatedText: '_TRC_' // Optional: The text to display if a message is truncated.
 })
 logger.debug('test', 1, {name: 'myname'})
 

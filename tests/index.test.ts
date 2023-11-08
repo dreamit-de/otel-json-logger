@@ -40,6 +40,31 @@ test.each`
     expect(logEntry.serviceName).toBe('test-service')
 })
 
+
+test.each`
+    message                             | truncatedText                      | truncateLimit  | expectedLogMessage                                                                         
+    ${timeoutMessage}                   | ${undefined}                       | ${undefined}   | ${`'${timeoutMessage}'. Log arguments are: []`}                                                
+    ${timeoutMessage}                   | ${undefined}                       | ${20}          | ${'\'{"stack"_TRUNCATED_'}                                        
+    ${timeoutMessage}                   | ${'_TRUNC_'}                       | ${20}          | ${'\'{"stack":"Er_TRUNC_'}                                                
+    ${timeoutMessage}                   | ${undefined}                       | ${2}           | ${'\'{'}                                        
+    ${timeoutMessage}                   | ${undefined}                       | ${2000}        | ${`'${timeoutMessage}'. Log arguments are: []`}                                                
+    ${timeoutMessage}                   | ${undefined}                       | ${73}          | ${`'${timeoutMessage}'. Log arguments are: []`}                                   
+    ${timeoutMessage}                   | ${undefined}                       | ${72}          | ${`'${timeoutMessage}'_TRUNCATED_`}   
+    `('expects the log message to be truncated correctly for given $message , $truncatedText and $truncateLimit', ({message, truncatedText, truncateLimit, expectedLogMessage}) => {
+    const testLogger = new JsonDiagLogger({
+        loggerName: 'test-logger',
+        serviceName: 'test-service',
+        truncatedText: truncatedText,
+        truncateLimit: truncateLimit,
+    })
+    const logEntry = testLogger.createLogEntry({
+        message,
+        logArguments: [],
+        loglevel: LogLevel.info,
+    })
+    expect(logEntry.message).toBe(expectedLogMessage)
+})
+
 describe('Logger writes expected output to command line', () => {
     beforeEach(() => {
         // Set default options
