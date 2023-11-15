@@ -144,6 +144,26 @@ describe('Logger writes expected output to command line', () => {
         logger.verbose('test', 1, {name: 'myname'})
         expect(loggerConsole.log).toHaveBeenCalledTimes(1)
     })
+
+    test('Test downgrading and ignoring error messages', () => {
+        // Do not log service request error message
+        logger.setOptions({
+            loggerName: 'test-logger', 
+            serviceName: 'test-service',
+            logLevelForServiceRequestErrorMessages: LogLevel.off
+        })
+        logger.error('Service request', 1, {name: 'myname'})
+        expect(loggerConsole.log).toHaveBeenCalledTimes(0)
+   
+        // Do not log timeout error message
+        logger.setOptions({
+            loggerName: 'test-logger', 
+            serviceName: 'test-service',
+            logLevelForTimeoutErrorMessages: LogLevel.off
+        })
+        logger.error(timeoutMessage, 1, {name: 'myname'})
+        expect(loggerConsole.log).toHaveBeenCalledTimes(0)
+    })
 })
 
 function generateExpectedLogMessage(message: string, loglevel: string): string {
