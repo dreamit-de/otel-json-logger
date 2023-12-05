@@ -3,4 +3,4 @@ on: [push]
 
 jobs:
   oteljsonlogger:
-    uses: sgohlke/workflows/.github/workflows/deno.yml@main
+    uses: dreamit-de/workflows/.github/workflows/nodejs-ci.yml@main
