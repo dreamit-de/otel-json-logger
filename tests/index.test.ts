@@ -40,7 +40,6 @@ test.each`
     expect(logEntry.serviceName).toBe('test-service')
 })
 
-
 test.each`
     message                             | truncatedText                      | truncateLimit  | expectedLogMessage                                                                         
     ${timeoutMessage}                   | ${undefined}                       | ${undefined}   | ${`'${timeoutMessage}'. Log arguments are: []`}                                                
@@ -164,10 +163,37 @@ describe('Logger writes expected output to command line', () => {
         logger.error(timeoutMessage, 1, {name: 'myname'})
         expect(loggerConsole.log).toHaveBeenCalledTimes(0)
     })
+
+    test('Test logging only first incoming message and no other debug messages', () => {         
+        const incomingMessageLogger = new JsonDiagLogger({
+            loggerName: 'test-logger', 
+            serviceName: 'test-service',
+            logFirstIncomingRequest: true,
+        })
+        // Should not log other debug message
+        incomingMessageLogger.debug(testMessage, {name: 'myname'})
+        expect(loggerConsole.log).toHaveBeenCalledTimes(0)
+
+        // Should log first incoming request on info level
+        incomingMessageLogger.debug('', 'http instrumentation incomingRequest')
+        expect(loggerConsole.log).toHaveBeenNthCalledWith(1, generateExpectedLogMessage('First incoming request','INFO', '[]'))
+
+        // Should not log further debug messages
+        incomingMessageLogger.debug(testMessage, {name: 'myname'})
+        expect(loggerConsole.log).toHaveBeenCalledTimes(1)
+
+        // Should not log other incoming request messages
+        incomingMessageLogger.debug('', 'http instrumentation incomingRequest')
+        expect(loggerConsole.log).toHaveBeenCalledTimes(1)
+        
+        // Should log messages on other loglevels
+        incomingMessageLogger.error('test', 1, {name: 'myname'})
+        expect(loggerConsole.log).toHaveBeenNthCalledWith(2, generateExpectedLogMessage('test','ERROR'))
+    })
 })
 
-function generateExpectedLogMessage(message: string, loglevel: string): string {
-    return `{"level":"${loglevel}","logger":"test-logger","message":"${message}. Log arguments are: [ 1, { name: 'myname' } ]","serviceName":"test-service","timestamp":"2023-09-06T00:00:00.000Z"}`
+function generateExpectedLogMessage(message: string, loglevel: string, logArguments = '[ 1, { name: \'myname\' } ]'): string {
+    return `{"level":"${loglevel}","logger":"test-logger","message":"${message}. Log arguments are: ${logArguments}","serviceName":"test-service","timestamp":"2023-09-06T00:00:00.000Z"}`
 }
 
 function generateExpectedTimeoutMessage(loglevel: string) : string {
