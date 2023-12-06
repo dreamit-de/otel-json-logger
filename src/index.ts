@@ -35,6 +35,10 @@ export interface LogEntryInput {
  * Will be output to "logger" field in JSON.
  * @param {string} serviceName - The service name of the logger.
  * Will be output to "serviceName" field in JSON.
+ * @param {boolean} logFirstIncomingRequest - If true, the first incoming request will be logged.
+ * Other messages on debug level will be ignored. Default: false.
+ * Note: If you use diag.setLogger ensure that at least "LogLevel.debug" is set, 
+ * otherwise the message will be ignored. 
  * @param {LogLevel} logLevelForServiceRequestErrorMessages - The log level to use 
  * for error messages "Service request". These contain request information that might not be logged
  * on error level.
@@ -48,6 +52,7 @@ export interface LogEntryInput {
 export interface LoggerOptions {
     loggerName: string
     serviceName: string
+    logFirstIncomingRequest?: boolean
     logLevelForServiceRequestErrorMessages?: LogLevel
     logLevelForTimeoutErrorMessages?: LogLevel
     logLevelForVerbose?: LogLevel
@@ -61,6 +66,7 @@ export interface LoggerOptions {
  */
 export class JsonDiagLogger implements DiagLogger {
     loggerOptions: LoggerOptions
+    firstIncomingRequestLogged: boolean = false
 
     /**
      * Creates a new instance of Logger.
@@ -79,11 +85,22 @@ export class JsonDiagLogger implements DiagLogger {
     }
 
     debug(message: string, ...arguments_: unknown[]): void {
-        this.logMessage({
-            message, 
-            logArguments: arguments_, 
-            loglevel: LogLevel.debug,
-        })
+        if (this.loggerOptions.logFirstIncomingRequest) {
+            if (!this.firstIncomingRequestLogged && this.isIncomingRequestLogMessage(arguments_)) {
+                this.logMessage({
+                    message: 'First incoming request', 
+                    logArguments: [], 
+                    loglevel: LogLevel.info,
+                })
+                this.firstIncomingRequestLogged = true
+            }
+        } else {
+            this.logMessage({
+                message, 
+                logArguments: arguments_, 
+                loglevel: LogLevel.debug,
+            })
+        }
     }
 
     error(message: string, ...arguments_: unknown[]): void {
@@ -186,7 +203,7 @@ export class JsonDiagLogger implements DiagLogger {
      * Check if the message contains a Timeout information like "4 DEADLINE_EXCEEDED" 
      * or "14 UNAVAILABLE"
      * @param {message} string - The original message
-     * @returns {boolean} true if the message contains a Timeout information, false otherwise
+     * @returns {boolean} true if the message contains a Timeout information
      */
     containsTimeout(message: string): boolean {
         const messageAsString = inspect(message, {depth: 20})
@@ -194,4 +211,15 @@ export class JsonDiagLogger implements DiagLogger {
             messageAsString.includes('14 UNAVAILABLE')
     }
 
+    /**
+     * Checks if the arguments are part of an incomingRequest message, 
+     * i.e. the first argument contains the text 'incomingRequest'
+     * @param {unknown[]} arguments_ - The log arguments
+     * @returns {boolean} true if the message arguments are part of an incomingRequest message
+     */
+    isIncomingRequestLogMessage(arguments_: unknown[]): boolean {
+        return arguments_.length === 1
+        && typeof arguments_[0] === 'string' 
+        && arguments_[0].includes('incomingRequest')
+    }
 }
