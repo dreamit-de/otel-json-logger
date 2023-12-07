@@ -15,6 +15,15 @@ export enum LogLevel {
     verbose = 'VERBOSE'
 }
 
+const logLevelByScope = [
+    LogLevel.off,
+    LogLevel.verbose, 
+    LogLevel.debug, 
+    LogLevel.info,   
+    LogLevel.warn,  
+    LogLevel.error,
+]
+
 export interface LogEntry {
     logger: string;
     timestamp: string;
@@ -45,6 +54,8 @@ export interface LogEntryInput {
  * @param {LogLevel} logLevelForTimeoutErrorMessages - The log level to use 
  * for Timeout related messages. These might be of short nature and be downgraded or ignored.
  * @param {LogLevel} logLevelForVerbose - The log level to use for verbose log entries.
+ * @param {LogLevel} minLogLevel - The minimum log level to use. 
+ * Default: Does not check for min LogLevel.
  * @param {number} truncateLimit - The length of the message before the message gets truncated. 
  * Default: undefined/0 (off). 
  * @param {string} truncatedText - The text to display if a message is truncated.
@@ -56,6 +67,7 @@ export interface LoggerOptions {
     logLevelForServiceRequestErrorMessages?: LogLevel
     logLevelForTimeoutErrorMessages?: LogLevel
     logLevelForVerbose?: LogLevel
+    minLogLevel?: LogLevel
     truncateLimit?: number
     truncatedText?: string
 }
@@ -146,7 +158,8 @@ export class JsonDiagLogger implements DiagLogger {
     }
 
     logMessage(logEntryInput: LogEntryInput): void {
-        if (logEntryInput.loglevel !== LogLevel.off) {
+        if (logEntryInput.loglevel !== LogLevel.off
+            && this.isEqualOrHigherMinLogLevel(logEntryInput.loglevel)) {
             loggerConsole.log(JSON.stringify(this.createLogEntry(logEntryInput)))
         }
     }
@@ -221,5 +234,17 @@ export class JsonDiagLogger implements DiagLogger {
         return arguments_.length === 1
         && typeof arguments_[0] === 'string' 
         && arguments_[0].includes('incomingRequest')
+    }
+
+    /**
+     * Checks if the log level is equal or higher than the minimum log level
+     * @param {LogLevel} logLevel - The log level to check
+     * @returns {boolean} true if the log level is equal or higher than the minimum log level
+     */
+    isEqualOrHigherMinLogLevel(logLevel: LogLevel): boolean {
+        const {minLogLevel} = this.loggerOptions
+        return minLogLevel === undefined 
+            ? true
+            : logLevelByScope.indexOf(logLevel) >= logLevelByScope.indexOf(minLogLevel)
     }
 }
