@@ -192,6 +192,59 @@ describe('Logger writes expected output to command line', () => {
     })
 })
 
+test.each`
+    logLevel            | minLogLevel         | expectedResult
+    ${LogLevel.debug}   | ${undefined}        | ${true}   
+    ${LogLevel.error}   | ${undefined}        | ${true}   
+    ${LogLevel.info}    | ${undefined}        | ${true}   
+    ${LogLevel.off}     | ${undefined}        | ${true}  
+    ${LogLevel.verbose} | ${undefined}        | ${true} 
+    ${LogLevel.warn}    | ${undefined}        | ${true} 
+    ${LogLevel.debug}   | ${LogLevel.debug}   | ${true}
+    ${LogLevel.debug}   | ${LogLevel.error}   | ${false}
+    ${LogLevel.debug}   | ${LogLevel.info}    | ${false}
+    ${LogLevel.debug}   | ${LogLevel.off}     | ${true}
+    ${LogLevel.debug}   | ${LogLevel.verbose} | ${true}
+    ${LogLevel.debug}   | ${LogLevel.warn}    | ${false}
+    ${LogLevel.error}   | ${LogLevel.debug}   | ${true}
+    ${LogLevel.error}   | ${LogLevel.error}   | ${true}
+    ${LogLevel.error}   | ${LogLevel.info}    | ${true}
+    ${LogLevel.error}   | ${LogLevel.off}     | ${true}
+    ${LogLevel.error}   | ${LogLevel.verbose} | ${true}
+    ${LogLevel.error}   | ${LogLevel.warn}    | ${true}
+    ${LogLevel.info}    | ${LogLevel.debug}   | ${true}
+    ${LogLevel.info}    | ${LogLevel.error}   | ${false}
+    ${LogLevel.info}    | ${LogLevel.info}    | ${true}
+    ${LogLevel.info}    | ${LogLevel.off}     | ${true}
+    ${LogLevel.info}    | ${LogLevel.verbose} | ${true}
+    ${LogLevel.info}    | ${LogLevel.warn}    | ${false}          
+    ${LogLevel.off}     | ${LogLevel.debug}   | ${false}
+    ${LogLevel.off}     | ${LogLevel.error}   | ${false}
+    ${LogLevel.off}     | ${LogLevel.info}    | ${false}
+    ${LogLevel.off}     | ${LogLevel.off}     | ${true}
+    ${LogLevel.off}     | ${LogLevel.verbose} | ${false}
+    ${LogLevel.off}     | ${LogLevel.warn}    | ${false}
+    ${LogLevel.verbose} | ${LogLevel.debug}   | ${false}
+    ${LogLevel.verbose} | ${LogLevel.error}   | ${false}
+    ${LogLevel.verbose} | ${LogLevel.info}    | ${false}
+    ${LogLevel.verbose} | ${LogLevel.off}     | ${true}
+    ${LogLevel.verbose} | ${LogLevel.verbose} | ${true}
+    ${LogLevel.verbose} | ${LogLevel.warn}    | ${false} 
+    ${LogLevel.warn}    | ${LogLevel.debug }  | ${true}
+    ${LogLevel.warn}    | ${LogLevel.error }  | ${false}
+    ${LogLevel.warn}    | ${LogLevel.info }   | ${true}
+    ${LogLevel.warn}    | ${LogLevel.off }    | ${true}
+    ${LogLevel.warn}    | ${LogLevel.verbose }| ${true}
+    ${LogLevel.warn}    | ${LogLevel.warn }   | ${true}
+    `('expects for logLevel $logLevel and minLogLevel $minLogLevel be calculated correctly $expectedResult', ({logLevel, minLogLevel, expectedResult}) => {
+    const testLogger = new JsonDiagLogger({
+        loggerName: 'test-logger',
+        serviceName: 'test-service',
+        minLogLevel: minLogLevel,
+    })
+    expect(testLogger.isEqualOrHigherMinLogLevel(logLevel)).toBe(expectedResult)
+})
+
 function generateExpectedLogMessage(message: string, loglevel: string, logArguments = '[ 1, { name: \'myname\' } ]'): string {
     return `{"level":"${loglevel}","logger":"test-logger","message":"${message}. Log arguments are: ${logArguments}","serviceName":"test-service","timestamp":"2023-09-06T00:00:00.000Z"}`
 }
