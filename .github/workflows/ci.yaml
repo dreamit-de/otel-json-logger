@@ -1,5 +1,5 @@
 name: Install and test graphql-prom-metrics
-on: [push]
+on: [push, workflow_dispatch]
 
 jobs:
   oteljsonlogger:
