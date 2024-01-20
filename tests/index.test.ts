@@ -1,5 +1,6 @@
 /* eslint-disable max-len */
 import { JsonDiagLogger, LogLevel, loggerConsole } from '@/index'
+import { afterEach, beforeEach, describe, expect, test, vi } from 'vitest'
 
 const logger = new JsonDiagLogger({
     loggerName: 'test-logger',
@@ -80,13 +81,13 @@ describe('Logger writes expected output to command line', () => {
             loggerName: 'test-logger',
             serviceName: 'test-service',
         })
-        jest.spyOn(loggerConsole, 'log').mockImplementation()
-        jest.useFakeTimers({ now: new Date('2023-09-06T00:00:00Z') })
+        vi.spyOn(loggerConsole, 'log').mockImplementation()
+        vi.useFakeTimers({ now: new Date('2023-09-06T00:00:00Z') })
     })
 
     afterEach(() => {
-        jest.restoreAllMocks()
-        jest.useRealTimers()
+        vi.restoreAllMocks()
+        vi.useRealTimers()
     })
 
     test('Test DiagLogger interface functions', () => {

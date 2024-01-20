@@ -16,6 +16,6 @@
             "~/*": ["./*"],
         },
     },
-    "include": ["jest.config.js", "src/*", "tests/*"],
+    "include": ["vitest.config.js", "src/*", "tests/*"],
     "exclude": ["node_modules"],
 }
