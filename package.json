@@ -1,11 +1,9 @@
 {
     "name": "@dreamit/otel-json-logger",
-    "version": "2.5.0",
+    "version": "2.5.1",
     "description": "JSON diagnose logger for OpenTelemetry",
-    "main": "build/src/index.js",
-    "types": "build/src/index.d.ts",
     "scripts": {
-        "build": "tsc",
+        "build": "tsup-node",
         "check": "tsc --noEmit --pretty",
         "checkformat": "prettier --check .",
         "format": "prettier --cache --write .",
@@ -13,6 +11,19 @@
         "lintfix": "eslint --fix src/*.ts tests/*.ts",
         "prepack": "npm run build",
         "test": "vitest"
+    },
+    "type": "module",
+    "main": "build/index.cjs",
+    "module": "build/index.js",
+    "types": "build/index.d.ts",
+    "exports": {
+        ".": {
+            "types": "./build/index.d.ts",
+            "import": "./build/index.js",
+            "require": "./build/index.cjs",
+            "default": "./build/index.js"
+        },
+        "./package.json": "./package.json"
     },
     "repository": {
         "type": "git",
@@ -40,6 +51,7 @@
         "eslint-plugin-security": "2.1.0",
         "eslint-plugin-unicorn": "50.0.1",
         "prettier": "3.2.4",
+        "tsup": "8.0.1",
         "typescript": "5.3.3",
         "vite-tsconfig-paths": "4.3.1",
         "vitest": "1.2.1"

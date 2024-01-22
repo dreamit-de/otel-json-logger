@@ -72,7 +72,7 @@
             "error",
             {
                 "case": "pascalCase",
-                "ignore": ["GraphQL", "\\.test\\.ts$"]
+                "ignore": ["GraphQL", "\\.config\\.ts$", "\\.test\\.ts$"]
             }
         ],
         "unicorn/custom-error-definition": "error",

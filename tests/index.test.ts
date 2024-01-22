@@ -81,7 +81,7 @@ describe('Logger writes expected output to command line', () => {
             loggerName: 'test-logger',
             serviceName: 'test-service',
         })
-        vi.spyOn(loggerConsole, 'log').mockImplementation()
+        vi.spyOn(loggerConsole, 'log')
         vi.useFakeTimers({ now: new Date('2023-09-06T00:00:00Z') })
     })
 
