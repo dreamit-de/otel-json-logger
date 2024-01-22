@@ -12,7 +12,7 @@
         "lint": "eslint src/*.ts tests/*.ts",
         "lintfix": "eslint --fix src/*.ts tests/*.ts",
         "prepack": "npm run build",
-        "test": "jest tests/index.test.ts --runInBand"
+        "test": "vitest"
     },
     "repository": {
         "type": "git",
@@ -31,7 +31,6 @@
     },
     "homepage": "https://github.com/dreamit-de/otel-json-logger#readme",
     "devDependencies": {
-        "@types/jest": "29.5.11",
         "@types/node": "20.11.5",
         "@typescript-eslint/eslint-plugin": "6.19.0",
         "@typescript-eslint/parser": "6.19.0",
@@ -40,10 +39,10 @@
         "eslint-plugin-import": "2.29.1",
         "eslint-plugin-security": "2.1.0",
         "eslint-plugin-unicorn": "50.0.1",
-        "jest-html-reporters": "3.1.7",
         "prettier": "3.2.4",
-        "ts-jest": "29.1.1",
-        "typescript": "5.3.3"
+        "typescript": "5.3.3",
+        "vite-tsconfig-paths": "4.3.1",
+        "vitest": "1.2.1"
     },
     "peerDependencies": {
         "@opentelemetry/api": "^1.6.0"
