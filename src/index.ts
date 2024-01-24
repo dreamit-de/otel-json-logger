@@ -1,6 +1,6 @@
+import { DiagLogger } from '@opentelemetry/api'
 import { Console } from 'node:console'
 import { inspect } from 'node:util'
-import { DiagLogger } from '@opentelemetry/api'
 
 export const loggerConsole: Console = new Console(
     process.stdout,
