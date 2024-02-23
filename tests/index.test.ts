@@ -245,7 +245,7 @@ describe('Logger writes expected output to command line', () => {
                 loggerName: 'test-logger',
                 serviceName: 'test-service',
                 logFirstIncomingRequest: true,
-                minLogLevel: LogLevel.debug,
+                minLogLevel: LogLevel.verbose,
             })
             // Should log other debug message
             incomingMessageLogger.debug(testMessage, 1, { name: 'myname' })
