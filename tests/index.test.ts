@@ -290,6 +290,22 @@ describe('Logger writes expected output to command line', () => {
             )
         },
     )
+
+    test('Test logging registered global message on info level', () => {
+        const messageLogger = new JsonDiagLogger({
+            loggerName: 'test-logger',
+            serviceName: 'test-service',
+            logLevelForRegisterGlobalMessages: LogLevel.info,
+        })
+        // Should log message on info level
+        const registeredGlobalMessage =
+            '@opentelemetry/api: Registered a global for propagation v1.7.0.'
+        messageLogger.debug(registeredGlobalMessage, 1, { name: 'myname' })
+        expect(loggerConsole.log).toHaveBeenNthCalledWith(
+            1,
+            generateExpectedLogMessage(registeredGlobalMessage, 'INFO'),
+        )
+    })
 })
 
 test.each`

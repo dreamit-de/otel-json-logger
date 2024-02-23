@@ -35,6 +35,7 @@ const logger = new JsonDiagLogger({
     serviceName: 'test-service', // The serviceName printed in field "serviceName"
     minLogLevel: LogLevel.info, // Optional: The minimum log level to use. Default: Does not check for min LogLevel.
     logFirstIncomingRequest: true, // Optional:If true, the first incoming request will be logged. Other messages on debug level will be log if monLogLevel is set to debug or higher. Default: false. Note: If you use diag.setLogger ensure that at least "LogLevel.debug" is set, otherwise the message will be ignored.
+    logLevelForRegisterGlobalMessages: LogLevel.info // Optional: The log level to use for messages "... Registered a global ...". These are helpful to check if OTEL is running properly but are logged on debug level by default. Increase this log level to see these messages.
     logLevelForServiceRequestErrorMessages: LogLevel.info, // Optional: The log level to use for error message "Service request". These contain request information that might not be logged on error level.
     logLevelForTimeoutErrorMessages: LogLevel.info, // Optional: The log level to use for Timeout related messages. These might be of short nature and be downgraded or ignored.
     logLevelForVerbose: LogLevel.off // Optional: Set LogLevel for verbose entries or ignore them
