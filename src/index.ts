@@ -112,7 +112,9 @@ export class JsonDiagLogger implements DiagLogger {
                 this.firstIncomingRequestLogged = true
             } else if (
                 this.loggerOptions.minLogLevel &&
-                this.isEqualOrHigherMinLogLevel(this.loggerOptions.minLogLevel) &&
+                this.isEqualOrHigherMinLogLevel(
+                    this.loggerOptions.minLogLevel,
+                ) &&
                 !this.isIncomingRequestLogMessage(arguments_)
             ) {
                 this.logMessage({
