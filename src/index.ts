@@ -50,6 +50,9 @@ export interface LogEntryInput {
  * Other messages on debug level will be log if monLogLevel is set to debug or higher. Default: false.
  * Note: If you use diag.setLogger ensure that at least "LogLevel.debug" is set,
  * otherwise the message will be ignored.
+ * @param {LogLevel} logLevelForRegisterGlobalMessages - The log level to use
+ * for messages "... Registered a global ...". These are helpful to check if OTEL is running properly
+ * but are logged on debug level by default. Increase this log level to see these messages.
  * @param {LogLevel} logLevelForServiceRequestErrorMessages - The log level to use
  * for error messages "Service request". These contain request information that might not be logged
  * on error level.
@@ -66,6 +69,7 @@ export interface LoggerOptions {
     loggerName: string
     serviceName: string
     logFirstIncomingRequest?: boolean
+    logLevelForRegisterGlobalMessages?: LogLevel
     logLevelForServiceRequestErrorMessages?: LogLevel
     logLevelForTimeoutErrorMessages?: LogLevel
     logLevelForVerbose?: LogLevel
@@ -99,7 +103,16 @@ export class JsonDiagLogger implements DiagLogger {
     }
 
     debug(message: string, ...arguments_: unknown[]): void {
-        if (this.loggerOptions.logFirstIncomingRequest) {
+        if (
+            this.loggerOptions.logLevelForRegisterGlobalMessages &&
+            message.includes('Registered a global')
+        ) {
+            this.logMessage({
+                message,
+                logArguments: arguments_,
+                loglevel: this.loggerOptions.logLevelForRegisterGlobalMessages,
+            })
+        } else if (this.loggerOptions.logFirstIncomingRequest) {
             if (
                 !this.firstIncomingRequestLogged &&
                 this.isIncomingRequestLogMessage(arguments_)
