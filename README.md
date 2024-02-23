@@ -34,7 +34,7 @@ const logger = new JsonDiagLogger({
     loggerName: 'test-logger', // The loggerName printed in field "logger"
     serviceName: 'test-service', // The serviceName printed in field "serviceName"
     minLogLevel: LogLevel.info, // Optional: The minimum log level to use. Default: Does not check for min LogLevel.
-    logFirstIncomingRequest: true, // Optional: The first incoming request will be logged. Other messages on debug level will be ignored. Default: false. Note: If you use diag.setLogger ensure that at least "LogLevel.debug" is set, otherwise the message will be ignored.
+    logFirstIncomingRequest: true, // Optional:If true, the first incoming request will be logged. Other messages on debug level will be log if monLogLevel is set to debug or higher. Default: false. Note: If you use diag.setLogger ensure that at least "LogLevel.debug" is set, otherwise the message will be ignored.
     logLevelForServiceRequestErrorMessages: LogLevel.info, // Optional: The log level to use for error message "Service request". These contain request information that might not be logged on error level.
     logLevelForTimeoutErrorMessages: LogLevel.info, // Optional: The log level to use for Timeout related messages. These might be of short nature and be downgraded or ignored.
     logLevelForVerbose: LogLevel.off // Optional: Set LogLevel for verbose entries or ignore them

@@ -47,7 +47,7 @@ export interface LogEntryInput {
  * @param {string} serviceName - The service name of the logger.
  * Will be output to "serviceName" field in JSON.
  * @param {boolean} logFirstIncomingRequest - If true, the first incoming request will be logged.
- * Other messages on debug level will be ignored. Default: false.
+ * Other messages on debug level will be log if monLogLevel is set to debug or higher. Default: false.
  * Note: If you use diag.setLogger ensure that at least "LogLevel.debug" is set,
  * otherwise the message will be ignored.
  * @param {LogLevel} logLevelForServiceRequestErrorMessages - The log level to use
@@ -110,6 +110,18 @@ export class JsonDiagLogger implements DiagLogger {
                     loglevel: LogLevel.info,
                 })
                 this.firstIncomingRequestLogged = true
+            } else if (
+                this.loggerOptions.minLogLevel &&
+                this.isEqualOrHigherMinLogLevel(
+                    this.loggerOptions.minLogLevel,
+                ) &&
+                !this.isIncomingRequestLogMessage(arguments_)
+            ) {
+                this.logMessage({
+                    message,
+                    logArguments: arguments_,
+                    loglevel: LogLevel.debug,
+                })
             }
         } else {
             this.logMessage({

@@ -236,6 +236,60 @@ describe('Logger writes expected output to command line', () => {
             generateExpectedLogMessage('test', 'ERROR'),
         )
     })
+
+    test(
+        'Test logging only first incoming message and other debug messages if minLogLevel is ' +
+            ' debug or higher',
+        () => {
+            const incomingMessageLogger = new JsonDiagLogger({
+                loggerName: 'test-logger',
+                serviceName: 'test-service',
+                logFirstIncomingRequest: true,
+                minLogLevel: LogLevel.verbose,
+            })
+            // Should log other debug message
+            incomingMessageLogger.debug(testMessage, 1, { name: 'myname' })
+            expect(loggerConsole.log).toHaveBeenNthCalledWith(
+                1,
+                generateExpectedLogMessage(testMessage, 'DEBUG'),
+            )
+
+            // Should log first incoming request on info level
+            incomingMessageLogger.debug(
+                '',
+                'http instrumentation incomingRequest',
+            )
+            expect(loggerConsole.log).toHaveBeenNthCalledWith(
+                2,
+                generateExpectedLogMessage(
+                    'First incoming request',
+                    'INFO',
+                    '[]',
+                ),
+            )
+
+            // Should log further debug messages
+            incomingMessageLogger.debug(testMessage, 1, { name: 'myname' })
+            expect(loggerConsole.log).toHaveBeenNthCalledWith(
+                3,
+                generateExpectedLogMessage(testMessage, 'DEBUG'),
+            )
+
+            // Should not log other incoming request messages
+            incomingMessageLogger.debug(
+                '',
+                'http instrumentation incomingRequest',
+            )
+            expect(loggerConsole.log).toHaveBeenCalledTimes(3)
+
+            // Should log messages on other loglevels
+            incomingMessageLogger.error('test', 1, { name: 'myname' })
+            expect(loggerConsole.log).toHaveBeenNthCalledWith(
+                4,
+                generateExpectedLogMessage('test', 'ERROR'),
+            )
+        },
+    )
 })
 
 test.each`
