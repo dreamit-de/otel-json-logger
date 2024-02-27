@@ -34,7 +34,7 @@ const logger = new JsonDiagLogger({
     loggerName: 'test-logger', // The loggerName printed in field "logger"
     serviceName: 'test-service', // The serviceName printed in field "serviceName"
     minLogLevel: LogLevel.info, // Optional: The minimum log level to use. Default: Does not check for min LogLevel.
-    logFirstIncomingRequest: true, // Optional:If true, the first incoming request will be logged. Other messages on debug level will be log if monLogLevel is set to debug or higher. Default: false. Note: If you use diag.setLogger ensure that at least "LogLevel.debug" is set, otherwise the message will be ignored.
+    logFirstIncomingRequest: true, // Optional: If true, the first incoming request will be logged. Other messages on debug level will be log if monLogLevel is set to debug or higher. Default: false. Note: If you use diag.setLogger ensure that at least "LogLevel.debug" is set, otherwise the message will be ignored.
     logLevelForRegisterGlobalMessages: LogLevel.info // Optional: The log level to use for messages "... Registered a global ...". These are helpful to check if OTEL is running properly but are logged on debug level by default. Increase this log level to see these messages.
     logLevelForServiceRequestErrorMessages: LogLevel.info, // Optional: The log level to use for error message "Service request". These contain request information that might not be logged on error level.
     logLevelForTimeoutErrorMessages: LogLevel.info, // Optional: The log level to use for Timeout related messages. These might be of short nature and be downgraded or ignored.
@@ -56,17 +56,17 @@ diag.setLogger(logger, DiagLogLevel.ERROR)
 -   **logMessage**: Central function being called by all **DiagLogger** interface functions. Calls **createLogEntry**, stringifies the result and calls **console.log()**.
 -   **formatMessage**: Formats the message. If the message contains an object or array wrap it in JSON.stringify to avoid these being interpreted as JSON objects.
 -   **setOptions**: Sets the **LoggerOptions** to be used for logging. Can be called after constructor call to set new/other options.
--   **containsTimeout**: Check if the message contains a Timeout information like "4 DEADLINE_EXCEEDED" or "14 UNAVAILABLE"
+-   **containsTimeout**: Check if the message contains a Timeout information like "4 DEADLINE_EXCEEDED" or "14 UNAVAILABLE".
 -   **isIncomingRequestLogMessage**: Checks if the arguments are part of an incomingRequest message, i.e. the first argument contains the text 'incomingRequest'
--   **isEqualOrHigherMinLogLevel**: Checks if the log level is equal or higher than the minimum log level
+-   **isEqualOrHigherMinLogLevel**: Checks if the log level is equal or higher than the minimum log level.
 
 ### DiagLogger interface functions
 
 -   **debug**: Logs a debug message
 -   **error**: Logs an error message
 -   **info**: Logs an info message
--   **verbose**: Logs a warn message
--   **warn**: Logs a verbose message
+-   **verbose**: Logs a verbose message
+-   **warn**: Logs a warn message
 
 ### LogLevel enum values
 
