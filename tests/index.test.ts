@@ -9,6 +9,8 @@ const logger = new JsonDiagLogger({
 const testMessage = 'I am a log message!'
 const timeoutMessage =
     '{"stack":"Error: 14 UNAVAILABLE: No connection established}'
+const asyncAttributeErrorMessage =
+    'Accessing resource attributes before async attributes settled'
 const circularStructure: unknown[] = [1, 'test']
 circularStructure.push(circularStructure)
 const complexObject = { one: { two: { three: { message: 'test' } } } }
@@ -158,6 +160,27 @@ describe('Logger writes expected output to command line', () => {
         expect(loggerConsole.log).toHaveBeenNthCalledWith(
             2,
             generateExpectedTimeoutMessage('INFO'),
+        )
+    })
+
+    test('Test async attribute error message logging', () => {
+        // Should log async attribute error message on error if option "logLevelForAsyncAttributeError" is not set
+        logger.error(asyncAttributeErrorMessage, 1, { name: 'myname' })
+        expect(loggerConsole.log).toHaveBeenNthCalledWith(
+            1,
+            generateExpectedLogMessage(asyncAttributeErrorMessage, 'ERROR'),
+        )
+
+        // Should log async attribute error error message on info if option "logLevelForAsyncAttributeError" is set to INFO
+        logger.setOptions({
+            loggerName: 'test-logger',
+            serviceName: 'test-service',
+            logLevelForAsyncAttributeError: LogLevel.info,
+        })
+        logger.error(asyncAttributeErrorMessage, 1, { name: 'myname' })
+        expect(loggerConsole.log).toHaveBeenNthCalledWith(
+            2,
+            generateExpectedLogMessage(asyncAttributeErrorMessage, 'INFO'),
         )
     })
 

@@ -35,6 +35,7 @@ const logger = new JsonDiagLogger({
     serviceName: 'test-service', // The serviceName printed in field "serviceName"
     minLogLevel: LogLevel.info, // Optional: The minimum log level to use. Default: Does not check for min LogLevel.
     logFirstIncomingRequest: true, // Optional: If true, the first incoming request will be logged. Other messages on debug level will be log if monLogLevel is set to debug or higher. Default: false. Note: If you use diag.setLogger ensure that at least "LogLevel.debug" is set, otherwise the message will be ignored.
+    logLevelForAsyncAttributeError: LogLevel.info // Optional: The log level to use for the message "Accessing resource attributes before async attributes settled". These errors might not be relevant enough to log them on error level.
     logLevelForRegisterGlobalMessages: LogLevel.info // Optional: The log level to use for messages "... Registered a global ...". These are helpful to check if OTEL is running properly but are logged on debug level by default. Increase this log level to see these messages.
     logLevelForServiceRequestErrorMessages: LogLevel.info, // Optional: The log level to use for error message "Service request". These contain request information that might not be logged on error level.
     logLevelForTimeoutErrorMessages: LogLevel.info, // Optional: The log level to use for Timeout related messages. These might be of short nature and be downgraded or ignored.
@@ -59,6 +60,7 @@ diag.setLogger(logger, DiagLogLevel.ERROR)
 -   **containsTimeout**: Check if the message contains a Timeout information like "4 DEADLINE_EXCEEDED" or "14 UNAVAILABLE".
 -   **isIncomingRequestLogMessage**: Checks if the arguments are part of an incomingRequest message, i.e. the first argument contains the text 'incomingRequest'
 -   **isEqualOrHigherMinLogLevel**: Checks if the log level is equal or higher than the minimum log level.
+-   **containsAsyncAttributeError**: Check if the message contains an async attribute error like "Accessing resource attributes before async attributes settled".
 
 ### DiagLogger interface functions
 

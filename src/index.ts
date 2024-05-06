@@ -50,6 +50,9 @@ export interface LogEntryInput {
  * Other messages on debug level will be log if monLogLevel is set to debug or higher. Default: false.
  * Note: If you use diag.setLogger ensure that at least "LogLevel.debug" is set,
  * otherwise the message will be ignored.
+ * @param {LogLevel} logLevelForAsyncAttributeError - The log level to use
+ * for the message "Accessing resource attributes before async attributes settled".
+ * These errors might not be relevant enough to log them on error level.
  * @param {LogLevel} logLevelForRegisterGlobalMessages - The log level to use
  * for messages "... Registered a global ...". These are helpful to check if OTEL is running properly
  * but are logged on debug level by default. Increase this log level to see these messages.
@@ -69,6 +72,7 @@ export interface LoggerOptions {
     loggerName: string
     serviceName: string
     logFirstIncomingRequest?: boolean
+    logLevelForAsyncAttributeError?: LogLevel
     logLevelForRegisterGlobalMessages?: LogLevel
     logLevelForServiceRequestErrorMessages?: LogLevel
     logLevelForTimeoutErrorMessages?: LogLevel
@@ -157,6 +161,11 @@ export class JsonDiagLogger implements DiagLogger {
             this.containsTimeout(message)
         ) {
             logLevel = this.loggerOptions.logLevelForTimeoutErrorMessages
+        } else if (
+            this.loggerOptions.logLevelForAsyncAttributeError &&
+            this.containsAsyncAttributeError(message)
+        ) {
+            logLevel = this.loggerOptions.logLevelForAsyncAttributeError
         } else {
             logLevel = LogLevel.error
         }
@@ -289,5 +298,16 @@ export class JsonDiagLogger implements DiagLogger {
             ? true
             : logLevelByScope.indexOf(logLevel) >=
                   logLevelByScope.indexOf(minLogLevel)
+    }
+
+    /**
+     * Check if the message contains an async attribute error
+     * like "Accessing resource attributes before async attributes settled"
+     * @param {message} string - The original message
+     * @returns {boolean} true if the message contains an async attribute error
+     */
+    containsAsyncAttributeError(message: string): boolean {
+        const messageAsString = inspect(message, { depth: 20 })
+        return messageAsString.includes('before async attributes settled')
     }
 }
