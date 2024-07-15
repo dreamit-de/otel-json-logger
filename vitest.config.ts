@@ -5,7 +5,7 @@ export default defineConfig({
     plugins: [tsconfigPaths()],
     test: {
         coverage: {
-            exclude: ['build', 'tests'],
+            exclude: ['tsup.config.ts', 'vitest.config.ts', 'build', 'tests'],
             provider: 'v8',
             reporter: ['text'],
         },
