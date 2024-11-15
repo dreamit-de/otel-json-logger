@@ -1,0 +1,4791 @@
+{
+  "files": {
+    "src/index.ts": {
+      "language": "typescript",
+      "mutants": [
+        {
+          "id": "0",
+          "mutatorName": "BooleanLiteral",
+          "replacement": "true",
+          "statusReason": "Static mutant (and \"ignoreStatic\" was enabled)",
+          "status": "Ignored",
+          "static": true,
+          "coveredBy": [],
+          "location": {
+            "end": {
+              "column": 10,
+              "line": 8
+            },
+            "start": {
+              "column": 5,
+              "line": 8
+            }
+          }
+        },
+        {
+          "id": "1",
+          "mutatorName": "ArrayDeclaration",
+          "replacement": "[]",
+          "statusReason": "Static mutant (and \"ignoreStatic\" was enabled)",
+          "status": "Ignored",
+          "static": true,
+          "coveredBy": [],
+          "location": {
+            "end": {
+              "column": 2,
+              "line": 28
+            },
+            "start": {
+              "column": 25,
+              "line": 20
+            }
+          }
+        },
+        {
+          "id": "2",
+          "mutatorName": "BooleanLiteral",
+          "replacement": "true",
+          "statusReason": "expected 1st \"log\" call to have been called with [ Array(1) ], but called only 0 times",
+          "status": "Killed",
+          "testsCompleted": 11,
+          "static": true,
+          "killedBy": [
+            "27"
+          ],
+          "coveredBy": [
+            "11",
+            "12",
+            "13",
+            "14",
+            "15",
+            "16",
+            "17",
+            "18",
+            "19",
+            "20",
+            "27",
+            "28",
+            "29",
+            "30",
+            "31",
+            "32",
+            "33",
+            "34",
+            "35",
+            "36",
+            "37",
+            "38",
+            "39",
+            "40",
+            "41",
+            "42",
+            "43",
+            "44",
+            "45",
+            "46",
+            "47",
+            "48",
+            "49",
+            "50",
+            "51",
+            "52",
+            "53",
+            "54",
+            "55",
+            "56",
+            "57",
+            "58",
+            "59",
+            "60",
+            "61",
+            "62",
+            "63",
+            "64",
+            "65",
+            "66",
+            "67",
+            "68",
+            "69",
+            "70",
+            "71"
+          ],
+          "location": {
+            "end": {
+              "column": 48,
+              "line": 92
+            },
+            "start": {
+              "column": 43,
+              "line": 92
+            }
+          }
+        },
+        {
+          "id": "3",
+          "mutatorName": "BlockStatement",
+          "replacement": "{}",
+          "statusReason": "Cannot destructure property 'truncateLimit' of 'this.loggerOptions' as it is undefined.",
+          "status": "Killed",
+          "testsCompleted": 1,
+          "static": true,
+          "killedBy": [
+            "11"
+          ],
+          "coveredBy": [
+            "11",
+            "12",
+            "13",
+            "14",
+            "15",
+            "16",
+            "17",
+            "18",
+            "19",
+            "20",
+            "27",
+            "28",
+            "29",
+            "30",
+            "31",
+            "32",
+            "33",
+            "34",
+            "35",
+            "36",
+            "37",
+            "38",
+            "39",
+            "40",
+            "41",
+            "42",
+            "43",
+            "44",
+            "45",
+            "46",
+            "47",
+            "48",
+            "49",
+            "50",
+            "51",
+            "52",
+            "53",
+            "54",
+            "55",
+            "56",
+            "57",
+            "58",
+            "59",
+            "60",
+            "61",
+            "62",
+            "63",
+            "64",
+            "65",
+            "66",
+            "67",
+            "68",
+            "69",
+            "70",
+            "71"
+          ],
+          "location": {
+            "end": {
+              "column": 6,
+              "line": 100
+            },
+            "start": {
+              "column": 41,
+              "line": 98
+            }
+          }
+        },
+        {
+          "id": "4",
+          "mutatorName": "BlockStatement",
+          "replacement": "{}",
+          "statusReason": "expected 2nd \"log\" call to have been called with [ Array(1) ]",
+          "status": "Killed",
+          "testsCompleted": 2,
+          "static": false,
+          "killedBy": [
+            "22"
+          ],
+          "coveredBy": [
+            "21",
+            "22",
+            "23",
+            "24",
+            "25",
+            "26",
+            "27",
+            "28",
+            "29"
+          ],
+          "location": {
+            "end": {
+              "column": 6,
+              "line": 108
+            },
+            "start": {
+              "column": 46,
+              "line": 106
+            }
+          }
+        },
+        {
+          "id": "5",
+          "mutatorName": "BlockStatement",
+          "replacement": "{}",
+          "statusReason": "expected 1st \"log\" call to have been called with [ Array(1) ], but called only 0 times",
+          "status": "Killed",
+          "testsCompleted": 1,
+          "static": false,
+          "killedBy": [
+            "21"
+          ],
+          "coveredBy": [
+            "21",
+            "27",
+            "28",
+            "29"
+          ],
+          "location": {
+            "end": {
+              "column": 6,
+              "line": 151
+            },
+            "start": {
+              "column": 60,
+              "line": 110
+            }
+          }
+        },
+        {
+          "id": "6",
+          "mutatorName": "ConditionalExpression",
+          "replacement": "true",
+          "statusReason": "expected 1st \"log\" call to have been called with [ Array(1) ]",
+          "status": "Killed",
+          "testsCompleted": 1,
+          "static": false,
+          "killedBy": [
+            "21"
+          ],
+          "coveredBy": [
+            "21",
+            "27",
+            "28",
+            "29"
+          ],
+          "location": {
+            "end": {
+              "column": 52,
+              "line": 113
+            },
+            "start": {
+              "column": 13,
+              "line": 112
+            }
+          }
+        },
+        {
+          "id": "7",
+          "mutatorName": "ConditionalExpression",
+          "replacement": "false",
+          "statusReason": "expected 1st \"log\" call to have been called with [ Array(1) ]",
+          "status": "Killed",
+          "testsCompleted": 4,
+          "static": false,
+          "killedBy": [
+            "29"
+          ],
+          "coveredBy": [
+            "21",
+            "27",
+            "28",
+            "29"
+          ],
+          "location": {
+            "end": {
+              "column": 52,
+              "line": 113
+            },
+            "start": {
+              "column": 13,
+              "line": 112
+            }
+          }
+        },
+        {
+          "id": "8",
+          "mutatorName": "LogicalOperator",
+          "replacement": "this.loggerOptions.logLevelForRegisterGlobalMessages || message.includes('Registered a global')",
+          "statusReason": "expected 2nd \"log\" call to have been called with [ Array(1) ]",
+          "status": "Killed",
+          "testsCompleted": 4,
+          "static": false,
+          "killedBy": [
+            "29"
+          ],
+          "coveredBy": [
+            "21",
+            "27",
+            "28",
+            "29"
+          ],
+          "location": {
+            "end": {
+              "column": 52,
+              "line": 113
+            },
+            "start": {
+              "column": 13,
+              "line": 112
+            }
+          }
+        },
+        {
+          "id": "9",
+          "mutatorName": "StringLiteral",
+          "replacement": "\"\"",
+          "statusReason": "expected 2nd \"log\" call to have been called with [ Array(1) ]",
+          "status": "Killed",
+          "testsCompleted": 1,
+          "static": false,
+          "killedBy": [
+            "29"
+          ],
+          "coveredBy": [
+            "29"
+          ],
+          "location": {
+            "end": {
+              "column": 51,
+              "line": 113
+            },
+            "start": {
+              "column": 30,
+              "line": 113
+            }
+          }
+        },
+        {
+          "id": "10",
+          "mutatorName": "BlockStatement",
+          "replacement": "{}",
+          "statusReason": "expected 1st \"log\" call to have been called with [ Array(1) ], but called only 0 times",
+          "status": "Killed",
+          "testsCompleted": 1,
+          "static": false,
+          "killedBy": [
+            "29"
+          ],
+          "coveredBy": [
+            "29"
+          ],
+          "location": {
+            "end": {
+              "column": 10,
+              "line": 120
+            },
+            "start": {
+              "column": 11,
+              "line": 114
+            }
+          }
+        },
+        {
+          "id": "11",
+          "mutatorName": "ObjectLiteral",
+          "replacement": "{}",
+          "statusReason": "expected 1st \"log\" call to have been called with [ Array(1) ]",
+          "status": "Killed",
+          "testsCompleted": 1,
+          "static": false,
+          "killedBy": [
+            "29"
+          ],
+          "coveredBy": [
+            "29"
+          ],
+          "location": {
+            "end": {
+              "column": 14,
+              "line": 119
+            },
+            "start": {
+              "column": 29,
+              "line": 115
+            }
+          }
+        },
+        {
+          "id": "12",
+          "mutatorName": "ConditionalExpression",
+          "replacement": "true",
+          "statusReason": "expected 1st \"log\" call to have been called with [ Array(1) ], but called only 0 times",
+          "status": "Killed",
+          "testsCompleted": 1,
+          "static": false,
+          "killedBy": [
+            "21"
+          ],
+          "coveredBy": [
+            "21",
+            "27",
+            "28",
+            "29"
+          ],
+          "location": {
+            "end": {
+              "column": 62,
+              "line": 120
+            },
+            "start": {
+              "column": 20,
+              "line": 120
+            }
+          }
+        },
+        {
+          "id": "13",
+          "mutatorName": "ConditionalExpression",
+          "replacement": "false",
+          "statusReason": "expected \"log\" to be called +0 times, but got 1 times",
+          "status": "Killed",
+          "testsCompleted": 2,
+          "static": false,
+          "killedBy": [
+            "27"
+          ],
+          "coveredBy": [
+            "21",
+            "27",
+            "28",
+            "29"
+          ],
+          "location": {
+            "end": {
+              "column": 62,
+              "line": 120
+            },
+            "start": {
+              "column": 20,
+              "line": 120
+            }
+          }
+        },
+        {
+          "id": "14",
+          "mutatorName": "BlockStatement",
+          "replacement": "{}",
+          "statusReason": "expected 1st \"log\" call to have been called with [ Array(1) ], but called only 0 times",
+          "status": "Killed",
+          "testsCompleted": 1,
+          "static": false,
+          "killedBy": [
+            "27"
+          ],
+          "coveredBy": [
+            "27",
+            "28"
+          ],
+          "location": {
+            "end": {
+              "column": 10,
+              "line": 144
+            },
+            "start": {
+              "column": 64,
+              "line": 120
+            }
+          }
+        },
+        {
+          "id": "15",
+          "mutatorName": "ConditionalExpression",
+          "replacement": "true",
+          "statusReason": "expected \"log\" to be called +0 times, but got 1 times",
+          "status": "Killed",
+          "testsCompleted": 1,
+          "static": false,
+          "killedBy": [
+            "27"
+          ],
+          "coveredBy": [
+            "27",
+            "28"
+          ],
+          "location": {
+            "end": {
+              "column": 61,
+              "line": 123
+            },
+            "start": {
+              "column": 17,
+              "line": 122
+            }
+          }
+        },
+        {
+          "id": "16",
+          "mutatorName": "ConditionalExpression",
+          "replacement": "false",
+          "statusReason": "expected 1st \"log\" call to have been called with [ Array(1) ], but called only 0 times",
+          "status": "Killed",
+          "testsCompleted": 1,
+          "static": false,
+          "killedBy": [
+            "27"
+          ],
+          "coveredBy": [
+            "27",
+            "28"
+          ],
+          "location": {
+            "end": {
+              "column": 61,
+              "line": 123
+            },
+            "start": {
+              "column": 17,
+              "line": 122
+            }
+          }
+        },
+        {
+          "id": "17",
+          "mutatorName": "LogicalOperator",
+          "replacement": "!this.firstIncomingRequestLogged || this.isIncomingRequestLogMessage(arguments_)",
+          "statusReason": "expected \"log\" to be called +0 times, but got 1 times",
+          "status": "Killed",
+          "testsCompleted": 1,
+          "static": false,
+          "killedBy": [
+            "27"
+          ],
+          "coveredBy": [
+            "27",
+            "28"
+          ],
+          "location": {
+            "end": {
+              "column": 61,
+              "line": 123
+            },
+            "start": {
+              "column": 17,
+              "line": 122
+            }
+          }
+        },
+        {
+          "id": "18",
+          "mutatorName": "BooleanLiteral",
+          "replacement": "this.firstIncomingRequestLogged",
+          "statusReason": "expected 1st \"log\" call to have been called with [ Array(1) ], but called only 0 times",
+          "status": "Killed",
+          "testsCompleted": 1,
+          "static": false,
+          "killedBy": [
+            "27"
+          ],
+          "coveredBy": [
+            "27",
+            "28"
+          ],
+          "location": {
+            "end": {
+              "column": 49,
+              "line": 122
+            },
+            "start": {
+              "column": 17,
+              "line": 122
+            }
+          }
+        },
+        {
+          "id": "19",
+          "mutatorName": "BlockStatement",
+          "replacement": "{}",
+          "statusReason": "expected 1st \"log\" call to have been called with [ Array(1) ], but called only 0 times",
+          "status": "Killed",
+          "testsCompleted": 1,
+          "static": false,
+          "killedBy": [
+            "27"
+          ],
+          "coveredBy": [
+            "27",
+            "28"
+          ],
+          "location": {
+            "end": {
+              "column": 14,
+              "line": 131
+            },
+            "start": {
+              "column": 15,
+              "line": 124
+            }
+          }
+        },
+        {
+          "id": "20",
+          "mutatorName": "ObjectLiteral",
+          "replacement": "{}",
+          "statusReason": "expected 1st \"log\" call to have been called with [ Array(1) ]",
+          "status": "Killed",
+          "testsCompleted": 1,
+          "static": false,
+          "killedBy": [
+            "27"
+          ],
+          "coveredBy": [
+            "27",
+            "28"
+          ],
+          "location": {
+            "end": {
+              "column": 18,
+              "line": 129
+            },
+            "start": {
+              "column": 33,
+              "line": 125
+            }
+          }
+        },
+        {
+          "id": "21",
+          "mutatorName": "StringLiteral",
+          "replacement": "\"\"",
+          "statusReason": "expected 1st \"log\" call to have been called with [ Array(1) ]",
+          "status": "Killed",
+          "testsCompleted": 1,
+          "static": false,
+          "killedBy": [
+            "27"
+          ],
+          "coveredBy": [
+            "27",
+            "28"
+          ],
+          "location": {
+            "end": {
+              "column": 54,
+              "line": 126
+            },
+            "start": {
+              "column": 30,
+              "line": 126
+            }
+          }
+        },
+        {
+          "id": "22",
+          "mutatorName": "ArrayDeclaration",
+          "replacement": "[\"Stryker was here\"]",
+          "statusReason": "expected 1st \"log\" call to have been called with [ Array(1) ]",
+          "status": "Killed",
+          "testsCompleted": 1,
+          "static": false,
+          "killedBy": [
+            "27"
+          ],
+          "coveredBy": [
+            "27",
+            "28"
+          ],
+          "location": {
+            "end": {
+              "column": 37,
+              "line": 127
+            },
+            "start": {
+              "column": 35,
+              "line": 127
+            }
+          }
+        },
+        {
+          "id": "23",
+          "mutatorName": "BooleanLiteral",
+          "replacement": "false",
+          "statusReason": "expected \"log\" to be called 1 times, but got 2 times",
+          "status": "Killed",
+          "testsCompleted": 1,
+          "static": false,
+          "killedBy": [
+            "27"
+          ],
+          "coveredBy": [
+            "27",
+            "28"
+          ],
+          "location": {
+            "end": {
+              "column": 55,
+              "line": 130
+            },
+            "start": {
+              "column": 51,
+              "line": 130
+            }
+          }
+        },
+        {
+          "id": "24",
+          "mutatorName": "ConditionalExpression",
+          "replacement": "true",
+          "statusReason": "expected \"log\" to be called +0 times, but got 1 times",
+          "status": "Killed",
+          "testsCompleted": 1,
+          "static": false,
+          "killedBy": [
+            "27"
+          ],
+          "coveredBy": [
+            "27",
+            "28"
+          ],
+          "location": {
+            "end": {
+              "column": 62,
+              "line": 136
+            },
+            "start": {
+              "column": 17,
+              "line": 132
+            }
+          }
+        },
+        {
+          "id": "25",
+          "mutatorName": "ConditionalExpression",
+          "replacement": "false",
+          "statusReason": "expected 1st \"log\" call to have been called with [ Array(1) ], but called only 0 times",
+          "status": "Killed",
+          "testsCompleted": 2,
+          "static": false,
+          "killedBy": [
+            "28"
+          ],
+          "coveredBy": [
+            "27",
+            "28"
+          ],
+          "location": {
+            "end": {
+              "column": 62,
+              "line": 136
+            },
+            "start": {
+              "column": 17,
+              "line": 132
+            }
+          }
+        },
+        {
+          "id": "26",
+          "mutatorName": "LogicalOperator",
+          "replacement": "this.loggerOptions.minLogLevel && this.isEqualOrHigherMinLogLevel(this.loggerOptions.minLogLevel) || !this.isIncomingRequestLogMessage(arguments_)",
+          "statusReason": "expected \"log\" to be called +0 times, but got 1 times",
+          "status": "Killed",
+          "testsCompleted": 1,
+          "static": false,
+          "killedBy": [
+            "27"
+          ],
+          "coveredBy": [
+            "27",
+            "28"
+          ],
+          "location": {
+            "end": {
+              "column": 62,
+              "line": 136
+            },
+            "start": {
+              "column": 17,
+              "line": 132
+            }
+          }
+        },
+        {
+          "id": "27",
+          "mutatorName": "ConditionalExpression",
+          "replacement": "true",
+          "statusReason": "expected \"log\" to be called +0 times, but got 1 times",
+          "status": "Killed",
+          "testsCompleted": 1,
+          "static": false,
+          "killedBy": [
+            "27"
+          ],
+          "coveredBy": [
+            "27",
+            "28"
+          ],
+          "location": {
+            "end": {
+              "column": 18,
+              "line": 135
+            },
+            "start": {
+              "column": 17,
+              "line": 132
+            }
+          }
+        },
+        {
+          "id": "28",
+          "mutatorName": "LogicalOperator",
+          "replacement": "this.loggerOptions.minLogLevel || this.isEqualOrHigherMinLogLevel(this.loggerOptions.minLogLevel)",
+          "statusReason": "expected \"log\" to be called +0 times, but got 1 times",
+          "status": "Killed",
+          "testsCompleted": 1,
+          "static": false,
+          "killedBy": [
+            "27"
+          ],
+          "coveredBy": [
+            "27",
+            "28"
+          ],
+          "location": {
+            "end": {
+              "column": 18,
+              "line": 135
+            },
+            "start": {
+              "column": 17,
+              "line": 132
+            }
+          }
+        },
+        {
+          "id": "29",
+          "mutatorName": "BooleanLiteral",
+          "replacement": "this.isIncomingRequestLogMessage(arguments_)",
+          "statusReason": "expected 1st \"log\" call to have been called with [ Array(1) ], but called only 0 times",
+          "status": "Killed",
+          "testsCompleted": 1,
+          "static": false,
+          "killedBy": [
+            "28"
+          ],
+          "coveredBy": [
+            "28"
+          ],
+          "location": {
+            "end": {
+              "column": 62,
+              "line": 136
+            },
+            "start": {
+              "column": 17,
+              "line": 136
+            }
+          }
+        },
+        {
+          "id": "30",
+          "mutatorName": "BlockStatement",
+          "replacement": "{}",
+          "statusReason": "expected 1st \"log\" call to have been called with [ Array(1) ], but called only 0 times",
+          "status": "Killed",
+          "testsCompleted": 1,
+          "static": false,
+          "killedBy": [
+            "28"
+          ],
+          "coveredBy": [
+            "28"
+          ],
+          "location": {
+            "end": {
+              "column": 14,
+              "line": 143
+            },
+            "start": {
+              "column": 15,
+              "line": 137
+            }
+          }
+        },
+        {
+          "id": "31",
+          "mutatorName": "ObjectLiteral",
+          "replacement": "{}",
+          "statusReason": "expected 1st \"log\" call to have been called with [ Array(1) ], but called only 0 times",
+          "status": "Killed",
+          "testsCompleted": 1,
+          "static": false,
+          "killedBy": [
+            "28"
+          ],
+          "coveredBy": [
+            "28"
+          ],
+          "location": {
+            "end": {
+              "column": 18,
+              "line": 142
+            },
+            "start": {
+              "column": 33,
+              "line": 138
+            }
+          }
+        },
+        {
+          "id": "32",
+          "mutatorName": "BlockStatement",
+          "replacement": "{}",
+          "statusReason": "expected 1st \"log\" call to have been called with [ Array(1) ], but called only 0 times",
+          "status": "Killed",
+          "testsCompleted": 1,
+          "static": false,
+          "killedBy": [
+            "21"
+          ],
+          "coveredBy": [
+            "21",
+            "29"
+          ],
+          "location": {
+            "end": {
+              "column": 10,
+              "line": 150
+            },
+            "start": {
+              "column": 16,
+              "line": 144
+            }
+          }
+        },
+        {
+          "id": "33",
+          "mutatorName": "ObjectLiteral",
+          "replacement": "{}",
+          "statusReason": "expected 1st \"log\" call to have been called with [ Array(1) ]",
+          "status": "Killed",
+          "testsCompleted": 1,
+          "static": false,
+          "killedBy": [
+            "21"
+          ],
+          "coveredBy": [
+            "21",
+            "29"
+          ],
+          "location": {
+            "end": {
+              "column": 14,
+              "line": 149
+            },
+            "start": {
+              "column": 29,
+              "line": 145
+            }
+          }
+        },
+        {
+          "id": "34",
+          "mutatorName": "BlockStatement",
+          "replacement": "{}",
+          "statusReason": "expected 4th \"log\" call to have been called with [ Array(1) ], but called only 3 times",
+          "status": "Killed",
+          "testsCompleted": 1,
+          "static": false,
+          "killedBy": [
+            "21"
+          ],
+          "coveredBy": [
+            "21",
+            "22",
+            "23",
+            "24",
+            "26",
+            "27",
+            "28"
+          ],
+          "location": {
+            "end": {
+              "column": 6,
+              "line": 179
+            },
+            "start": {
+              "column": 60,
+              "line": 153
+            }
+          }
+        },
+        {
+          "id": "35",
+          "mutatorName": "ConditionalExpression",
+          "replacement": "true",
+          "statusReason": "expected 4th \"log\" call to have been called with [ Array(1) ]",
+          "status": "Killed",
+          "testsCompleted": 1,
+          "static": false,
+          "killedBy": [
+            "21"
+          ],
+          "coveredBy": [
+            "21",
+            "22",
+            "23",
+            "24",
+            "26",
+            "27",
+            "28"
+          ],
+          "location": {
+            "end": {
+              "column": 42,
+              "line": 157
+            },
+            "start": {
+              "column": 13,
+              "line": 156
+            }
+          }
+        },
+        {
+          "id": "36",
+          "mutatorName": "ConditionalExpression",
+          "replacement": "false",
+          "statusReason": "expected 2nd \"log\" call to have been called with [ Array(1) ]",
+          "status": "Killed",
+          "testsCompleted": 2,
+          "static": false,
+          "killedBy": [
+            "22"
+          ],
+          "coveredBy": [
+            "21",
+            "22",
+            "23",
+            "24",
+            "26",
+            "27",
+            "28"
+          ],
+          "location": {
+            "end": {
+              "column": 42,
+              "line": 157
+            },
+            "start": {
+              "column": 13,
+              "line": 156
+            }
+          }
+        },
+        {
+          "id": "37",
+          "mutatorName": "LogicalOperator",
+          "replacement": "this.loggerOptions.logLevelForServiceRequestErrorMessages || message === 'Service request'",
+          "statusReason": "expected 1st \"log\" call to have been called with [ Array(1) ]",
+          "status": "Killed",
+          "testsCompleted": 2,
+          "static": false,
+          "killedBy": [
+            "22"
+          ],
+          "coveredBy": [
+            "21",
+            "22",
+            "23",
+            "24",
+            "26",
+            "27",
+            "28"
+          ],
+          "location": {
+            "end": {
+              "column": 42,
+              "line": 157
+            },
+            "start": {
+              "column": 13,
+              "line": 156
+            }
+          }
+        },
+        {
+          "id": "38",
+          "mutatorName": "ConditionalExpression",
+          "replacement": "true",
+          "statusReason": "expected 3rd \"log\" call to have been called with [ Array(1) ]",
+          "status": "Killed",
+          "testsCompleted": 1,
+          "static": false,
+          "killedBy": [
+            "22"
+          ],
+          "coveredBy": [
+            "22",
+            "26"
+          ],
+          "location": {
+            "end": {
+              "column": 42,
+              "line": 157
+            },
+            "start": {
+              "column": 13,
+              "line": 157
+            }
+          }
+        },
+        {
+          "id": "39",
+          "mutatorName": "EqualityOperator",
+          "replacement": "message !== 'Service request'",
+          "statusReason": "expected 2nd \"log\" call to have been called with [ Array(1) ]",
+          "status": "Killed",
+          "testsCompleted": 1,
+          "static": false,
+          "killedBy": [
+            "22"
+          ],
+          "coveredBy": [
+            "22",
+            "26"
+          ],
+          "location": {
+            "end": {
+              "column": 42,
+              "line": 157
+            },
+            "start": {
+              "column": 13,
+              "line": 157
+            }
+          }
+        },
+        {
+          "id": "40",
+          "mutatorName": "StringLiteral",
+          "replacement": "\"\"",
+          "statusReason": "expected 2nd \"log\" call to have been called with [ Array(1) ]",
+          "status": "Killed",
+          "testsCompleted": 1,
+          "static": false,
+          "killedBy": [
+            "22"
+          ],
+          "coveredBy": [
+            "22",
+            "26"
+          ],
+          "location": {
+            "end": {
+              "column": 42,
+              "line": 157
+            },
+            "start": {
+              "column": 25,
+              "line": 157
+            }
+          }
+        },
+        {
+          "id": "41",
+          "mutatorName": "BlockStatement",
+          "replacement": "{}",
+          "statusReason": "expected 2nd \"log\" call to have been called with [ Array(1) ]",
+          "status": "Killed",
+          "testsCompleted": 1,
+          "static": false,
+          "killedBy": [
+            "22"
+          ],
+          "coveredBy": [
+            "22",
+            "26"
+          ],
+          "location": {
+            "end": {
+              "column": 10,
+              "line": 160
+            },
+            "start": {
+              "column": 11,
+              "line": 158
+            }
+          }
+        },
+        {
+          "id": "42",
+          "mutatorName": "ConditionalExpression",
+          "replacement": "true",
+          "statusReason": "expected 4th \"log\" call to have been called with [ Array(1) ]",
+          "status": "Killed",
+          "testsCompleted": 1,
+          "static": false,
+          "killedBy": [
+            "21"
+          ],
+          "coveredBy": [
+            "21",
+            "22",
+            "23",
+            "24",
+            "26",
+            "27",
+            "28"
+          ],
+          "location": {
+            "end": {
+              "column": 42,
+              "line": 162
+            },
+            "start": {
+              "column": 13,
+              "line": 161
+            }
+          }
+        },
+        {
+          "id": "43",
+          "mutatorName": "ConditionalExpression",
+          "replacement": "false",
+          "statusReason": "expected 2nd \"log\" call to have been called with [ Array(1) ]",
+          "status": "Killed",
+          "testsCompleted": 3,
+          "static": false,
+          "killedBy": [
+            "23"
+          ],
+          "coveredBy": [
+            "21",
+            "22",
+            "23",
+            "24",
+            "26",
+            "27",
+            "28"
+          ],
+          "location": {
+            "end": {
+              "column": 42,
+              "line": 162
+            },
+            "start": {
+              "column": 13,
+              "line": 161
+            }
+          }
+        },
+        {
+          "id": "44",
+          "mutatorName": "LogicalOperator",
+          "replacement": "this.loggerOptions.logLevelForTimeoutErrorMessages || this.containsTimeout(message)",
+          "statusReason": "expected 1st \"log\" call to have been called with [ Array(1) ]",
+          "status": "Killed",
+          "testsCompleted": 3,
+          "static": false,
+          "killedBy": [
+            "23"
+          ],
+          "coveredBy": [
+            "21",
+            "22",
+            "23",
+            "24",
+            "26",
+            "27",
+            "28"
+          ],
+          "location": {
+            "end": {
+              "column": 42,
+              "line": 162
+            },
+            "start": {
+              "column": 13,
+              "line": 161
+            }
+          }
+        },
+        {
+          "id": "45",
+          "mutatorName": "BlockStatement",
+          "replacement": "{}",
+          "statusReason": "expected 2nd \"log\" call to have been called with [ Array(1) ]",
+          "status": "Killed",
+          "testsCompleted": 1,
+          "static": false,
+          "killedBy": [
+            "23"
+          ],
+          "coveredBy": [
+            "23",
+            "26"
+          ],
+          "location": {
+            "end": {
+              "column": 10,
+              "line": 165
+            },
+            "start": {
+              "column": 11,
+              "line": 163
+            }
+          }
+        },
+        {
+          "id": "46",
+          "mutatorName": "ConditionalExpression",
+          "replacement": "true",
+          "statusReason": "expected 4th \"log\" call to have been called with [ Array(1) ]",
+          "status": "Killed",
+          "testsCompleted": 1,
+          "static": false,
+          "killedBy": [
+            "21"
+          ],
+          "coveredBy": [
+            "21",
+            "22",
+            "23",
+            "24",
+            "27",
+            "28"
+          ],
+          "location": {
+            "end": {
+              "column": 54,
+              "line": 167
+            },
+            "start": {
+              "column": 13,
+              "line": 166
+            }
+          }
+        },
+        {
+          "id": "47",
+          "mutatorName": "ConditionalExpression",
+          "replacement": "false",
+          "statusReason": "expected 2nd \"log\" call to have been called with [ Array(1) ]",
+          "status": "Killed",
+          "testsCompleted": 4,
+          "static": false,
+          "killedBy": [
+            "24"
+          ],
+          "coveredBy": [
+            "21",
+            "22",
+            "23",
+            "24",
+            "27",
+            "28"
+          ],
+          "location": {
+            "end": {
+              "column": 54,
+              "line": 167
+            },
+            "start": {
+              "column": 13,
+              "line": 166
+            }
+          }
+        },
+        {
+          "id": "48",
+          "mutatorName": "LogicalOperator",
+          "replacement": "this.loggerOptions.logLevelForAsyncAttributeError || this.containsAsyncAttributeError(message)",
+          "statusReason": "expected 1st \"log\" call to have been called with [ Array(1) ]",
+          "status": "Killed",
+          "testsCompleted": 4,
+          "static": false,
+          "killedBy": [
+            "24"
+          ],
+          "coveredBy": [
+            "21",
+            "22",
+            "23",
+            "24",
+            "27",
+            "28"
+          ],
+          "location": {
+            "end": {
+              "column": 54,
+              "line": 167
+            },
+            "start": {
+              "column": 13,
+              "line": 166
+            }
+          }
+        },
+        {
+          "id": "49",
+          "mutatorName": "BlockStatement",
+          "replacement": "{}",
+          "statusReason": "expected 2nd \"log\" call to have been called with [ Array(1) ]",
+          "status": "Killed",
+          "testsCompleted": 1,
+          "static": false,
+          "killedBy": [
+            "24"
+          ],
+          "coveredBy": [
+            "24"
+          ],
+          "location": {
+            "end": {
+              "column": 10,
+              "line": 170
+            },
+            "start": {
+              "column": 11,
+              "line": 168
+            }
+          }
+        },
+        {
+          "id": "50",
+          "mutatorName": "BlockStatement",
+          "replacement": "{}",
+          "statusReason": "expected 4th \"log\" call to have been called with [ Array(1) ]",
+          "status": "Killed",
+          "testsCompleted": 1,
+          "static": false,
+          "killedBy": [
+            "21"
+          ],
+          "coveredBy": [
+            "21",
+            "22",
+            "23",
+            "24",
+            "27",
+            "28"
+          ],
+          "location": {
+            "end": {
+              "column": 10,
+              "line": 172
+            },
+            "start": {
+              "column": 16,
+              "line": 170
+            }
+          }
+        },
+        {
+          "id": "51",
+          "mutatorName": "ObjectLiteral",
+          "replacement": "{}",
+          "statusReason": "expected 4th \"log\" call to have been called with [ Array(1) ]",
+          "status": "Killed",
+          "testsCompleted": 1,
+          "static": false,
+          "killedBy": [
+            "21"
+          ],
+          "coveredBy": [
+            "21",
+            "22",
+            "23",
+            "24",
+            "26",
+            "27",
+            "28"
+          ],
+          "location": {
+            "end": {
+              "column": 10,
+              "line": 178
+            },
+            "start": {
+              "column": 25,
+              "line": 174
+            }
+          }
+        },
+        {
+          "id": "52",
+          "mutatorName": "BlockStatement",
+          "replacement": "{}",
+          "statusReason": "expected 3rd \"log\" call to have been called with [ Array(1) ], but called only 2 times",
+          "status": "Killed",
+          "testsCompleted": 1,
+          "static": false,
+          "killedBy": [
+            "21"
+          ],
+          "coveredBy": [
+            "21"
+          ],
+          "location": {
+            "end": {
+              "column": 6,
+              "line": 187
+            },
+            "start": {
+              "column": 59,
+              "line": 181
+            }
+          }
+        },
+        {
+          "id": "53",
+          "mutatorName": "ObjectLiteral",
+          "replacement": "{}",
+          "statusReason": "expected 3rd \"log\" call to have been called with [ Array(1) ]",
+          "status": "Killed",
+          "testsCompleted": 1,
+          "static": false,
+          "killedBy": [
+            "21"
+          ],
+          "coveredBy": [
+            "21"
+          ],
+          "location": {
+            "end": {
+              "column": 10,
+              "line": 186
+            },
+            "start": {
+              "column": 25,
+              "line": 182
+            }
+          }
+        },
+        {
+          "id": "54",
+          "mutatorName": "BlockStatement",
+          "replacement": "{}",
+          "statusReason": "expected 2nd \"log\" call to have been called with [ Array(1) ], but called only 1 times",
+          "status": "Killed",
+          "testsCompleted": 1,
+          "static": false,
+          "killedBy": [
+            "21"
+          ],
+          "coveredBy": [
+            "21",
+            "25"
+          ],
+          "location": {
+            "end": {
+              "column": 6,
+              "line": 195
+            },
+            "start": {
+              "column": 62,
+              "line": 189
+            }
+          }
+        },
+        {
+          "id": "55",
+          "mutatorName": "ObjectLiteral",
+          "replacement": "{}",
+          "statusReason": "expected 2nd \"log\" call to have been called with [ Array(1) ]",
+          "status": "Killed",
+          "testsCompleted": 1,
+          "static": false,
+          "killedBy": [
+            "21"
+          ],
+          "coveredBy": [
+            "21",
+            "25"
+          ],
+          "location": {
+            "end": {
+              "column": 10,
+              "line": 194
+            },
+            "start": {
+              "column": 25,
+              "line": 190
+            }
+          }
+        },
+        {
+          "id": "56",
+          "mutatorName": "LogicalOperator",
+          "replacement": "this.loggerOptions.logLevelForVerbose && LogLevel.verbose",
+          "statusReason": "expected 2nd \"log\" call to have been called with [ Array(1) ]",
+          "status": "Killed",
+          "testsCompleted": 1,
+          "static": false,
+          "killedBy": [
+            "21"
+          ],
+          "coveredBy": [
+            "21",
+            "25"
+          ],
+          "location": {
+            "end": {
+              "column": 80,
+              "line": 193
+            },
+            "start": {
+              "column": 23,
+              "line": 193
+            }
+          }
+        },
+        {
+          "id": "57",
+          "mutatorName": "BlockStatement",
+          "replacement": "{}",
+          "statusReason": "expected 5th \"log\" call to have been called with [ Array(1) ], but called only 4 times",
+          "status": "Killed",
+          "testsCompleted": 1,
+          "static": false,
+          "killedBy": [
+            "21"
+          ],
+          "coveredBy": [
+            "21"
+          ],
+          "location": {
+            "end": {
+              "column": 6,
+              "line": 203
+            },
+            "start": {
+              "column": 59,
+              "line": 197
+            }
+          }
+        },
+        {
+          "id": "58",
+          "mutatorName": "ObjectLiteral",
+          "replacement": "{}",
+          "statusReason": "expected 5th \"log\" call to have been called with [ Array(1) ]",
+          "status": "Killed",
+          "testsCompleted": 1,
+          "static": false,
+          "killedBy": [
+            "21"
+          ],
+          "coveredBy": [
+            "21"
+          ],
+          "location": {
+            "end": {
+              "column": 10,
+              "line": 202
+            },
+            "start": {
+              "column": 25,
+              "line": 198
+            }
+          }
+        },
+        {
+          "id": "59",
+          "mutatorName": "BlockStatement",
+          "replacement": "{}",
+          "statusReason": "expected 1st \"log\" call to have been called with [ Array(1) ], but called only 0 times",
+          "status": "Killed",
+          "testsCompleted": 1,
+          "static": false,
+          "killedBy": [
+            "21"
+          ],
+          "coveredBy": [
+            "21",
+            "22",
+            "23",
+            "24",
+            "25",
+            "26",
+            "27",
+            "28",
+            "29"
+          ],
+          "location": {
+            "end": {
+              "column": 6,
+              "line": 214
+            },
+            "start": {
+              "column": 52,
+              "line": 205
+            }
+          }
+        },
+        {
+          "id": "60",
+          "mutatorName": "ConditionalExpression",
+          "replacement": "true",
+          "statusReason": "expected \"log\" to be called 1 times, but got 2 times",
+          "status": "Killed",
+          "testsCompleted": 5,
+          "static": false,
+          "killedBy": [
+            "25"
+          ],
+          "coveredBy": [
+            "21",
+            "22",
+            "23",
+            "24",
+            "25",
+            "26",
+            "27",
+            "28",
+            "29"
+          ],
+          "location": {
+            "end": {
+              "column": 68,
+              "line": 208
+            },
+            "start": {
+              "column": 13,
+              "line": 207
+            }
+          }
+        },
+        {
+          "id": "61",
+          "mutatorName": "ConditionalExpression",
+          "replacement": "false",
+          "statusReason": "expected 1st \"log\" call to have been called with [ Array(1) ], but called only 0 times",
+          "status": "Killed",
+          "testsCompleted": 1,
+          "static": false,
+          "killedBy": [
+            "21"
+          ],
+          "coveredBy": [
+            "21",
+            "22",
+            "23",
+            "24",
+            "25",
+            "26",
+            "27",
+            "28",
+            "29"
+          ],
+          "location": {
+            "end": {
+              "column": 68,
+              "line": 208
+            },
+            "start": {
+              "column": 13,
+              "line": 207
+            }
+          }
+        },
+        {
+          "id": "62",
+          "mutatorName": "LogicalOperator",
+          "replacement": "logEntryInput.loglevel !== LogLevel.off || this.isEqualOrHigherMinLogLevel(logEntryInput.loglevel)",
+          "statusReason": "expected \"log\" to be called 1 times, but got 2 times",
+          "status": "Killed",
+          "testsCompleted": 5,
+          "static": false,
+          "killedBy": [
+            "25"
+          ],
+          "coveredBy": [
+            "21",
+            "22",
+            "23",
+            "24",
+            "25",
+            "26",
+            "27",
+            "28",
+            "29"
+          ],
+          "location": {
+            "end": {
+              "column": 68,
+              "line": 208
+            },
+            "start": {
+              "column": 13,
+              "line": 207
+            }
+          }
+        },
+        {
+          "id": "63",
+          "mutatorName": "ConditionalExpression",
+          "replacement": "true",
+          "statusReason": "expected \"log\" to be called 1 times, but got 2 times",
+          "status": "Killed",
+          "testsCompleted": 5,
+          "static": false,
+          "killedBy": [
+            "25"
+          ],
+          "coveredBy": [
+            "21",
+            "22",
+            "23",
+            "24",
+            "25",
+            "26",
+            "27",
+            "28",
+            "29"
+          ],
+          "location": {
+            "end": {
+              "column": 52,
+              "line": 207
+            },
+            "start": {
+              "column": 13,
+              "line": 207
+            }
+          }
+        },
+        {
+          "id": "64",
+          "mutatorName": "EqualityOperator",
+          "replacement": "logEntryInput.loglevel === LogLevel.off",
+          "statusReason": "expected 1st \"log\" call to have been called with [ Array(1) ], but called only 0 times",
+          "status": "Killed",
+          "testsCompleted": 1,
+          "static": false,
+          "killedBy": [
+            "21"
+          ],
+          "coveredBy": [
+            "21",
+            "22",
+            "23",
+            "24",
+            "25",
+            "26",
+            "27",
+            "28",
+            "29"
+          ],
+          "location": {
+            "end": {
+              "column": 52,
+              "line": 207
+            },
+            "start": {
+              "column": 13,
+              "line": 207
+            }
+          }
+        },
+        {
+          "id": "65",
+          "mutatorName": "BlockStatement",
+          "replacement": "{}",
+          "statusReason": "expected 1st \"log\" call to have been called with [ Array(1) ], but called only 0 times",
+          "status": "Killed",
+          "testsCompleted": 1,
+          "static": false,
+          "killedBy": [
+            "21"
+          ],
+          "coveredBy": [
+            "21",
+            "22",
+            "23",
+            "24",
+            "25",
+            "27",
+            "28",
+            "29"
+          ],
+          "location": {
+            "end": {
+              "column": 10,
+              "line": 213
+            },
+            "start": {
+              "column": 11,
+              "line": 209
+            }
+          }
+        },
+        {
+          "id": "66",
+          "mutatorName": "BlockStatement",
+          "replacement": "{}",
+          "statusReason": "Cannot read properties of undefined (reading 'message')",
+          "status": "Killed",
+          "testsCompleted": 1,
+          "static": false,
+          "killedBy": [
+            "0"
+          ],
+          "coveredBy": [
+            "0",
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10",
+            "11",
+            "12",
+            "13",
+            "14",
+            "15",
+            "16",
+            "17",
+            "18",
+            "19",
+            "20",
+            "21",
+            "22",
+            "23",
+            "24",
+            "25",
+            "27",
+            "28",
+            "29"
+          ],
+          "location": {
+            "end": {
+              "column": 6,
+              "line": 248
+            },
+            "start": {
+              "column": 60,
+              "line": 216
+            }
+          }
+        },
+        {
+          "id": "67",
+          "mutatorName": "StringLiteral",
+          "replacement": "``",
+          "statusReason": "expected 'undefined' to be 'undefined. Log arguments are: undefin…' // Object.is equality",
+          "status": "Killed",
+          "testsCompleted": 1,
+          "static": false,
+          "killedBy": [
+            "0"
+          ],
+          "coveredBy": [
+            "0",
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10",
+            "11",
+            "12",
+            "13",
+            "14",
+            "15",
+            "16",
+            "17",
+            "18",
+            "19",
+            "20",
+            "21",
+            "22",
+            "23",
+            "24",
+            "25",
+            "27",
+            "28",
+            "29"
+          ],
+          "location": {
+            "end": {
+              "column": 75,
+              "line": 224
+            },
+            "start": {
+              "column": 13,
+              "line": 224
+            }
+          }
+        },
+        {
+          "id": "68",
+          "mutatorName": "ObjectLiteral",
+          "replacement": "{}",
+          "statusReason": "expected 'I am a log message!. Log arguments ar…' to be 'I am a log message!. Log arguments ar…' // Object.is equality",
+          "status": "Killed",
+          "testsCompleted": 10,
+          "static": false,
+          "killedBy": [
+            "9"
+          ],
+          "coveredBy": [
+            "0",
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10",
+            "11",
+            "12",
+            "13",
+            "14",
+            "15",
+            "16",
+            "17",
+            "18",
+            "19",
+            "20",
+            "21",
+            "22",
+            "23",
+            "24",
+            "25",
+            "27",
+            "28",
+            "29"
+          ],
+          "location": {
+            "end": {
+              "column": 72,
+              "line": 224
+            },
+            "start": {
+              "column": 59,
+              "line": 224
+            }
+          }
+        },
+        {
+          "id": "69",
+          "mutatorName": "LogicalOperator",
+          "replacement": "truncatedText && '_TRUNCATED_'",
+          "statusReason": "Cannot read properties of undefined (reading 'length')",
+          "status": "Killed",
+          "testsCompleted": 13,
+          "static": false,
+          "killedBy": [
+            "12"
+          ],
+          "coveredBy": [
+            "0",
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10",
+            "11",
+            "12",
+            "13",
+            "14",
+            "15",
+            "16",
+            "17",
+            "18",
+            "19",
+            "20",
+            "21",
+            "22",
+            "23",
+            "24",
+            "25",
+            "27",
+            "28",
+            "29"
+          ],
+          "location": {
+            "end": {
+              "column": 66,
+              "line": 225
+            },
+            "start": {
+              "column": 36,
+              "line": 225
+            }
+          }
+        },
+        {
+          "id": "70",
+          "mutatorName": "StringLiteral",
+          "replacement": "\"\"",
+          "statusReason": "expected '\\'{\"stack\":\"Error: 14' to be '\\'{\"stack\"_TRUNCATED_' // Object.is equality",
+          "status": "Killed",
+          "testsCompleted": 13,
+          "static": false,
+          "killedBy": [
+            "12"
+          ],
+          "coveredBy": [
+            "0",
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10",
+            "11",
+            "12",
+            "14",
+            "15",
+            "16",
+            "17",
+            "18",
+            "19",
+            "21",
+            "22",
+            "23",
+            "24",
+            "25",
+            "27",
+            "28",
+            "29"
+          ],
+          "location": {
+            "end": {
+              "column": 66,
+              "line": 225
+            },
+            "start": {
+              "column": 53,
+              "line": 225
+            }
+          }
+        },
+        {
+          "id": "71",
+          "mutatorName": "ConditionalExpression",
+          "replacement": "true",
+          "statusReason": "expected '\\'{\"stack\":\"Error: 14 UNAVAILABLE: No…' to be '\\'{\"stack\":\"Error: 14 UNAVAILABLE: No…' // Object.is equality",
+          "status": "Killed",
+          "testsCompleted": 16,
+          "static": false,
+          "killedBy": [
+            "15"
+          ],
+          "coveredBy": [
+            "0",
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10",
+            "11",
+            "12",
+            "13",
+            "14",
+            "15",
+            "16",
+            "17",
+            "18",
+            "19",
+            "20",
+            "21",
+            "22",
+            "23",
+            "24",
+            "25",
+            "27",
+            "28",
+            "29"
+          ],
+          "location": {
+            "end": {
+              "column": 74,
+              "line": 230
+            },
+            "start": {
+              "column": 13,
+              "line": 227
+            }
+          }
+        },
+        {
+          "id": "72",
+          "mutatorName": "ConditionalExpression",
+          "replacement": "false",
+          "statusReason": "expected '\\'{\"stack\":\"Error: 14 UNAVAILABLE: No…' to be '\\'{\"stack\"_TRUNCATED_' // Object.is equality",
+          "status": "Killed",
+          "testsCompleted": 13,
+          "static": false,
+          "killedBy": [
+            "12"
+          ],
+          "coveredBy": [
+            "0",
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10",
+            "11",
+            "12",
+            "13",
+            "14",
+            "15",
+            "16",
+            "17",
+            "18",
+            "19",
+            "20",
+            "21",
+            "22",
+            "23",
+            "24",
+            "25",
+            "27",
+            "28",
+            "29"
+          ],
+          "location": {
+            "end": {
+              "column": 74,
+              "line": 230
+            },
+            "start": {
+              "column": 13,
+              "line": 227
+            }
+          }
+        },
+        {
+          "id": "73",
+          "mutatorName": "LogicalOperator",
+          "replacement": "truncateLimit &&\n// Stryker disable next-line all - Does not matters\ntruncateLimit > 0 || logMessage.length > truncateLimit + truncatedTextToUse.length",
+          "statusReason": "expected '\\'{\"stack\":\"Error: 14 UNAVAILABLE: No…' to be '\\'{\"stack\":\"Error: 14 UNAVAILABLE: No…' // Object.is equality",
+          "status": "Killed",
+          "testsCompleted": 16,
+          "static": false,
+          "killedBy": [
+            "15"
+          ],
+          "coveredBy": [
+            "0",
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10",
+            "11",
+            "12",
+            "13",
+            "14",
+            "15",
+            "16",
+            "17",
+            "18",
+            "19",
+            "20",
+            "21",
+            "22",
+            "23",
+            "24",
+            "25",
+            "27",
+            "28",
+            "29"
+          ],
+          "location": {
+            "end": {
+              "column": 74,
+              "line": 230
+            },
+            "start": {
+              "column": 13,
+              "line": 227
+            }
+          }
+        },
+        {
+          "id": "74",
+          "mutatorName": "ConditionalExpression",
+          "replacement": "true",
+          "statusReason": "expected '' to be '\\'{\"stack\":\"Error: 14 UNAVAILABLE: No…' // Object.is equality",
+          "status": "Killed",
+          "testsCompleted": 19,
+          "static": false,
+          "killedBy": [
+            "18"
+          ],
+          "coveredBy": [
+            "0",
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10",
+            "11",
+            "12",
+            "13",
+            "14",
+            "15",
+            "16",
+            "17",
+            "18",
+            "19",
+            "20",
+            "21",
+            "22",
+            "23",
+            "24",
+            "25",
+            "27",
+            "28",
+            "29"
+          ],
+          "location": {
+            "end": {
+              "column": 30,
+              "line": 229
+            },
+            "start": {
+              "column": 13,
+              "line": 227
+            }
+          }
+        },
+        {
+          "id": "75",
+          "mutatorName": "LogicalOperator",
+          "replacement": "truncateLimit ||\n// Stryker disable next-line all - Does not matters\ntruncateLimit > 0",
+          "statusReason": "expected '\\'{\"stack\":\"Error: 14 UNAVAILABLE: No…' to be '\\'{\"stack\":\"Error: 14 UNAVAILABLE: No…' // Object.is equality",
+          "status": "Killed",
+          "testsCompleted": 20,
+          "static": false,
+          "killedBy": [
+            "19"
+          ],
+          "coveredBy": [
+            "0",
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10",
+            "11",
+            "12",
+            "13",
+            "14",
+            "15",
+            "16",
+            "17",
+            "18",
+            "19",
+            "20",
+            "21",
+            "22",
+            "23",
+            "24",
+            "25",
+            "27",
+            "28",
+            "29"
+          ],
+          "location": {
+            "end": {
+              "column": 30,
+              "line": 229
+            },
+            "start": {
+              "column": 13,
+              "line": 227
+            }
+          }
+        },
+        {
+          "id": "76",
+          "mutatorName": "ConditionalExpression",
+          "replacement": "true",
+          "statusReason": "Ignored using a comment",
+          "status": "Ignored",
+          "static": false,
+          "location": {
+            "end": {
+              "column": 30,
+              "line": 229
+            },
+            "start": {
+              "column": 13,
+              "line": 229
+            }
+          }
+        },
+        {
+          "id": "77",
+          "mutatorName": "EqualityOperator",
+          "replacement": "// Stryker disable next-line all - Does not matters\ntruncateLimit >= 0",
+          "statusReason": "Ignored using a comment",
+          "status": "Ignored",
+          "static": false,
+          "location": {
+            "end": {
+              "column": 30,
+              "line": 229
+            },
+            "start": {
+              "column": 13,
+              "line": 229
+            }
+          }
+        },
+        {
+          "id": "78",
+          "mutatorName": "EqualityOperator",
+          "replacement": "// Stryker disable next-line all - Does not matters\ntruncateLimit <= 0",
+          "statusReason": "Ignored using a comment",
+          "status": "Ignored",
+          "static": false,
+          "location": {
+            "end": {
+              "column": 30,
+              "line": 229
+            },
+            "start": {
+              "column": 13,
+              "line": 229
+            }
+          }
+        },
+        {
+          "id": "79",
+          "mutatorName": "ConditionalExpression",
+          "replacement": "true",
+          "statusReason": "expected '\\'{\"stack\":\"Error: 14 UNAVAILABLE: No…' to be '\\'{\"stack\":\"Error: 14 UNAVAILABLE: No…' // Object.is equality",
+          "status": "Killed",
+          "testsCompleted": 4,
+          "static": false,
+          "killedBy": [
+            "15"
+          ],
+          "coveredBy": [
+            "12",
+            "13",
+            "14",
+            "15",
+            "16",
+            "17",
+            "20"
+          ],
+          "location": {
+            "end": {
+              "column": 74,
+              "line": 230
+            },
+            "start": {
+              "column": 13,
+              "line": 230
+            }
+          }
+        },
+        {
+          "id": "80",
+          "mutatorName": "EqualityOperator",
+          "replacement": "logMessage.length >= truncateLimit + truncatedTextToUse.length",
+          "statusReason": "expected '\\'{\"stack\":\"Error: 14 UNAVAILABLE: No…' to be '\\'{\"stack\":\"Error: 14 UNAVAILABLE: No…' // Object.is equality",
+          "status": "Killed",
+          "testsCompleted": 5,
+          "static": false,
+          "killedBy": [
+            "16"
+          ],
+          "coveredBy": [
+            "12",
+            "13",
+            "14",
+            "15",
+            "16",
+            "17",
+            "20"
+          ],
+          "location": {
+            "end": {
+              "column": 74,
+              "line": 230
+            },
+            "start": {
+              "column": 13,
+              "line": 230
+            }
+          }
+        },
+        {
+          "id": "81",
+          "mutatorName": "EqualityOperator",
+          "replacement": "logMessage.length <= truncateLimit + truncatedTextToUse.length",
+          "statusReason": "expected '\\'{\"stack\":\"Error: 14 UNAVAILABLE: No…' to be '\\'{\"stack\"_TRUNCATED_' // Object.is equality",
+          "status": "Killed",
+          "testsCompleted": 1,
+          "static": false,
+          "killedBy": [
+            "12"
+          ],
+          "coveredBy": [
+            "12",
+            "13",
+            "14",
+            "15",
+            "16",
+            "17",
+            "20"
+          ],
+          "location": {
+            "end": {
+              "column": 74,
+              "line": 230
+            },
+            "start": {
+              "column": 13,
+              "line": 230
+            }
+          }
+        },
+        {
+          "id": "82",
+          "mutatorName": "ArithmeticOperator",
+          "replacement": "truncateLimit - truncatedTextToUse.length",
+          "statusReason": "expected '\\'{\"stack\":\"Error: 14 UNAVAILABLE: No…' to be '\\'{\"stack\":\"Error: 14 UNAVAILABLE: No…' // Object.is equality",
+          "status": "Killed",
+          "testsCompleted": 5,
+          "static": false,
+          "killedBy": [
+            "16"
+          ],
+          "coveredBy": [
+            "12",
+            "13",
+            "14",
+            "15",
+            "16",
+            "17",
+            "20"
+          ],
+          "location": {
+            "end": {
+              "column": 74,
+              "line": 230
+            },
+            "start": {
+              "column": 33,
+              "line": 230
+            }
+          }
+        },
+        {
+          "id": "83",
+          "mutatorName": "BlockStatement",
+          "replacement": "{}",
+          "statusReason": "expected '\\'{\"stack\":\"Error: 14 UNAVAILABLE: No…' to be '\\'{\"stack\"_TRUNCATED_' // Object.is equality",
+          "status": "Killed",
+          "testsCompleted": 1,
+          "static": false,
+          "killedBy": [
+            "12"
+          ],
+          "coveredBy": [
+            "12",
+            "13",
+            "14",
+            "17",
+            "20"
+          ],
+          "location": {
+            "end": {
+              "column": 10,
+              "line": 239
+            },
+            "start": {
+              "column": 11,
+              "line": 231
+            }
+          }
+        },
+        {
+          "id": "84",
+          "mutatorName": "ConditionalExpression",
+          "replacement": "true",
+          "statusReason": "expected '\\'{\"stack\":\"Error: 14 UNAVAILABLE: No…' to be '\\'{' // Object.is equality",
+          "status": "Killed",
+          "testsCompleted": 3,
+          "static": false,
+          "killedBy": [
+            "14"
+          ],
+          "coveredBy": [
+            "12",
+            "13",
+            "14",
+            "17",
+            "20"
+          ],
+          "location": {
+            "end": {
+              "column": 58,
+              "line": 233
+            },
+            "start": {
+              "column": 17,
+              "line": 233
+            }
+          }
+        },
+        {
+          "id": "85",
+          "mutatorName": "ConditionalExpression",
+          "replacement": "false",
+          "statusReason": "expected '\\'{\"stack\":\"Error: 14' to be '\\'{\"stack\"_TRUNCATED_' // Object.is equality",
+          "status": "Killed",
+          "testsCompleted": 1,
+          "static": false,
+          "killedBy": [
+            "12"
+          ],
+          "coveredBy": [
+            "12",
+            "13",
+            "14",
+            "17",
+            "20"
+          ],
+          "location": {
+            "end": {
+              "column": 58,
+              "line": 233
+            },
+            "start": {
+              "column": 17,
+              "line": 233
+            }
+          }
+        },
+        {
+          "id": "86",
+          "mutatorName": "EqualityOperator",
+          "replacement": "truncateLimit >= truncatedTextToUse.length",
+          "statusReason": "expected '_TRUNC_' to be '\\'{\"stac' // Object.is equality",
+          "status": "Killed",
+          "testsCompleted": 6,
+          "static": false,
+          "killedBy": [
+            "20"
+          ],
+          "coveredBy": [
+            "12",
+            "13",
+            "14",
+            "17",
+            "20"
+          ],
+          "location": {
+            "end": {
+              "column": 58,
+              "line": 233
+            },
+            "start": {
+              "column": 17,
+              "line": 233
+            }
+          }
+        },
+        {
+          "id": "87",
+          "mutatorName": "EqualityOperator",
+          "replacement": "truncateLimit <= truncatedTextToUse.length",
+          "statusReason": "expected '\\'{\"stack\":\"Error: 14' to be '\\'{\"stack\"_TRUNCATED_' // Object.is equality",
+          "status": "Killed",
+          "testsCompleted": 1,
+          "static": false,
+          "killedBy": [
+            "12"
+          ],
+          "coveredBy": [
+            "12",
+            "13",
+            "14",
+            "17",
+            "20"
+          ],
+          "location": {
+            "end": {
+              "column": 58,
+              "line": 233
+            },
+            "start": {
+              "column": 17,
+              "line": 233
+            }
+          }
+        },
+        {
+          "id": "88",
+          "mutatorName": "ArithmeticOperator",
+          "replacement": "logMessage.slice(0, truncateLimit - truncatedTextToUse.length) - truncatedTextToUse",
+          "statusReason": "expected NaN to be '\\'{\"stack\"_TRUNCATED_' // Object.is equality",
+          "status": "Killed",
+          "testsCompleted": 1,
+          "static": false,
+          "killedBy": [
+            "12"
+          ],
+          "coveredBy": [
+            "12",
+            "13",
+            "17"
+          ],
+          "location": {
+            "end": {
+              "column": 45,
+              "line": 237
+            },
+            "start": {
+              "column": 23,
+              "line": 234
+            }
+          }
+        },
+        {
+          "id": "89",
+          "mutatorName": "MethodExpression",
+          "replacement": "logMessage",
+          "statusReason": "expected '\\'{\"stack\":\"Error: 14 UNAVAILABLE: No…' to be '\\'{\"stack\"_TRUNCATED_' // Object.is equality",
+          "status": "Killed",
+          "testsCompleted": 1,
+          "static": false,
+          "killedBy": [
+            "12"
+          ],
+          "coveredBy": [
+            "12",
+            "13",
+            "17"
+          ],
+          "location": {
+            "end": {
+              "column": 24,
+              "line": 237
+            },
+            "start": {
+              "column": 23,
+              "line": 234
+            }
+          }
+        },
+        {
+          "id": "90",
+          "mutatorName": "ArithmeticOperator",
+          "replacement": "truncateLimit + truncatedTextToUse.length",
+          "statusReason": "expected '\\'{\"stack\":\"Error: 14 UNAVAILABL_TRUN…' to be '\\'{\"stack\"_TRUNCATED_' // Object.is equality",
+          "status": "Killed",
+          "testsCompleted": 1,
+          "static": false,
+          "killedBy": [
+            "12"
+          ],
+          "coveredBy": [
+            "12",
+            "13",
+            "17"
+          ],
+          "location": {
+            "end": {
+              "column": 68,
+              "line": 236
+            },
+            "start": {
+              "column": 27,
+              "line": 236
+            }
+          }
+        },
+        {
+          "id": "91",
+          "mutatorName": "MethodExpression",
+          "replacement": "logMessage",
+          "statusReason": "expected '\\'{\"stack\":\"Error: 14 UNAVAILABLE: No…' to be '\\'{' // Object.is equality",
+          "status": "Killed",
+          "testsCompleted": 2,
+          "static": false,
+          "killedBy": [
+            "14"
+          ],
+          "coveredBy": [
+            "14",
+            "20"
+          ],
+          "location": {
+            "end": {
+              "column": 57,
+              "line": 238
+            },
+            "start": {
+              "column": 23,
+              "line": 238
+            }
+          }
+        },
+        {
+          "id": "92",
+          "mutatorName": "ObjectLiteral",
+          "replacement": "{}",
+          "statusReason": "expected undefined to be 'undefined. Log arguments are: undefin…' // Object.is equality",
+          "status": "Killed",
+          "testsCompleted": 1,
+          "static": false,
+          "killedBy": [
+            "0"
+          ],
+          "coveredBy": [
+            "0",
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10",
+            "11",
+            "12",
+            "13",
+            "14",
+            "15",
+            "16",
+            "17",
+            "18",
+            "19",
+            "20",
+            "21",
+            "22",
+            "23",
+            "24",
+            "25",
+            "27",
+            "28",
+            "29"
+          ],
+          "location": {
+            "end": {
+              "column": 10,
+              "line": 247
+            },
+            "start": {
+              "column": 16,
+              "line": 241
+            }
+          }
+        },
+        {
+          "id": "93",
+          "mutatorName": "BlockStatement",
+          "replacement": "{}",
+          "statusReason": "expected 'undefined. Log arguments are: undefin…' to be 'I am a log message!. Log arguments ar…' // Object.is equality",
+          "status": "Killed",
+          "testsCompleted": 2,
+          "static": false,
+          "killedBy": [
+            "1"
+          ],
+          "coveredBy": [
+            "0",
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10",
+            "11",
+            "12",
+            "13",
+            "14",
+            "15",
+            "16",
+            "17",
+            "18",
+            "19",
+            "20",
+            "21",
+            "22",
+            "23",
+            "24",
+            "25",
+            "27",
+            "28",
+            "29"
+          ],
+          "location": {
+            "end": {
+              "column": 6,
+              "line": 264
+            },
+            "start": {
+              "column": 44,
+              "line": 256
+            }
+          }
+        },
+        {
+          "id": "94",
+          "mutatorName": "ConditionalExpression",
+          "replacement": "true",
+          "statusReason": "expected '\\'undefined\\'. Log arguments are: und…' to be 'undefined. Log arguments are: undefin…' // Object.is equality",
+          "status": "Killed",
+          "testsCompleted": 1,
+          "static": false,
+          "killedBy": [
+            "0"
+          ],
+          "coveredBy": [
+            "0",
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10",
+            "11",
+            "12",
+            "13",
+            "14",
+            "15",
+            "16",
+            "17",
+            "18",
+            "19",
+            "20",
+            "21",
+            "22",
+            "23",
+            "24",
+            "25",
+            "27",
+            "28",
+            "29"
+          ],
+          "location": {
+            "end": {
+              "column": 71,
+              "line": 259
+            },
+            "start": {
+              "column": 13,
+              "line": 258
+            }
+          }
+        },
+        {
+          "id": "95",
+          "mutatorName": "ConditionalExpression",
+          "replacement": "false",
+          "statusReason": "expected '{context: {info:\"something\"}}. Log ar…' to be '\\'{context: {info:\"something\"}}\\'. Lo…' // Object.is equality",
+          "status": "Killed",
+          "testsCompleted": 6,
+          "static": false,
+          "killedBy": [
+            "5"
+          ],
+          "coveredBy": [
+            "0",
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10",
+            "11",
+            "12",
+            "13",
+            "14",
+            "15",
+            "16",
+            "17",
+            "18",
+            "19",
+            "20",
+            "21",
+            "22",
+            "23",
+            "24",
+            "25",
+            "27",
+            "28",
+            "29"
+          ],
+          "location": {
+            "end": {
+              "column": 71,
+              "line": 259
+            },
+            "start": {
+              "column": 13,
+              "line": 258
+            }
+          }
+        },
+        {
+          "id": "96",
+          "mutatorName": "LogicalOperator",
+          "replacement": "message || message.indexOf('{') === 0 || message.indexOf('[') === 0",
+          "statusReason": "Cannot read properties of undefined (reading 'indexOf')",
+          "status": "Killed",
+          "testsCompleted": 1,
+          "static": false,
+          "killedBy": [
+            "0"
+          ],
+          "coveredBy": [
+            "0",
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10",
+            "11",
+            "12",
+            "13",
+            "14",
+            "15",
+            "16",
+            "17",
+            "18",
+            "19",
+            "20",
+            "21",
+            "22",
+            "23",
+            "24",
+            "25",
+            "27",
+            "28",
+            "29"
+          ],
+          "location": {
+            "end": {
+              "column": 71,
+              "line": 259
+            },
+            "start": {
+              "column": 13,
+              "line": 258
+            }
+          }
+        },
+        {
+          "id": "97",
+          "mutatorName": "ConditionalExpression",
+          "replacement": "true",
+          "statusReason": "expected '\\'I am a log message!\\'. Log argument…' to be 'I am a log message!. Log arguments ar…' // Object.is equality",
+          "status": "Killed",
+          "testsCompleted": 1,
+          "static": false,
+          "killedBy": [
+            "1"
+          ],
+          "coveredBy": [
+            "1",
+            "2",
+            "3",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10",
+            "11",
+            "12",
+            "13",
+            "14",
+            "15",
+            "16",
+            "17",
+            "18",
+            "19",
+            "20",
+            "21",
+            "22",
+            "23",
+            "24",
+            "25",
+            "27",
+            "28",
+            "29"
+          ],
+          "location": {
+            "end": {
+              "column": 70,
+              "line": 259
+            },
+            "start": {
+              "column": 14,
+              "line": 259
+            }
+          }
+        },
+        {
+          "id": "98",
+          "mutatorName": "LogicalOperator",
+          "replacement": "message.indexOf('{') === 0 && message.indexOf('[') === 0",
+          "statusReason": "expected '{context: {info:\"something\"}}. Log ar…' to be '\\'{context: {info:\"something\"}}\\'. Lo…' // Object.is equality",
+          "status": "Killed",
+          "testsCompleted": 4,
+          "static": false,
+          "killedBy": [
+            "5"
+          ],
+          "coveredBy": [
+            "1",
+            "2",
+            "3",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10",
+            "11",
+            "12",
+            "13",
+            "14",
+            "15",
+            "16",
+            "17",
+            "18",
+            "19",
+            "20",
+            "21",
+            "22",
+            "23",
+            "24",
+            "25",
+            "27",
+            "28",
+            "29"
+          ],
+          "location": {
+            "end": {
+              "column": 70,
+              "line": 259
+            },
+            "start": {
+              "column": 14,
+              "line": 259
+            }
+          }
+        },
+        {
+          "id": "99",
+          "mutatorName": "ConditionalExpression",
+          "replacement": "false",
+          "statusReason": "expected '{context: {info:\"something\"}}. Log ar…' to be '\\'{context: {info:\"something\"}}\\'. Lo…' // Object.is equality",
+          "status": "Killed",
+          "testsCompleted": 4,
+          "static": false,
+          "killedBy": [
+            "5"
+          ],
+          "coveredBy": [
+            "1",
+            "2",
+            "3",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10",
+            "11",
+            "12",
+            "13",
+            "14",
+            "15",
+            "16",
+            "17",
+            "18",
+            "19",
+            "20",
+            "21",
+            "22",
+            "23",
+            "24",
+            "25",
+            "27",
+            "28",
+            "29"
+          ],
+          "location": {
+            "end": {
+              "column": 40,
+              "line": 259
+            },
+            "start": {
+              "column": 14,
+              "line": 259
+            }
+          }
+        },
+        {
+          "id": "100",
+          "mutatorName": "EqualityOperator",
+          "replacement": "message.indexOf('{') !== 0",
+          "statusReason": "expected '\\'I am a log message!\\'. Log argument…' to be 'I am a log message!. Log arguments ar…' // Object.is equality",
+          "status": "Killed",
+          "testsCompleted": 1,
+          "static": false,
+          "killedBy": [
+            "1"
+          ],
+          "coveredBy": [
+            "1",
+            "2",
+            "3",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10",
+            "11",
+            "12",
+            "13",
+            "14",
+            "15",
+            "16",
+            "17",
+            "18",
+            "19",
+            "20",
+            "21",
+            "22",
+            "23",
+            "24",
+            "25",
+            "27",
+            "28",
+            "29"
+          ],
+          "location": {
+            "end": {
+              "column": 40,
+              "line": 259
+            },
+            "start": {
+              "column": 14,
+              "line": 259
+            }
+          }
+        },
+        {
+          "id": "101",
+          "mutatorName": "StringLiteral",
+          "replacement": "\"\"",
+          "statusReason": "expected '\\'I am a log message!\\'. Log argument…' to be 'I am a log message!. Log arguments ar…' // Object.is equality",
+          "status": "Killed",
+          "testsCompleted": 1,
+          "static": false,
+          "killedBy": [
+            "1"
+          ],
+          "coveredBy": [
+            "1",
+            "2",
+            "3",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10",
+            "11",
+            "12",
+            "13",
+            "14",
+            "15",
+            "16",
+            "17",
+            "18",
+            "19",
+            "20",
+            "21",
+            "22",
+            "23",
+            "24",
+            "25",
+            "27",
+            "28",
+            "29"
+          ],
+          "location": {
+            "end": {
+              "column": 33,
+              "line": 259
+            },
+            "start": {
+              "column": 30,
+              "line": 259
+            }
+          }
+        },
+        {
+          "id": "102",
+          "mutatorName": "ConditionalExpression",
+          "replacement": "false",
+          "statusReason": "expected '[\"one\", \"two\"]. Log arguments are: un…' to be '\\'[\"one\", \"two\"]\\'. Log arguments are…' // Object.is equality",
+          "status": "Killed",
+          "testsCompleted": 4,
+          "static": false,
+          "killedBy": [
+            "6"
+          ],
+          "coveredBy": [
+            "1",
+            "2",
+            "3",
+            "6",
+            "7",
+            "8",
+            "9",
+            "21",
+            "22",
+            "23",
+            "24",
+            "25",
+            "27",
+            "28",
+            "29"
+          ],
+          "location": {
+            "end": {
+              "column": 70,
+              "line": 259
+            },
+            "start": {
+              "column": 44,
+              "line": 259
+            }
+          }
+        },
+        {
+          "id": "103",
+          "mutatorName": "EqualityOperator",
+          "replacement": "message.indexOf('[') !== 0",
+          "statusReason": "expected '\\'I am a log message!\\'. Log argument…' to be 'I am a log message!. Log arguments ar…' // Object.is equality",
+          "status": "Killed",
+          "testsCompleted": 1,
+          "static": false,
+          "killedBy": [
+            "1"
+          ],
+          "coveredBy": [
+            "1",
+            "2",
+            "3",
+            "6",
+            "7",
+            "8",
+            "9",
+            "21",
+            "22",
+            "23",
+            "24",
+            "25",
+            "27",
+            "28",
+            "29"
+          ],
+          "location": {
+            "end": {
+              "column": 70,
+              "line": 259
+            },
+            "start": {
+              "column": 44,
+              "line": 259
+            }
+          }
+        },
+        {
+          "id": "104",
+          "mutatorName": "StringLiteral",
+          "replacement": "\"\"",
+          "statusReason": "expected '\\'I am a log message!\\'. Log argument…' to be 'I am a log message!. Log arguments ar…' // Object.is equality",
+          "status": "Killed",
+          "testsCompleted": 1,
+          "static": false,
+          "killedBy": [
+            "1"
+          ],
+          "coveredBy": [
+            "1",
+            "2",
+            "3",
+            "6",
+            "7",
+            "8",
+            "9",
+            "21",
+            "22",
+            "23",
+            "24",
+            "25",
+            "27",
+            "28",
+            "29"
+          ],
+          "location": {
+            "end": {
+              "column": 63,
+              "line": 259
+            },
+            "start": {
+              "column": 60,
+              "line": 259
+            }
+          }
+        },
+        {
+          "id": "105",
+          "mutatorName": "BlockStatement",
+          "replacement": "{}",
+          "statusReason": "expected '{context: {info:\"something\"}}. Log ar…' to be '\\'{context: {info:\"something\"}}\\'. Lo…' // Object.is equality",
+          "status": "Killed",
+          "testsCompleted": 1,
+          "static": false,
+          "killedBy": [
+            "5"
+          ],
+          "coveredBy": [
+            "5",
+            "6",
+            "10",
+            "11",
+            "12",
+            "13",
+            "14",
+            "15",
+            "16",
+            "17",
+            "18",
+            "19",
+            "20",
+            "23"
+          ],
+          "location": {
+            "end": {
+              "column": 10,
+              "line": 262
+            },
+            "start": {
+              "column": 11,
+              "line": 260
+            }
+          }
+        },
+        {
+          "id": "106",
+          "mutatorName": "StringLiteral",
+          "replacement": "``",
+          "statusReason": "expected '. Log arguments are: undefined' to be '\\'{context: {info:\"something\"}}\\'. Lo…' // Object.is equality",
+          "status": "Killed",
+          "testsCompleted": 1,
+          "static": false,
+          "killedBy": [
+            "5"
+          ],
+          "coveredBy": [
+            "5",
+            "6",
+            "10",
+            "11",
+            "12",
+            "13",
+            "14",
+            "15",
+            "16",
+            "17",
+            "18",
+            "19",
+            "20",
+            "23"
+          ],
+          "location": {
+            "end": {
+              "column": 34,
+              "line": 261
+            },
+            "start": {
+              "column": 20,
+              "line": 261
+            }
+          }
+        },
+        {
+          "id": "107",
+          "mutatorName": "BlockStatement",
+          "replacement": "{}",
+          "statusReason": "expected 2nd \"log\" call to have been called with [ Array(1) ]",
+          "status": "Killed",
+          "testsCompleted": 1,
+          "static": false,
+          "killedBy": [
+            "23"
+          ],
+          "coveredBy": [
+            "23",
+            "26"
+          ],
+          "location": {
+            "end": {
+              "column": 6,
+              "line": 277
+            },
+            "start": {
+              "column": 47,
+              "line": 272
+            }
+          }
+        },
+        {
+          "id": "108",
+          "mutatorName": "ConditionalExpression",
+          "replacement": "true",
+          "statusReason": "expected 3rd \"log\" call to have been called with [ Array(1) ]",
+          "status": "Killed",
+          "testsCompleted": 1,
+          "static": false,
+          "killedBy": [
+            "23"
+          ],
+          "coveredBy": [
+            "23",
+            "26"
+          ],
+          "location": {
+            "end": {
+              "column": 47,
+              "line": 275
+            },
+            "start": {
+              "column": 13,
+              "line": 274
+            }
+          }
+        },
+        {
+          "id": "109",
+          "mutatorName": "ConditionalExpression",
+          "replacement": "false",
+          "statusReason": "expected 2nd \"log\" call to have been called with [ Array(1) ]",
+          "status": "Killed",
+          "testsCompleted": 1,
+          "static": false,
+          "killedBy": [
+            "23"
+          ],
+          "coveredBy": [
+            "23",
+            "26"
+          ],
+          "location": {
+            "end": {
+              "column": 47,
+              "line": 275
+            },
+            "start": {
+              "column": 13,
+              "line": 274
+            }
+          }
+        },
+        {
+          "id": "110",
+          "mutatorName": "LogicalOperator",
+          "replacement": "message.includes('4 DEADLINE_EXCEEDED') && message.includes('14 UNAVAILABLE')",
+          "statusReason": "expected 2nd \"log\" call to have been called with [ Array(1) ]",
+          "status": "Killed",
+          "testsCompleted": 1,
+          "static": false,
+          "killedBy": [
+            "23"
+          ],
+          "coveredBy": [
+            "23",
+            "26"
+          ],
+          "location": {
+            "end": {
+              "column": 47,
+              "line": 275
+            },
+            "start": {
+              "column": 13,
+              "line": 274
+            }
+          }
+        },
+        {
+          "id": "111",
+          "mutatorName": "StringLiteral",
+          "replacement": "\"\"",
+          "statusReason": "expected 3rd \"log\" call to have been called with [ Array(1) ]",
+          "status": "Killed",
+          "testsCompleted": 1,
+          "static": false,
+          "killedBy": [
+            "23"
+          ],
+          "coveredBy": [
+            "23",
+            "26"
+          ],
+          "location": {
+            "end": {
+              "column": 51,
+              "line": 274
+            },
+            "start": {
+              "column": 30,
+              "line": 274
+            }
+          }
+        },
+        {
+          "id": "112",
+          "mutatorName": "StringLiteral",
+          "replacement": "\"\"",
+          "statusReason": "expected 3rd \"log\" call to have been called with [ Array(1) ]",
+          "status": "Killed",
+          "testsCompleted": 1,
+          "static": false,
+          "killedBy": [
+            "23"
+          ],
+          "coveredBy": [
+            "23",
+            "26"
+          ],
+          "location": {
+            "end": {
+              "column": 46,
+              "line": 275
+            },
+            "start": {
+              "column": 30,
+              "line": 275
+            }
+          }
+        },
+        {
+          "id": "113",
+          "mutatorName": "BlockStatement",
+          "replacement": "{}",
+          "statusReason": "expected 1st \"log\" call to have been called with [ Array(1) ], but called only 0 times",
+          "status": "Killed",
+          "testsCompleted": 1,
+          "static": false,
+          "killedBy": [
+            "27"
+          ],
+          "coveredBy": [
+            "27",
+            "28"
+          ],
+          "location": {
+            "end": {
+              "column": 6,
+              "line": 290
+            },
+            "start": {
+              "column": 65,
+              "line": 285
+            }
+          }
+        },
+        {
+          "id": "114",
+          "mutatorName": "ConditionalExpression",
+          "replacement": "true",
+          "statusReason": "expected \"log\" to be called +0 times, but got 1 times",
+          "status": "Killed",
+          "testsCompleted": 1,
+          "static": false,
+          "killedBy": [
+            "27"
+          ],
+          "coveredBy": [
+            "27",
+            "28"
+          ],
+          "location": {
+            "end": {
+              "column": 54,
+              "line": 288
+            },
+            "start": {
+              "column": 13,
+              "line": 287
+            }
+          }
+        },
+        {
+          "id": "115",
+          "mutatorName": "ConditionalExpression",
+          "replacement": "false",
+          "statusReason": "expected 1st \"log\" call to have been called with [ Array(1) ], but called only 0 times",
+          "status": "Killed",
+          "testsCompleted": 1,
+          "static": false,
+          "killedBy": [
+            "27"
+          ],
+          "coveredBy": [
+            "27",
+            "28"
+          ],
+          "location": {
+            "end": {
+              "column": 54,
+              "line": 288
+            },
+            "start": {
+              "column": 13,
+              "line": 287
+            }
+          }
+        },
+        {
+          "id": "116",
+          "mutatorName": "LogicalOperator",
+          "replacement": "typeof arguments_[0] === 'string' || arguments_[0].includes('incomingRequest')",
+          "statusReason": "arguments_[0].includes is not a function",
+          "status": "Killed",
+          "testsCompleted": 1,
+          "static": false,
+          "killedBy": [
+            "27"
+          ],
+          "coveredBy": [
+            "27",
+            "28"
+          ],
+          "location": {
+            "end": {
+              "column": 54,
+              "line": 288
+            },
+            "start": {
+              "column": 13,
+              "line": 287
+            }
+          }
+        },
+        {
+          "id": "117",
+          "mutatorName": "ConditionalExpression",
+          "replacement": "true",
+          "statusReason": "arguments_[0].includes is not a function",
+          "status": "Killed",
+          "testsCompleted": 1,
+          "static": false,
+          "killedBy": [
+            "27"
+          ],
+          "coveredBy": [
+            "27",
+            "28"
+          ],
+          "location": {
+            "end": {
+              "column": 46,
+              "line": 287
+            },
+            "start": {
+              "column": 13,
+              "line": 287
+            }
+          }
+        },
+        {
+          "id": "118",
+          "mutatorName": "EqualityOperator",
+          "replacement": "typeof arguments_[0] !== 'string'",
+          "statusReason": "arguments_[0].includes is not a function",
+          "status": "Killed",
+          "testsCompleted": 1,
+          "static": false,
+          "killedBy": [
+            "27"
+          ],
+          "coveredBy": [
+            "27",
+            "28"
+          ],
+          "location": {
+            "end": {
+              "column": 46,
+              "line": 287
+            },
+            "start": {
+              "column": 13,
+              "line": 287
+            }
+          }
+        },
+        {
+          "id": "119",
+          "mutatorName": "StringLiteral",
+          "replacement": "\"\"",
+          "statusReason": "expected 1st \"log\" call to have been called with [ Array(1) ], but called only 0 times",
+          "status": "Killed",
+          "testsCompleted": 1,
+          "static": false,
+          "killedBy": [
+            "27"
+          ],
+          "coveredBy": [
+            "27",
+            "28"
+          ],
+          "location": {
+            "end": {
+              "column": 46,
+              "line": 287
+            },
+            "start": {
+              "column": 38,
+              "line": 287
+            }
+          }
+        },
+        {
+          "id": "120",
+          "mutatorName": "StringLiteral",
+          "replacement": "\"\"",
+          "statusReason": "expected true to be false // Object.is equality",
+          "status": "Killed",
+          "testsCompleted": 1,
+          "static": false,
+          "killedBy": [
+            "27"
+          ],
+          "coveredBy": [
+            "27",
+            "28"
+          ],
+          "location": {
+            "end": {
+              "column": 53,
+              "line": 288
+            },
+            "start": {
+              "column": 36,
+              "line": 288
+            }
+          }
+        },
+        {
+          "id": "126",
+          "mutatorName": "BlockStatement",
+          "replacement": "{}",
+          "statusReason": "expected 2nd \"log\" call to have been called with [ Array(1) ]",
+          "status": "Killed",
+          "testsCompleted": 1,
+          "static": false,
+          "killedBy": [
+            "24"
+          ],
+          "coveredBy": [
+            "24"
+          ],
+          "location": {
+            "end": {
+              "column": 6,
+              "line": 311
+            },
+            "start": {
+              "column": 59,
+              "line": 309
+            }
+          }
+        },
+        {
+          "id": "127",
+          "mutatorName": "StringLiteral",
+          "replacement": "\"\"",
+          "statusReason": "expected 3rd \"log\" call to have been called with [ Array(1) ]",
+          "status": "Killed",
+          "testsCompleted": 1,
+          "static": false,
+          "killedBy": [
+            "24"
+          ],
+          "coveredBy": [
+            "24"
+          ],
+          "location": {
+            "end": {
+              "column": 66,
+              "line": 310
+            },
+            "start": {
+              "column": 33,
+              "line": 310
+            }
+          }
+        },
+        {
+          "id": "122",
+          "mutatorName": "ConditionalExpression",
+          "replacement": "true",
+          "statusReason": "expected true to be false // Object.is equality",
+          "status": "Killed",
+          "static": false,
+          "testsCompleted": 16,
+          "killedBy": [
+            "37"
+          ],
+          "coveredBy": [
+            "21",
+            "22",
+            "23",
+            "24",
+            "25",
+            "27",
+            "28",
+            "29",
+            "30",
+            "31",
+            "32",
+            "33",
+            "34",
+            "35",
+            "36",
+            "37",
+            "38",
+            "39",
+            "40",
+            "41",
+            "42",
+            "43",
+            "44",
+            "45",
+            "46",
+            "47",
+            "48",
+            "49",
+            "50",
+            "51",
+            "52",
+            "53",
+            "54",
+            "55",
+            "56",
+            "57",
+            "58",
+            "59",
+            "60",
+            "61",
+            "62",
+            "63",
+            "64",
+            "65",
+            "66",
+            "67",
+            "68",
+            "69",
+            "70",
+            "71"
+          ],
+          "location": {
+            "end": {
+              "column": 55,
+              "line": 300
+            },
+            "start": {
+              "column": 16,
+              "line": 299
+            }
+          }
+        },
+        {
+          "id": "121",
+          "mutatorName": "BlockStatement",
+          "replacement": "{}",
+          "statusReason": "expected 1st \"log\" call to have been called with [ Array(1) ], but called only 0 times",
+          "status": "Killed",
+          "static": false,
+          "testsCompleted": 1,
+          "killedBy": [
+            "21"
+          ],
+          "coveredBy": [
+            "21",
+            "22",
+            "23",
+            "24",
+            "25",
+            "27",
+            "28",
+            "29",
+            "30",
+            "31",
+            "32",
+            "33",
+            "34",
+            "35",
+            "36",
+            "37",
+            "38",
+            "39",
+            "40",
+            "41",
+            "42",
+            "43",
+            "44",
+            "45",
+            "46",
+            "47",
+            "48",
+            "49",
+            "50",
+            "51",
+            "52",
+            "53",
+            "54",
+            "55",
+            "56",
+            "57",
+            "58",
+            "59",
+            "60",
+            "61",
+            "62",
+            "63",
+            "64",
+            "65",
+            "66",
+            "67",
+            "68",
+            "69",
+            "70",
+            "71"
+          ],
+          "location": {
+            "end": {
+              "column": 6,
+              "line": 301
+            },
+            "start": {
+              "column": 61,
+              "line": 297
+            }
+          }
+        },
+        {
+          "id": "123",
+          "mutatorName": "ConditionalExpression",
+          "replacement": "false",
+          "statusReason": "expected 1st \"log\" call to have been called with [ Array(1) ], but called only 0 times",
+          "status": "Killed",
+          "static": false,
+          "testsCompleted": 1,
+          "killedBy": [
+            "21"
+          ],
+          "coveredBy": [
+            "21",
+            "22",
+            "23",
+            "24",
+            "25",
+            "27",
+            "28",
+            "29",
+            "30",
+            "31",
+            "32",
+            "33",
+            "34",
+            "35",
+            "36",
+            "37",
+            "38",
+            "39",
+            "40",
+            "41",
+            "42",
+            "43",
+            "44",
+            "45",
+            "46",
+            "47",
+            "48",
+            "49",
+            "50",
+            "51",
+            "52",
+            "53",
+            "54",
+            "55",
+            "56",
+            "57",
+            "58",
+            "59",
+            "60",
+            "61",
+            "62",
+            "63",
+            "64",
+            "65",
+            "66",
+            "67",
+            "68",
+            "69",
+            "70",
+            "71"
+          ],
+          "location": {
+            "end": {
+              "column": 55,
+              "line": 300
+            },
+            "start": {
+              "column": 16,
+              "line": 299
+            }
+          }
+        },
+        {
+          "id": "124",
+          "mutatorName": "EqualityOperator",
+          "replacement": "logLevelByScope.indexOf(logLevel) > logLevelByScope.indexOf(minLogLevel)",
+          "statusReason": "expected 1st \"log\" call to have been called with [ Array(1) ], but called only 0 times",
+          "status": "Killed",
+          "static": false,
+          "testsCompleted": 7,
+          "killedBy": [
+            "28"
+          ],
+          "coveredBy": [
+            "21",
+            "22",
+            "23",
+            "24",
+            "25",
+            "27",
+            "28",
+            "29",
+            "30",
+            "31",
+            "32",
+            "33",
+            "34",
+            "35",
+            "36",
+            "37",
+            "38",
+            "39",
+            "40",
+            "41",
+            "42",
+            "43",
+            "44",
+            "45",
+            "46",
+            "47",
+            "48",
+            "49",
+            "50",
+            "51",
+            "52",
+            "53",
+            "54",
+            "55",
+            "56",
+            "57",
+            "58",
+            "59",
+            "60",
+            "61",
+            "62",
+            "63",
+            "64",
+            "65",
+            "66",
+            "67",
+            "68",
+            "69",
+            "70",
+            "71"
+          ],
+          "location": {
+            "end": {
+              "column": 55,
+              "line": 300
+            },
+            "start": {
+              "column": 16,
+              "line": 299
+            }
+          }
+        },
+        {
+          "id": "125",
+          "mutatorName": "EqualityOperator",
+          "replacement": "logLevelByScope.indexOf(logLevel) < logLevelByScope.indexOf(minLogLevel)",
+          "statusReason": "expected 1st \"log\" call to have been called with [ Array(1) ], but called only 0 times",
+          "status": "Killed",
+          "static": false,
+          "testsCompleted": 1,
+          "killedBy": [
+            "21"
+          ],
+          "coveredBy": [
+            "21",
+            "22",
+            "23",
+            "24",
+            "25",
+            "27",
+            "28",
+            "29",
+            "30",
+            "31",
+            "32",
+            "33",
+            "34",
+            "35",
+            "36",
+            "37",
+            "38",
+            "39",
+            "40",
+            "41",
+            "42",
+            "43",
+            "44",
+            "45",
+            "46",
+            "47",
+            "48",
+            "49",
+            "50",
+            "51",
+            "52",
+            "53",
+            "54",
+            "55",
+            "56",
+            "57",
+            "58",
+            "59",
+            "60",
+            "61",
+            "62",
+            "63",
+            "64",
+            "65",
+            "66",
+            "67",
+            "68",
+            "69",
+            "70",
+            "71"
+          ],
+          "location": {
+            "end": {
+              "column": 55,
+              "line": 300
+            },
+            "start": {
+              "column": 16,
+              "line": 299
+            }
+          }
+        }
+      ],
+      "source": "import { DiagLogger } from '@opentelemetry/api'\nimport { Console } from 'node:console'\nimport { inspect } from 'node:util'\n\nexport const loggerConsole: Console = new Console(\n    process.stdout,\n    process.stderr,\n    false,\n)\n\nexport enum LogLevel {\n    debug = 'DEBUG',\n    error = 'ERROR',\n    info = 'INFO',\n    off = 'OFF',\n    warn = 'WARN',\n    verbose = 'VERBOSE',\n}\n\nconst logLevelByScope = [\n    undefined,\n    LogLevel.off,\n    LogLevel.verbose,\n    LogLevel.debug,\n    LogLevel.info,\n    LogLevel.warn,\n    LogLevel.error,\n]\n\nexport interface LogEntry {\n    logger: string\n    timestamp: string\n    message: string\n    level: LogLevel\n    serviceName: string\n}\n\nexport interface LogEntryInput {\n    message: string\n    logArguments: unknown[]\n    loglevel: LogLevel\n}\n\n/**\n * Logger options to define behavior of logger\n * @param {string} loggerName - The logger name of the logger.\n * Will be output to \"logger\" field in JSON.\n * @param {string} serviceName - The service name of the logger.\n * Will be output to \"serviceName\" field in JSON.\n * @param {boolean} logFirstIncomingRequest - If true, the first incoming request will be logged.\n * Other messages on debug level will be log if monLogLevel is set to debug or higher. Default: false.\n * Note: If you use diag.setLogger ensure that at least \"LogLevel.debug\" is set,\n * otherwise the message will be ignored.\n * @param {LogLevel} logLevelForAsyncAttributeError - The log level to use\n * for the message \"Accessing resource attributes before async attributes settled\".\n * These errors might not be relevant enough to log them on error level.\n * @param {LogLevel} logLevelForRegisterGlobalMessages - The log level to use\n * for messages \"... Registered a global ...\". These are helpful to check if OTEL is running properly\n * but are logged on debug level by default. Increase this log level to see these messages.\n * @param {LogLevel} logLevelForServiceRequestErrorMessages - The log level to use\n * for error messages \"Service request\". These contain request information that might not be logged\n * on error level.\n * @param {LogLevel} logLevelForTimeoutErrorMessages - The log level to use\n * for Timeout related messages. These might be of short nature and be downgraded or ignored.\n * @param {LogLevel} logLevelForVerbose - The log level to use for verbose log entries.\n * @param {LogLevel} minLogLevel - The minimum log level to use.\n * Default: Does not check for min LogLevel.\n * @param {number} truncateLimit - The length of the message before the message gets truncated.\n * Default: undefined/0 (off).\n * @param {string} truncatedText - The text to display if a message is truncated.\n */\nexport interface LoggerOptions {\n    loggerName: string\n    serviceName: string\n    logFirstIncomingRequest?: boolean\n    logLevelForAsyncAttributeError?: LogLevel\n    logLevelForRegisterGlobalMessages?: LogLevel\n    logLevelForServiceRequestErrorMessages?: LogLevel\n    logLevelForTimeoutErrorMessages?: LogLevel\n    logLevelForVerbose?: LogLevel\n    minLogLevel?: LogLevel\n    truncateLimit?: number\n    truncatedText?: string\n}\n\n/**\n * Logger implementation that outputs log entries as JSON text to console.\n * Can be useful for log aggregation tools.\n */\nexport class JsonDiagLogger implements DiagLogger {\n    loggerOptions: LoggerOptions\n    firstIncomingRequestLogged: boolean = false\n\n    /**\n     * Creates a new instance of Logger.\n     * @param {LoggerOptions} options - The logger options to be used\n     */\n    constructor(options: LoggerOptions) {\n        this.loggerOptions = options\n    }\n\n    /**\n     * Sets the loggerOptions to the provided values\n     * @param {LoggerOptions} options - The logger options to be used\n     */\n    setOptions(options: LoggerOptions): void {\n        this.loggerOptions = options\n    }\n\n    debug(message: string, ...arguments_: unknown[]): void {\n        if (\n            this.loggerOptions.logLevelForRegisterGlobalMessages &&\n            message.includes('Registered a global')\n        ) {\n            this.logMessage({\n                message,\n                logArguments: arguments_,\n                loglevel: this.loggerOptions.logLevelForRegisterGlobalMessages,\n            })\n        } else if (this.loggerOptions.logFirstIncomingRequest) {\n            if (\n                !this.firstIncomingRequestLogged &&\n                this.isIncomingRequestLogMessage(arguments_)\n            ) {\n                this.logMessage({\n                    message: 'First incoming request',\n                    logArguments: [],\n                    loglevel: LogLevel.info,\n                })\n                this.firstIncomingRequestLogged = true\n            } else if (\n                this.loggerOptions.minLogLevel &&\n                this.isEqualOrHigherMinLogLevel(\n                    this.loggerOptions.minLogLevel,\n                ) &&\n                !this.isIncomingRequestLogMessage(arguments_)\n            ) {\n                this.logMessage({\n                    message,\n                    logArguments: arguments_,\n                    loglevel: LogLevel.debug,\n                })\n            }\n        } else {\n            this.logMessage({\n                message,\n                logArguments: arguments_,\n                loglevel: LogLevel.debug,\n            })\n        }\n    }\n\n    error(message: string, ...arguments_: unknown[]): void {\n        let logLevel\n        if (\n            this.loggerOptions.logLevelForServiceRequestErrorMessages &&\n            message === 'Service request'\n        ) {\n            logLevel = this.loggerOptions.logLevelForServiceRequestErrorMessages\n        } else if (\n            this.loggerOptions.logLevelForTimeoutErrorMessages &&\n            this.containsTimeout(message)\n        ) {\n            logLevel = this.loggerOptions.logLevelForTimeoutErrorMessages\n        } else if (\n            this.loggerOptions.logLevelForAsyncAttributeError &&\n            this.containsAsyncAttributeError(message)\n        ) {\n            logLevel = this.loggerOptions.logLevelForAsyncAttributeError\n        } else {\n            logLevel = LogLevel.error\n        }\n\n        this.logMessage({\n            message,\n            logArguments: arguments_,\n            loglevel: logLevel,\n        })\n    }\n\n    info(message: string, ...arguments_: unknown[]): void {\n        this.logMessage({\n            message,\n            logArguments: arguments_,\n            loglevel: LogLevel.info,\n        })\n    }\n\n    verbose(message: string, ...arguments_: unknown[]): void {\n        this.logMessage({\n            message,\n            logArguments: arguments_,\n            loglevel: this.loggerOptions.logLevelForVerbose ?? LogLevel.verbose,\n        })\n    }\n\n    warn(message: string, ...arguments_: unknown[]): void {\n        this.logMessage({\n            message,\n            logArguments: arguments_,\n            loglevel: LogLevel.warn,\n        })\n    }\n\n    logMessage(logEntryInput: LogEntryInput): void {\n        if (\n            logEntryInput.loglevel !== LogLevel.off &&\n            this.isEqualOrHigherMinLogLevel(logEntryInput.loglevel)\n        ) {\n            loggerConsole.log(\n                JSON.stringify(this.createLogEntry(logEntryInput)),\n            )\n        }\n    }\n\n    createLogEntry(logEntryInput: LogEntryInput): LogEntry {\n        const { message, logArguments, loglevel } = logEntryInput\n\n        const { truncateLimit, truncatedText, loggerName, serviceName } =\n            this.loggerOptions\n\n        let logMessage =\n            this.formatMessage(message) +\n            `. Log arguments are: ${inspect(logArguments, { depth: 20 })}`\n        const truncatedTextToUse = truncatedText ?? '_TRUNCATED_'\n        if (\n            truncateLimit &&\n            // Stryker disable next-line all - Does not matters\n            truncateLimit > 0 &&\n            logMessage.length > truncateLimit + truncatedTextToUse.length\n        ) {\n            logMessage =\n                truncateLimit > truncatedTextToUse.length\n                    ? logMessage.slice(\n                          0,\n                          truncateLimit - truncatedTextToUse.length,\n                      ) + truncatedTextToUse\n                    : logMessage.slice(0, truncateLimit)\n        }\n\n        return {\n            level: loglevel,\n            logger: loggerName,\n            message: logMessage,\n            serviceName: serviceName,\n            timestamp: new Date().toISOString(),\n        }\n    }\n\n    /**\n     * Formats the message. If message contains object or array wrap it in\n     * JSON.stringify to avoid these being interpreted as JSON objects.\n     * @param {message} string - The original message\n     * @returns {string} the formatted message\n     */\n    formatMessage(message: string): string {\n        if (\n            message &&\n            (message.indexOf('{') === 0 || message.indexOf('[') === 0)\n        ) {\n            return `'${message}'`\n        }\n        return message\n    }\n\n    /**\n     * Check if the message contains a Timeout information like \"4 DEADLINE_EXCEEDED\"\n     * or \"14 UNAVAILABLE\"\n     * @param {message} string - The original message\n     * @returns {boolean} true if the message contains a Timeout information\n     */\n    containsTimeout(message: string): boolean {\n        return (\n            message.includes('4 DEADLINE_EXCEEDED') ||\n            message.includes('14 UNAVAILABLE')\n        )\n    }\n\n    /**\n     * Checks if the arguments are part of an incomingRequest message,\n     * i.e. the first argument contains the text 'incomingRequest'\n     * @param {unknown[]} arguments_ - The log arguments\n     * @returns {boolean} true if the message arguments are part of an incomingRequest message\n     */\n    isIncomingRequestLogMessage(arguments_: unknown[]): boolean {\n        return (\n            typeof arguments_[0] === 'string' &&\n            arguments_[0].includes('incomingRequest')\n        )\n    }\n\n    /**\n     * Checks if the log level is equal or higher than the minimum log level\n     * @param {LogLevel} logLevel - The log level to check\n     * @returns {boolean} true if the log level is equal or higher than the minimum log level\n     */\n    isEqualOrHigherMinLogLevel(logLevel: LogLevel): boolean {\n        const { minLogLevel } = this.loggerOptions\n        return logLevelByScope.indexOf(logLevel) >=\n                  logLevelByScope.indexOf(minLogLevel)\n    }\n\n    /**\n     * Check if the message contains an async attribute error\n     * like \"Accessing resource attributes before async attributes settled\"\n     * @param {message} string - The original message\n     * @returns {boolean} true if the message contains an async attribute error\n     */\n    containsAsyncAttributeError(message: string): boolean {\n        return message.includes('before async attributes settled')\n    }\n}\n"
+    }
+  },
+  "schemaVersion": "1.0",
+  "thresholds": {
+    "high": 80,
+    "low": 60,
+    "break": null
+  },
+  "testFiles": {
+    "tests/index.test.ts": {
+      "tests": [
+        {
+          "id": "0",
+          "name": "expects a correct logEntry is created for given undefined , undefined and 'VERBOSE'"
+        },
+        {
+          "id": "1",
+          "name": "expects a correct logEntry is created for given 'I am a log message!' , undefined and 'INFO'"
+        },
+        {
+          "id": "2",
+          "name": "expects a correct logEntry is created for given 'I am a log message!' , 1 and 'WARN'"
+        },
+        {
+          "id": "3",
+          "name": "expects a correct logEntry is created for given 'I am a log message!' , [ 1, 'test' ] and 'ERROR'"
+        },
+        {
+          "id": "4",
+          "name": "expects a correct logEntry is created for given '' , [] and 'DEBUG'"
+        },
+        {
+          "id": "5",
+          "name": "expects a correct logEntry is created for given '{context: {info:\"something\"}}' , undefined and 'INFO'"
+        },
+        {
+          "id": "6",
+          "name": "expects a correct logEntry is created for given '[\"one\", \"two\"]' , undefined and 'INFO'"
+        },
+        {
+          "id": "7",
+          "name": "expects a correct logEntry is created for given 'I am a log message!' , [ { context: { info: 'something' } } ] and 'WARN'"
+        },
+        {
+          "id": "8",
+          "name": "expects a correct logEntry is created for given 'I am a log message!' , [ 1, 'test', [ 1, 'test', …(1) ] ] and 'WARN'"
+        },
+        {
+          "id": "9",
+          "name": "expects a correct logEntry is created for given 'I am a log message!' , { one: { two: { three: { …(1) } } } } and 'INFO'"
+        },
+        {
+          "id": "10",
+          "name": "expects a correct logEntry is created for given '{\"one\":{\"two\":{\"three\":{\"message\":\"te…' , [ 1, 'test' ] and 'INFO'"
+        },
+        {
+          "id": "11",
+          "name": "expects the log message to be truncated correctly for given '{\"stack\":\"Error: 14 UNAVAILABLE: No c…' , undefined and undefined"
+        },
+        {
+          "id": "12",
+          "name": "expects the log message to be truncated correctly for given '{\"stack\":\"Error: 14 UNAVAILABLE: No c…' , undefined and 20"
+        },
+        {
+          "id": "13",
+          "name": "expects the log message to be truncated correctly for given '{\"stack\":\"Error: 14 UNAVAILABLE: No c…' , '_TRUNC_' and 20"
+        },
+        {
+          "id": "14",
+          "name": "expects the log message to be truncated correctly for given '{\"stack\":\"Error: 14 UNAVAILABLE: No c…' , undefined and 2"
+        },
+        {
+          "id": "15",
+          "name": "expects the log message to be truncated correctly for given '{\"stack\":\"Error: 14 UNAVAILABLE: No c…' , undefined and 2000"
+        },
+        {
+          "id": "16",
+          "name": "expects the log message to be truncated correctly for given '{\"stack\":\"Error: 14 UNAVAILABLE: No c…' , undefined and 73"
+        },
+        {
+          "id": "17",
+          "name": "expects the log message to be truncated correctly for given '{\"stack\":\"Error: 14 UNAVAILABLE: No c…' , undefined and 72"
+        },
+        {
+          "id": "18",
+          "name": "expects the log message to be truncated correctly for given '{\"stack\":\"Error: 14 UNAVAILABLE: No c…' , undefined and +0"
+        },
+        {
+          "id": "19",
+          "name": "expects the log message to be truncated correctly for given '{\"stack\":\"Error: 14 UNAVAILABLE: No c…' , undefined and -2"
+        },
+        {
+          "id": "20",
+          "name": "expects the log message to be truncated correctly for given '{\"stack\":\"Error: 14 UNAVAILABLE: No c…' , '_TRUNC_' and 7"
+        },
+        {
+          "id": "21",
+          "name": "Logger writes expected output to command line Test DiagLogger interface functions"
+        },
+        {
+          "id": "22",
+          "name": "Logger writes expected output to command line Test Service Request error message logging"
+        },
+        {
+          "id": "23",
+          "name": "Logger writes expected output to command line Test Timeout error message logging"
+        },
+        {
+          "id": "24",
+          "name": "Logger writes expected output to command line Test async attribute error message logging"
+        },
+        {
+          "id": "25",
+          "name": "Logger writes expected output to command line Test downgrading and ignoring verbose message"
+        },
+        {
+          "id": "26",
+          "name": "Logger writes expected output to command line Test downgrading and ignoring error messages"
+        },
+        {
+          "id": "27",
+          "name": "Logger writes expected output to command line Test logging only first incoming message and no other debug messages"
+        },
+        {
+          "id": "28",
+          "name": "Logger writes expected output to command line Test logging only first incoming message and other debug messages if minLogLevel is  debug or higher"
+        },
+        {
+          "id": "29",
+          "name": "Logger writes expected output to command line Test logging registered global message on info level"
+        },
+        {
+          "id": "30",
+          "name": "expects for logLevel 'DEBUG' and minLogLevel undefined be calculated correctly true"
+        },
+        {
+          "id": "31",
+          "name": "expects for logLevel 'ERROR' and minLogLevel undefined be calculated correctly true"
+        },
+        {
+          "id": "32",
+          "name": "expects for logLevel 'INFO' and minLogLevel undefined be calculated correctly true"
+        },
+        {
+          "id": "33",
+          "name": "expects for logLevel 'OFF' and minLogLevel undefined be calculated correctly true"
+        },
+        {
+          "id": "34",
+          "name": "expects for logLevel 'VERBOSE' and minLogLevel undefined be calculated correctly true"
+        },
+        {
+          "id": "35",
+          "name": "expects for logLevel 'WARN' and minLogLevel undefined be calculated correctly true"
+        },
+        {
+          "id": "36",
+          "name": "expects for logLevel 'DEBUG' and minLogLevel 'DEBUG' be calculated correctly true"
+        },
+        {
+          "id": "37",
+          "name": "expects for logLevel 'DEBUG' and minLogLevel 'ERROR' be calculated correctly false"
+        },
+        {
+          "id": "38",
+          "name": "expects for logLevel 'DEBUG' and minLogLevel 'INFO' be calculated correctly false"
+        },
+        {
+          "id": "39",
+          "name": "expects for logLevel 'DEBUG' and minLogLevel 'OFF' be calculated correctly true"
+        },
+        {
+          "id": "40",
+          "name": "expects for logLevel 'DEBUG' and minLogLevel 'VERBOSE' be calculated correctly true"
+        },
+        {
+          "id": "41",
+          "name": "expects for logLevel 'DEBUG' and minLogLevel 'WARN' be calculated correctly false"
+        },
+        {
+          "id": "42",
+          "name": "expects for logLevel 'ERROR' and minLogLevel 'DEBUG' be calculated correctly true"
+        },
+        {
+          "id": "43",
+          "name": "expects for logLevel 'ERROR' and minLogLevel 'ERROR' be calculated correctly true"
+        },
+        {
+          "id": "44",
+          "name": "expects for logLevel 'ERROR' and minLogLevel 'INFO' be calculated correctly true"
+        },
+        {
+          "id": "45",
+          "name": "expects for logLevel 'ERROR' and minLogLevel 'OFF' be calculated correctly true"
+        },
+        {
+          "id": "46",
+          "name": "expects for logLevel 'ERROR' and minLogLevel 'VERBOSE' be calculated correctly true"
+        },
+        {
+          "id": "47",
+          "name": "expects for logLevel 'ERROR' and minLogLevel 'WARN' be calculated correctly true"
+        },
+        {
+          "id": "48",
+          "name": "expects for logLevel 'INFO' and minLogLevel 'DEBUG' be calculated correctly true"
+        },
+        {
+          "id": "49",
+          "name": "expects for logLevel 'INFO' and minLogLevel 'ERROR' be calculated correctly false"
+        },
+        {
+          "id": "50",
+          "name": "expects for logLevel 'INFO' and minLogLevel 'INFO' be calculated correctly true"
+        },
+        {
+          "id": "51",
+          "name": "expects for logLevel 'INFO' and minLogLevel 'OFF' be calculated correctly true"
+        },
+        {
+          "id": "52",
+          "name": "expects for logLevel 'INFO' and minLogLevel 'VERBOSE' be calculated correctly true"
+        },
+        {
+          "id": "53",
+          "name": "expects for logLevel 'INFO' and minLogLevel 'WARN' be calculated correctly false"
+        },
+        {
+          "id": "54",
+          "name": "expects for logLevel 'OFF' and minLogLevel 'DEBUG' be calculated correctly false"
+        },
+        {
+          "id": "55",
+          "name": "expects for logLevel 'OFF' and minLogLevel 'ERROR' be calculated correctly false"
+        },
+        {
+          "id": "56",
+          "name": "expects for logLevel 'OFF' and minLogLevel 'INFO' be calculated correctly false"
+        },
+        {
+          "id": "57",
+          "name": "expects for logLevel 'OFF' and minLogLevel 'OFF' be calculated correctly true"
+        },
+        {
+          "id": "58",
+          "name": "expects for logLevel 'OFF' and minLogLevel 'VERBOSE' be calculated correctly false"
+        },
+        {
+          "id": "59",
+          "name": "expects for logLevel 'OFF' and minLogLevel 'WARN' be calculated correctly false"
+        },
+        {
+          "id": "60",
+          "name": "expects for logLevel 'VERBOSE' and minLogLevel 'DEBUG' be calculated correctly false"
+        },
+        {
+          "id": "61",
+          "name": "expects for logLevel 'VERBOSE' and minLogLevel 'ERROR' be calculated correctly false"
+        },
+        {
+          "id": "62",
+          "name": "expects for logLevel 'VERBOSE' and minLogLevel 'INFO' be calculated correctly false"
+        },
+        {
+          "id": "63",
+          "name": "expects for logLevel 'VERBOSE' and minLogLevel 'OFF' be calculated correctly true"
+        },
+        {
+          "id": "64",
+          "name": "expects for logLevel 'VERBOSE' and minLogLevel 'VERBOSE' be calculated correctly true"
+        },
+        {
+          "id": "65",
+          "name": "expects for logLevel 'VERBOSE' and minLogLevel 'WARN' be calculated correctly false"
+        },
+        {
+          "id": "66",
+          "name": "expects for logLevel 'WARN' and minLogLevel 'DEBUG' be calculated correctly true"
+        },
+        {
+          "id": "67",
+          "name": "expects for logLevel 'WARN' and minLogLevel 'ERROR' be calculated correctly false"
+        },
+        {
+          "id": "68",
+          "name": "expects for logLevel 'WARN' and minLogLevel 'INFO' be calculated correctly true"
+        },
+        {
+          "id": "69",
+          "name": "expects for logLevel 'WARN' and minLogLevel 'OFF' be calculated correctly true"
+        },
+        {
+          "id": "70",
+          "name": "expects for logLevel 'WARN' and minLogLevel 'VERBOSE' be calculated correctly true"
+        },
+        {
+          "id": "71",
+          "name": "expects for logLevel 'WARN' and minLogLevel 'WARN' be calculated correctly true"
+        }
+      ],
+      "source": "/* eslint-disable max-len */\nimport { JsonDiagLogger, LogLevel, loggerConsole } from '@/index'\nimport { afterEach, beforeEach, describe, expect, test, vi } from 'vitest'\n\nconst logger = new JsonDiagLogger({\n    loggerName: 'test-logger',\n    serviceName: 'test-service',\n})\nconst testMessage = 'I am a log message!'\nconst timeoutMessage =\n    '{\"stack\":\"Error: 14 UNAVAILABLE: No connection established}'\nconst asyncAttributeErrorMessage =\n    'Accessing resource attributes before async attributes settled'\nconst circularStructure: unknown[] = [1, 'test']\ncircularStructure.push(circularStructure)\nconst complexObject = { one: { two: { three: { message: 'test' } } } }\n\ntest.each`\n    message                            | logArguments                            | loglevel            | expectedLogMessage                                                                           | expectedLogLevel\n    ${undefined}                       | ${undefined}                            | ${LogLevel.verbose} | ${undefined + '. Log arguments are: undefined'}                                              | ${LogLevel.verbose}\n    ${testMessage}                     | ${undefined}                            | ${LogLevel.info}    | ${testMessage + '. Log arguments are: undefined'}                                            | ${LogLevel.info}\n    ${testMessage}                     | ${1}                                    | ${LogLevel.warn}    | ${testMessage + '. Log arguments are: 1'}                                                    | ${LogLevel.warn}\n    ${testMessage}                     | ${[1, 'test']}                          | ${LogLevel.error}   | ${testMessage + \". Log arguments are: [ 1, 'test' ]\"}                                        | ${LogLevel.error}\n    ${''}                              | ${[]}                                   | ${LogLevel.debug}   | ${'. Log arguments are: []'}                                                                 | ${LogLevel.debug}\n    ${'{context: {info:\"something\"}}'} | ${undefined}                            | ${LogLevel.info}    | ${'\\'{context: {info:\"something\"}}\\'. Log arguments are: undefined'}                         | ${LogLevel.info}\n    ${'[\"one\", \"two\"]'}                | ${undefined}                            | ${LogLevel.info}    | ${'\\'[\"one\", \"two\"]\\'. Log arguments are: undefined'}                                        | ${LogLevel.info}\n    ${testMessage}                     | ${[{ context: { info: 'something' } }]} | ${LogLevel.warn}    | ${testMessage + \". Log arguments are: [ { context: { info: 'something' } } ]\"}               | ${LogLevel.warn}\n    ${testMessage}                     | ${circularStructure}                    | ${LogLevel.warn}    | ${testMessage + \". Log arguments are: <ref *1> [ 1, 'test', [Circular *1] ]\"}                | ${LogLevel.warn}\n    ${testMessage}                     | ${complexObject}                        | ${LogLevel.info}    | ${testMessage + \". Log arguments are: {\\n  one: { two: { three: { message: 'test' } } }\\n}\"} | ${LogLevel.info}\n    ${JSON.stringify(complexObject)}   | ${[1, 'test']}                          | ${LogLevel.info}    | ${'\\'{\"one\":{\"two\":{\"three\":{\"message\":\"test\"}}}}\\'. Log arguments are: [ 1, \\'test\\' ]'}    | ${LogLevel.info}\n`(\n    'expects a correct logEntry is created for given $message , $logArguments and $loglevel ',\n    ({\n        message,\n        logArguments,\n        loglevel,\n        expectedLogMessage,\n        expectedLogLevel,\n    }) => {\n        const logEntry = logger.createLogEntry({\n            message,\n            logArguments,\n            loglevel,\n        })\n        expect(logEntry.message).toBe(expectedLogMessage)\n        expect(logEntry.level).toBe(expectedLogLevel)\n        expect(logEntry.logger).toBe('test-logger')\n        expect(logEntry.serviceName).toBe('test-service')\n    },\n)\n\ntest.each`\n    message           | truncatedText | truncateLimit | expectedLogMessage\n    ${timeoutMessage} | ${undefined}  | ${undefined}  | ${`'${timeoutMessage}'. Log arguments are: []`}\n    ${timeoutMessage} | ${undefined}  | ${20}         | ${'\\'{\"stack\"_TRUNCATED_'}\n    ${timeoutMessage} | ${'_TRUNC_'}  | ${20}         | ${'\\'{\"stack\":\"Er_TRUNC_'}\n    ${timeoutMessage} | ${undefined}  | ${2}          | ${\"'{\"}\n    ${timeoutMessage} | ${undefined}  | ${2000}       | ${`'${timeoutMessage}'. Log arguments are: []`}\n    ${timeoutMessage} | ${undefined}  | ${73}         | ${`'${timeoutMessage}'. Log arguments are: []`}\n    ${timeoutMessage} | ${undefined}  | ${72}         | ${`'${timeoutMessage}'_TRUNCATED_`}\n    ${timeoutMessage} | ${undefined}  | ${0}          | ${`'${timeoutMessage}'. Log arguments are: []`}\n    ${timeoutMessage} | ${undefined}  | ${-2}         | ${`'${timeoutMessage}'. Log arguments are: []`}\n    ${timeoutMessage} | ${'_TRUNC_'}  | ${7}          | ${'\\'{\"stac'}\n`(\n    'expects the log message to be truncated correctly for given $message , $truncatedText and $truncateLimit',\n    ({ message, truncatedText, truncateLimit, expectedLogMessage }) => {\n        const testLogger = new JsonDiagLogger({\n            loggerName: 'test-logger',\n            serviceName: 'test-service',\n            truncatedText: truncatedText,\n            truncateLimit: truncateLimit,\n        })\n        const logEntry = testLogger.createLogEntry({\n            message,\n            logArguments: [],\n            loglevel: LogLevel.info,\n        })\n        expect(logEntry.message).toBe(expectedLogMessage)\n    },\n)\n\ndescribe('Logger writes expected output to command line', () => {\n    beforeEach(() => {\n        // Set default options\n        logger.setOptions({\n            loggerName: 'test-logger',\n            serviceName: 'test-service',\n        })\n        vi.spyOn(loggerConsole, 'log')\n        vi.useFakeTimers({ now: new Date('2023-09-06T00:00:00Z') })\n    })\n\n    afterEach(() => {\n        vi.restoreAllMocks()\n        vi.useRealTimers()\n    })\n\n    test('Test DiagLogger interface functions', () => {\n        // Call each log function once. Should call console.log for all log levels\n        logger.debug('test', 1, { name: 'myname' })\n        expect(loggerConsole.log).toHaveBeenNthCalledWith(\n            1,\n            generateExpectedLogMessage('test', 'DEBUG'),\n        )\n        logger.verbose('test', 1, { name: 'myname' })\n        expect(loggerConsole.log).toHaveBeenNthCalledWith(\n            2,\n            generateExpectedLogMessage('test', 'VERBOSE'),\n        )\n        logger.info('test', 1, { name: 'myname' })\n        expect(loggerConsole.log).toHaveBeenNthCalledWith(\n            3,\n            generateExpectedLogMessage('test', 'INFO'),\n        )\n        logger.error('test', 1, { name: 'myname' })\n        expect(loggerConsole.log).toHaveBeenNthCalledWith(\n            4,\n            generateExpectedLogMessage('test', 'ERROR'),\n        )\n        logger.warn('test', 1, { name: 'myname' })\n        expect(loggerConsole.log).toHaveBeenNthCalledWith(\n            5,\n            generateExpectedLogMessage('test', 'WARN'),\n        )\n    })\n\n    test('Test Service Request error message logging', () => {\n        // Should log service request message on error if option \"logLevelForServiceRequestErrorMessages\" is not set\n        logger.error('Service request', 1, { name: 'myname' })\n        expect(loggerConsole.log).toHaveBeenNthCalledWith(\n            1,\n            generateExpectedLogMessage('Service request', 'ERROR'),\n        )\n\n        // Should log service request message on info if option \"logLevelForServiceRequestErrorMessages\" is set to INFO\n        logger.setOptions({\n            loggerName: 'test-logger',\n            serviceName: 'test-service',\n            logLevelForServiceRequestErrorMessages: LogLevel.info,\n        })\n        logger.error('Service request', 1, { name: 'myname' })\n        expect(loggerConsole.log).toHaveBeenNthCalledWith(\n            2,\n            generateExpectedLogMessage('Service request', 'INFO'),\n        )\n\n        // Should not set log level for other messages to info\n        logger.error(testMessage, 1, { name: 'myname' })\n        expect(loggerConsole.log).toHaveBeenNthCalledWith(\n            3,\n            generateExpectedLogMessage(testMessage, 'ERROR'),\n        )\n    })\n\n    test('Test Timeout error message logging', () => {\n        // Should log Timeout message on error if option \"logLevelForTimeoutErrorMessages\" is not set\n        logger.error(timeoutMessage, 1, { name: 'myname' })\n        expect(loggerConsole.log).toHaveBeenNthCalledWith(\n            1,\n            generateExpectedTimeoutMessage('ERROR'),\n        )\n\n        // Should log Timeout error message on info if option \"logLevelForServiceRequestErrorMessages\" is set to INFO\n        logger.setOptions({\n            loggerName: 'test-logger',\n            serviceName: 'test-service',\n            logLevelForTimeoutErrorMessages: LogLevel.info,\n        })\n        logger.error(timeoutMessage, 1, { name: 'myname' })\n        expect(loggerConsole.log).toHaveBeenNthCalledWith(\n            2,\n            generateExpectedTimeoutMessage('INFO'),\n        )\n\n        // Should not set log level for other messages to info\n        logger.error(testMessage, 1, { name: 'myname' })\n        expect(loggerConsole.log).toHaveBeenNthCalledWith(\n            3,\n            generateExpectedLogMessage(testMessage, 'ERROR'),\n        )\n    })\n\n    test('Test async attribute error message logging', () => {\n        // Should log async attribute error message on error if option \"logLevelForAsyncAttributeError\" is not set\n        logger.error(asyncAttributeErrorMessage, 1, { name: 'myname' })\n        expect(loggerConsole.log).toHaveBeenNthCalledWith(\n            1,\n            generateExpectedLogMessage(asyncAttributeErrorMessage, 'ERROR'),\n        )\n\n        // Should log async attribute error error message on info if option \"logLevelForAsyncAttributeError\" is set to INFO\n        logger.setOptions({\n            loggerName: 'test-logger',\n            serviceName: 'test-service',\n            logLevelForAsyncAttributeError: LogLevel.info,\n        })\n        logger.error(asyncAttributeErrorMessage, 1, { name: 'myname' })\n        expect(loggerConsole.log).toHaveBeenNthCalledWith(\n            2,\n            generateExpectedLogMessage(asyncAttributeErrorMessage, 'INFO'),\n        )\n\n        // Should not change log level for other messages to info\n        logger.error(testMessage, 1, { name: 'myname' })\n        expect(loggerConsole.log).toHaveBeenNthCalledWith(\n            3,\n            generateExpectedLogMessage(testMessage, 'ERROR'),\n        )\n    })\n\n    test('Test downgrading and ignoring verbose message', () => {\n        // Downgrade verbose log entry\n        logger.setOptions({\n            loggerName: 'test-logger',\n            serviceName: 'test-service',\n            logLevelForVerbose: LogLevel.debug,\n        })\n        logger.verbose('test', 1, { name: 'myname' })\n        expect(loggerConsole.log).toHaveBeenNthCalledWith(\n            1,\n            generateExpectedLogMessage('test', 'DEBUG'),\n        )\n\n        // Do not log verbose log entry\n        logger.setOptions({\n            loggerName: 'test-logger',\n            serviceName: 'test-service',\n            logLevelForVerbose: LogLevel.off,\n        })\n        logger.verbose('test', 1, { name: 'myname' })\n        expect(loggerConsole.log).toHaveBeenCalledTimes(1)\n    })\n\n    test('Test downgrading and ignoring error messages', () => {\n        // Do not log service request error message\n        logger.setOptions({\n            loggerName: 'test-logger',\n            serviceName: 'test-service',\n            logLevelForServiceRequestErrorMessages: LogLevel.off,\n        })\n        logger.error('Service request', 1, { name: 'myname' })\n        expect(loggerConsole.log).toHaveBeenCalledTimes(0)\n\n        // Do not log timeout error message\n        logger.setOptions({\n            loggerName: 'test-logger',\n            serviceName: 'test-service',\n            logLevelForTimeoutErrorMessages: LogLevel.off,\n        })\n        logger.error(timeoutMessage, 1, { name: 'myname' })\n        expect(loggerConsole.log).toHaveBeenCalledTimes(0)\n    })\n\n    test('Test logging only first incoming message and no other debug messages', () => {\n        const incomingMessageLogger = new JsonDiagLogger({\n            loggerName: 'test-logger',\n            serviceName: 'test-service',\n            logFirstIncomingRequest: true,\n        })\n        // Should not log other debug message\n        incomingMessageLogger.debug(testMessage, { name: 'myname' })\n        expect(loggerConsole.log).toHaveBeenCalledTimes(0)\n\n        // Should log first incoming request on info level\n        incomingMessageLogger.debug('', 'http instrumentation incomingRequest')\n        expect(loggerConsole.log).toHaveBeenNthCalledWith(\n            1,\n            generateExpectedLogMessage('First incoming request', 'INFO', '[]'),\n        )\n\n        // Should not log further debug messages\n        incomingMessageLogger.debug(testMessage, { name: 'myname' })\n        expect(loggerConsole.log).toHaveBeenCalledTimes(1)\n\n        // Should not log other incoming request messages\n        incomingMessageLogger.debug('', 'http instrumentation incomingRequest')\n        expect(loggerConsole.log).toHaveBeenCalledTimes(1)\n\n        // Should log messages on other loglevels\n        incomingMessageLogger.error('test', 1, { name: 'myname' })\n        expect(loggerConsole.log).toHaveBeenNthCalledWith(\n            2,\n            generateExpectedLogMessage('test', 'ERROR'),\n        )\n\n        // Message without \"incomingRequest\" is not considered an incoming request\n        expect(logger.isIncomingRequestLogMessage(['Not i request'])).toBe(\n            false,\n        )\n    })\n\n    test(\n        'Test logging only first incoming message and other debug messages if minLogLevel is ' +\n            ' debug or higher',\n        () => {\n            const incomingMessageLogger = new JsonDiagLogger({\n                loggerName: 'test-logger',\n                serviceName: 'test-service',\n                logFirstIncomingRequest: true,\n                minLogLevel: LogLevel.verbose,\n            })\n            // Should log other debug message\n            incomingMessageLogger.debug(testMessage, 1, { name: 'myname' })\n            expect(loggerConsole.log).toHaveBeenNthCalledWith(\n                1,\n                generateExpectedLogMessage(testMessage, 'DEBUG'),\n            )\n\n            // Should log first incoming request on info level\n            incomingMessageLogger.debug(\n                '',\n                'http instrumentation incomingRequest',\n            )\n            expect(loggerConsole.log).toHaveBeenNthCalledWith(\n                2,\n                generateExpectedLogMessage(\n                    'First incoming request',\n                    'INFO',\n                    '[]',\n                ),\n            )\n\n            // Should log further debug messages\n            incomingMessageLogger.debug(testMessage, 1, { name: 'myname' })\n            expect(loggerConsole.log).toHaveBeenNthCalledWith(\n                3,\n                generateExpectedLogMessage(testMessage, 'DEBUG'),\n            )\n\n            // Should not log other incoming request messages\n            incomingMessageLogger.debug(\n                '',\n                'http instrumentation incomingRequest',\n            )\n            expect(loggerConsole.log).toHaveBeenCalledTimes(3)\n\n            // Should log messages on other loglevels\n            incomingMessageLogger.error('test', 1, { name: 'myname' })\n            expect(loggerConsole.log).toHaveBeenNthCalledWith(\n                4,\n                generateExpectedLogMessage('test', 'ERROR'),\n            )\n        },\n    )\n\n    test('Test logging registered global message on info level', () => {\n        const messageLogger = new JsonDiagLogger({\n            loggerName: 'test-logger',\n            serviceName: 'test-service',\n            logLevelForRegisterGlobalMessages: LogLevel.info,\n        })\n        // Should log message on info level\n        const registeredGlobalMessage =\n            '@opentelemetry/api: Registered a global for propagation v1.7.0.'\n        messageLogger.debug(registeredGlobalMessage, 1, { name: 'myname' })\n        expect(loggerConsole.log).toHaveBeenNthCalledWith(\n            1,\n            generateExpectedLogMessage(registeredGlobalMessage, 'INFO'),\n        )\n\n        // Should log message on debug level if it does not contain registered global message\n        messageLogger.debug(testMessage, 1, { name: 'myname' })\n        expect(loggerConsole.log).toHaveBeenNthCalledWith(\n            2,\n            generateExpectedLogMessage(testMessage, 'DEBUG'),\n        )\n    })\n})\n\ntest.each`\n    logLevel            | minLogLevel         | expectedResult\n    ${LogLevel.debug}   | ${undefined}        | ${true}\n    ${LogLevel.error}   | ${undefined}        | ${true}\n    ${LogLevel.info}    | ${undefined}        | ${true}\n    ${LogLevel.off}     | ${undefined}        | ${true}\n    ${LogLevel.verbose} | ${undefined}        | ${true}\n    ${LogLevel.warn}    | ${undefined}        | ${true}\n    ${LogLevel.debug}   | ${LogLevel.debug}   | ${true}\n    ${LogLevel.debug}   | ${LogLevel.error}   | ${false}\n    ${LogLevel.debug}   | ${LogLevel.info}    | ${false}\n    ${LogLevel.debug}   | ${LogLevel.off}     | ${true}\n    ${LogLevel.debug}   | ${LogLevel.verbose} | ${true}\n    ${LogLevel.debug}   | ${LogLevel.warn}    | ${false}\n    ${LogLevel.error}   | ${LogLevel.debug}   | ${true}\n    ${LogLevel.error}   | ${LogLevel.error}   | ${true}\n    ${LogLevel.error}   | ${LogLevel.info}    | ${true}\n    ${LogLevel.error}   | ${LogLevel.off}     | ${true}\n    ${LogLevel.error}   | ${LogLevel.verbose} | ${true}\n    ${LogLevel.error}   | ${LogLevel.warn}    | ${true}\n    ${LogLevel.info}    | ${LogLevel.debug}   | ${true}\n    ${LogLevel.info}    | ${LogLevel.error}   | ${false}\n    ${LogLevel.info}    | ${LogLevel.info}    | ${true}\n    ${LogLevel.info}    | ${LogLevel.off}     | ${true}\n    ${LogLevel.info}    | ${LogLevel.verbose} | ${true}\n    ${LogLevel.info}    | ${LogLevel.warn}    | ${false}\n    ${LogLevel.off}     | ${LogLevel.debug}   | ${false}\n    ${LogLevel.off}     | ${LogLevel.error}   | ${false}\n    ${LogLevel.off}     | ${LogLevel.info}    | ${false}\n    ${LogLevel.off}     | ${LogLevel.off}     | ${true}\n    ${LogLevel.off}     | ${LogLevel.verbose} | ${false}\n    ${LogLevel.off}     | ${LogLevel.warn}    | ${false}\n    ${LogLevel.verbose} | ${LogLevel.debug}   | ${false}\n    ${LogLevel.verbose} | ${LogLevel.error}   | ${false}\n    ${LogLevel.verbose} | ${LogLevel.info}    | ${false}\n    ${LogLevel.verbose} | ${LogLevel.off}     | ${true}\n    ${LogLevel.verbose} | ${LogLevel.verbose} | ${true}\n    ${LogLevel.verbose} | ${LogLevel.warn}    | ${false}\n    ${LogLevel.warn}    | ${LogLevel.debug}   | ${true}\n    ${LogLevel.warn}    | ${LogLevel.error}   | ${false}\n    ${LogLevel.warn}    | ${LogLevel.info}    | ${true}\n    ${LogLevel.warn}    | ${LogLevel.off}     | ${true}\n    ${LogLevel.warn}    | ${LogLevel.verbose} | ${true}\n    ${LogLevel.warn}    | ${LogLevel.warn}    | ${true}\n`(\n    'expects for logLevel $logLevel and minLogLevel $minLogLevel be calculated correctly $expectedResult',\n    ({ logLevel, minLogLevel, expectedResult }) => {\n        const testLogger = new JsonDiagLogger({\n            loggerName: 'test-logger',\n            serviceName: 'test-service',\n            minLogLevel: minLogLevel,\n        })\n        expect(testLogger.isEqualOrHigherMinLogLevel(logLevel)).toBe(\n            expectedResult,\n        )\n    },\n)\n\nfunction generateExpectedLogMessage(\n    message: string,\n    loglevel: string,\n    logArguments = \"[ 1, { name: 'myname' } ]\",\n): string {\n    return `{\"level\":\"${loglevel}\",\"logger\":\"test-logger\",\"message\":\"${message}. Log arguments are: ${logArguments}\",\"serviceName\":\"test-service\",\"timestamp\":\"2023-09-06T00:00:00.000Z\"}`\n}\n\nfunction generateExpectedTimeoutMessage(loglevel: string): string {\n    return `{\"level\":\"${loglevel}\",\"logger\":\"test-logger\",\"message\":\"'{\\\\\"stack\\\\\":\\\\\"Error: 14 UNAVAILABLE: No connection established}'. Log arguments are: [ 1, { name: 'myname' } ]\",\"serviceName\":\"test-service\",\"timestamp\":\"2023-09-06T00:00:00.000Z\"}`\n}\n"
+    }
+  },
+  "projectRoot": "C:\\ws_nodejs\\otel-json-logger",
+  "config": {
+    "$schema": "./node_modules/@stryker-mutator/core/schema/stryker-schema.json",
+    "_comment": "This config was generated using 'stryker init'. Please take a look at: https://stryker-mutator.io/docs/stryker-js/configuration/ for more information.",
+    "packageManager": "npm",
+    "reporters": [
+      "html",
+      "clear-text",
+      "progress"
+    ],
+    "testRunner": "vitest",
+    "testRunner_comment": "Take a look at https://stryker-mutator.io/docs/stryker-js/vitest-runner for information about the vitest plugin.",
+    "coverageAnalysis": "perTest",
+    "buildCommand": "npm run build",
+    "ignorers": [
+      "log-ignore"
+    ],
+    "plugins": [
+      "@stryker-mutator/*",
+      "@sgohlke/stryker-log-ignorer"
+    ],
+    "logignore": {
+      "objectNames": [
+        "logger"
+      ]
+    },
+    "ignoreStatic": true,
+    "incremental": true,
+    "incrementalFile": "stryker-incremental.json",
+    "allowConsoleColors": true,
+    "checkers": [],
+    "checkerNodeArgs": [],
+    "commandRunner": {
+      "command": "npm test"
+    },
+    "clearTextReporter": {
+      "allowColor": true,
+      "allowEmojis": false,
+      "logTests": true,
+      "maxTestsToLog": 3,
+      "reportTests": true,
+      "reportMutants": true,
+      "reportScoreTable": true,
+      "skipFull": false
+    },
+    "dashboard": {
+      "baseUrl": "https://dashboard.stryker-mutator.io/api/reports",
+      "reportType": "full"
+    },
+    "dryRunOnly": false,
+    "eventReporter": {
+      "baseDir": "reports/mutation/events"
+    },
+    "ignorePatterns": [],
+    "force": false,
+    "fileLogLevel": "off",
+    "inPlace": false,
+    "logLevel": "info",
+    "maxConcurrentTestRunners": 9007199254740991,
+    "maxTestRunnerReuse": 0,
+    "mutate": [
+      "{src,lib}/**/!(*.+(s|S)pec|*.+(t|T)est).+(cjs|mjs|js|ts|mts|cts|jsx|tsx|html|vue|svelte)",
+      "!{src,lib}/**/__tests__/**/*.+(cjs|mjs|js|ts|mts|cts|jsx|tsx|html|vue|svelte)"
+    ],
+    "mutator": {
+      "plugins": null,
+      "excludedMutations": []
+    },
+    "appendPlugins": [],
+    "htmlReporter": {
+      "fileName": "reports/mutation/mutation.html"
+    },
+    "jsonReporter": {
+      "fileName": "reports/mutation/mutation.json"
+    },
+    "disableTypeChecks": true,
+    "symlinkNodeModules": true,
+    "tempDirName": ".stryker-tmp",
+    "cleanTempDir": true,
+    "testRunnerNodeArgs": [],
+    "thresholds": {
+      "high": 80,
+      "low": 60,
+      "break": null
+    },
+    "timeoutFactor": 1.5,
+    "timeoutMS": 5000,
+    "dryRunTimeoutMinutes": 5,
+    "tsconfigFile": "tsconfig.json",
+    "warnings": true,
+    "disableBail": false,
+    "allowEmpty": false,
+    "vitest": {}
+  },
+  "framework": {
+    "name": "StrykerJS",
+    "version": "8.6.0",
+    "branding": {
+      "homepageUrl": "https://stryker-mutator.io",
+      "imageUrl": "data:image/svg+xml;utf8,%3Csvg viewBox='0 0 1458 1458' xmlns='http://www.w3.org/2000/svg' fill-rule='evenodd' clip-rule='evenodd' stroke-linejoin='round' stroke-miterlimit='2'%3E%3Cpath fill='none' d='M0 0h1458v1458H0z'/%3E%3CclipPath id='a'%3E%3Cpath d='M0 0h1458v1458H0z'/%3E%3C/clipPath%3E%3Cg clip-path='url(%23a)'%3E%3Cpath d='M1458 729c0 402.655-326.345 729-729 729S0 1131.655 0 729C0 326.445 326.345 0 729 0s729 326.345 729 729' fill='%23e74c3c' fill-rule='nonzero'/%3E%3Cpath d='M778.349 1456.15L576.6 1254.401l233-105 85-78.668v-64.332l-257-257-44-187-50-208 251.806-82.793L1076.6 389.401l380.14 379.15c-19.681 367.728-311.914 663.049-678.391 687.599z' fill-opacity='.3'/%3E%3Cpath d='M753.4 329.503c41.79 0 74.579 7.83 97.925 25.444 23.571 18.015 41.69 43.956 55.167 77.097l11.662 28.679 165.733-58.183-14.137-32.13c-26.688-60.655-64.896-108.61-114.191-144.011-49.329-35.423-117.458-54.302-204.859-54.302-50.78 0-95.646 7.376-134.767 21.542-40.093 14.671-74.09 34.79-102.239 60.259-28.84 26.207-50.646 57.06-65.496 92.701-14.718 35.052-22.101 72.538-22.101 112.401 0 72.536 20.667 133.294 61.165 182.704 38.624 47.255 98.346 88.037 179.861 121.291 42.257 17.475 78.715 33.125 109.227 46.994 27.193 12.361 49.294 26.124 66.157 41.751 15.309 14.186 26.497 30.584 33.63 49.258 7.721 20.214 11.16 45.69 11.16 76.402 0 28.021-4.251 51.787-13.591 71.219-8.832 18.374-20.171 33.178-34.523 44.219-14.787 11.374-31.193 19.591-49.393 24.466-19.68 5.359-39.14 7.993-58.69 7.993-29.359 0-54.387-3.407-75.182-10.747-20.112-7.013-37.144-16.144-51.259-27.486-13.618-11.009-24.971-23.766-33.744-38.279-9.64-15.8-17.272-31.924-23.032-48.408l-10.965-31.376-161.669 60.585 10.734 30.124c10.191 28.601 24.197 56.228 42.059 82.748 18.208 27.144 41.322 51.369 69.525 72.745 27.695 21.075 60.904 38.218 99.481 51.041 37.777 12.664 82.004 19.159 132.552 19.159 49.998 0 95.818-8.321 137.611-24.622 42.228-16.471 78.436-38.992 108.835-67.291 30.719-28.597 54.631-62.103 71.834-100.642 17.263-38.56 25.923-79.392 25.923-122.248 0-54.339-8.368-100.37-24.208-138.32-16.29-38.759-38.252-71.661-65.948-98.797-26.965-26.418-58.269-48.835-93.858-67.175-33.655-17.241-69.196-33.11-106.593-47.533-35.934-13.429-65.822-26.601-89.948-39.525-22.153-11.868-40.009-24.21-53.547-37.309-11.429-11.13-19.83-23.678-24.718-37.664-5.413-15.49-7.98-33.423-7.98-53.577 0-40.883 11.293-71.522 37.086-90.539 28.443-20.825 64.985-30.658 109.311-30.658z' fill='%23f1c40f' fill-rule='nonzero'/%3E%3Cpath d='M720 0h18v113h-18zM1458 738v-18h-113v18h113zM720 1345h18v113h-18zM113 738v-18H0v18h113z'/%3E%3C/g%3E%3C/svg%3E"
+    },
+    "dependencies": {
+      "typescript": "5.6.3"
+    }
+  }
+}

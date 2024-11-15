@@ -58,6 +58,9 @@ test.each`
     ${timeoutMessage} | ${undefined}  | ${2000}       | ${`'${timeoutMessage}'. Log arguments are: []`}
     ${timeoutMessage} | ${undefined}  | ${73}         | ${`'${timeoutMessage}'. Log arguments are: []`}
     ${timeoutMessage} | ${undefined}  | ${72}         | ${`'${timeoutMessage}'_TRUNCATED_`}
+    ${timeoutMessage} | ${undefined}  | ${0}          | ${`'${timeoutMessage}'. Log arguments are: []`}
+    ${timeoutMessage} | ${undefined}  | ${-2}         | ${`'${timeoutMessage}'. Log arguments are: []`}
+    ${timeoutMessage} | ${'_TRUNC_'}  | ${7}          | ${'\'{"stac'}
 `(
     'expects the log message to be truncated correctly for given $message , $truncatedText and $truncateLimit',
     ({ message, truncatedText, truncateLimit, expectedLogMessage }) => {
@@ -140,6 +143,13 @@ describe('Logger writes expected output to command line', () => {
             2,
             generateExpectedLogMessage('Service request', 'INFO'),
         )
+
+        // Should not set log level for other messages to info
+        logger.error(testMessage, 1, { name: 'myname' })
+        expect(loggerConsole.log).toHaveBeenNthCalledWith(
+            3,
+            generateExpectedLogMessage(testMessage, 'ERROR'),
+        )
     })
 
     test('Test Timeout error message logging', () => {
@@ -161,6 +171,13 @@ describe('Logger writes expected output to command line', () => {
             2,
             generateExpectedTimeoutMessage('INFO'),
         )
+
+        // Should not set log level for other messages to info
+        logger.error(testMessage, 1, { name: 'myname' })
+        expect(loggerConsole.log).toHaveBeenNthCalledWith(
+            3,
+            generateExpectedLogMessage(testMessage, 'ERROR'),
+        )
     })
 
     test('Test async attribute error message logging', () => {
@@ -181,6 +198,13 @@ describe('Logger writes expected output to command line', () => {
         expect(loggerConsole.log).toHaveBeenNthCalledWith(
             2,
             generateExpectedLogMessage(asyncAttributeErrorMessage, 'INFO'),
+        )
+
+        // Should not change log level for other messages to info
+        logger.error(testMessage, 1, { name: 'myname' })
+        expect(loggerConsole.log).toHaveBeenNthCalledWith(
+            3,
+            generateExpectedLogMessage(testMessage, 'ERROR'),
         )
     })
 
@@ -258,6 +282,11 @@ describe('Logger writes expected output to command line', () => {
             2,
             generateExpectedLogMessage('test', 'ERROR'),
         )
+
+        // Message without "incomingRequest" is not considered an incoming request
+        expect(logger.isIncomingRequestLogMessage(['Not i request'])).toBe(
+            false,
+        )
     })
 
     test(
@@ -327,6 +356,13 @@ describe('Logger writes expected output to command line', () => {
         expect(loggerConsole.log).toHaveBeenNthCalledWith(
             1,
             generateExpectedLogMessage(registeredGlobalMessage, 'INFO'),
+        )
+
+        // Should log message on debug level if it does not contain registered global message
+        messageLogger.debug(testMessage, 1, { name: 'myname' })
+        expect(loggerConsole.log).toHaveBeenNthCalledWith(
+            2,
+            generateExpectedLogMessage(testMessage, 'DEBUG'),
         )
     })
 })
