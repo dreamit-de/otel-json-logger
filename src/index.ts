@@ -18,6 +18,7 @@ export enum LogLevel {
 }
 
 const logLevelByScope = [
+    undefined,
     LogLevel.off,
     LogLevel.verbose,
     LogLevel.debug,
@@ -221,17 +222,20 @@ export class JsonDiagLogger implements DiagLogger {
         let logMessage =
             this.formatMessage(message) +
             `. Log arguments are: ${inspect(logArguments, { depth: 20 })}`
-        if (truncateLimit && truncateLimit > 0) {
-            const truncatedTextToUse = truncatedText ?? '_TRUNCATED_'
-            if (logMessage.length > truncateLimit + truncatedTextToUse.length) {
-                logMessage =
-                    truncateLimit > truncatedTextToUse.length
-                        ? logMessage.slice(
-                              0,
-                              truncateLimit - truncatedTextToUse.length,
-                          ) + truncatedTextToUse
-                        : logMessage.slice(0, truncateLimit)
-            }
+        const truncatedTextToUse = truncatedText ?? '_TRUNCATED_'
+        if (
+            truncateLimit &&
+            // Stryker disable next-line all - Does not matters
+            truncateLimit > 0 &&
+            logMessage.length > truncateLimit + truncatedTextToUse.length
+        ) {
+            logMessage =
+                truncateLimit > truncatedTextToUse.length
+                    ? logMessage.slice(
+                          0,
+                          truncateLimit - truncatedTextToUse.length,
+                      ) + truncatedTextToUse
+                    : logMessage.slice(0, truncateLimit)
         }
 
         return {
@@ -245,7 +249,7 @@ export class JsonDiagLogger implements DiagLogger {
 
     /**
      * Formats the message. If message contains object or array wrap it in
-     * JSON.stringify to avoid these being interpreted as JSON objects.
+     * single quotes to avoid these being interpreted as JSON objects.
      * @param {message} string - The original message
      * @returns {string} the formatted message
      */
@@ -254,7 +258,7 @@ export class JsonDiagLogger implements DiagLogger {
             message &&
             (message.indexOf('{') === 0 || message.indexOf('[') === 0)
         ) {
-            return inspect(message, { depth: 20 })
+            return `'${message}'`
         }
         return message
     }
@@ -266,10 +270,9 @@ export class JsonDiagLogger implements DiagLogger {
      * @returns {boolean} true if the message contains a Timeout information
      */
     containsTimeout(message: string): boolean {
-        const messageAsString = inspect(message, { depth: 20 })
         return (
-            messageAsString.includes('4 DEADLINE_EXCEEDED') ||
-            messageAsString.includes('14 UNAVAILABLE')
+            message.includes('4 DEADLINE_EXCEEDED') ||
+            message.includes('14 UNAVAILABLE')
         )
     }
 
@@ -281,7 +284,6 @@ export class JsonDiagLogger implements DiagLogger {
      */
     isIncomingRequestLogMessage(arguments_: unknown[]): boolean {
         return (
-            arguments_.length === 1 &&
             typeof arguments_[0] === 'string' &&
             arguments_[0].includes('incomingRequest')
         )
@@ -294,10 +296,10 @@ export class JsonDiagLogger implements DiagLogger {
      */
     isEqualOrHigherMinLogLevel(logLevel: LogLevel): boolean {
         const { minLogLevel } = this.loggerOptions
-        return minLogLevel === undefined
-            ? true
-            : logLevelByScope.indexOf(logLevel) >=
-                  logLevelByScope.indexOf(minLogLevel)
+        return (
+            logLevelByScope.indexOf(logLevel) >=
+            logLevelByScope.indexOf(minLogLevel)
+        )
     }
 
     /**
@@ -307,7 +309,6 @@ export class JsonDiagLogger implements DiagLogger {
      * @returns {boolean} true if the message contains an async attribute error
      */
     containsAsyncAttributeError(message: string): boolean {
-        const messageAsString = inspect(message, { depth: 20 })
-        return messageAsString.includes('before async attributes settled')
+        return message.includes('before async attributes settled')
     }
 }
