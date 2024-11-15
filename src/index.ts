@@ -296,8 +296,10 @@ export class JsonDiagLogger implements DiagLogger {
      */
     isEqualOrHigherMinLogLevel(logLevel: LogLevel): boolean {
         const { minLogLevel } = this.loggerOptions
-        return logLevelByScope.indexOf(logLevel) >=
-                  logLevelByScope.indexOf(minLogLevel)
+        return (
+            logLevelByScope.indexOf(logLevel) >=
+            logLevelByScope.indexOf(minLogLevel)
+        )
     }
 
     /**
