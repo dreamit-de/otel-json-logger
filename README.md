@@ -16,9 +16,9 @@ TypeScript declarations are provided within the project.
 
 ## Features
 
--   Provides JSON Logger for OpenTelemetry **DiagLogger** interface
--   Stringifies/inspects messages with objects and arrays as well as log arguments to avoid breaking logging tools
--   Creates ISODate timestamp for log entry
+- Provides JSON Logger for OpenTelemetry **DiagLogger** interface
+- Stringifies/inspects messages with objects and arrays as well as log arguments to avoid breaking logging tools
+- Creates ISODate timestamp for log entry
 
 ## Usage
 
@@ -53,31 +53,31 @@ diag.setLogger(logger, DiagLogLevel.ERROR)
 
 ### General functions
 
--   **createLogEntry**: Creates and returns a log entry of type **LogEntry** with the provided information.
--   **logMessage**: Central function being called by all **DiagLogger** interface functions. Calls **createLogEntry**, stringifies the result and calls **console.log()**.
--   **formatMessage**: Formats the message. If the message contains an object or array wrap it in JSON.stringify to avoid these being interpreted as JSON objects.
--   **setOptions**: Sets the **LoggerOptions** to be used for logging. Can be called after constructor call to set new/other options.
--   **containsTimeout**: Check if the message contains a Timeout information like "4 DEADLINE_EXCEEDED" or "14 UNAVAILABLE".
--   **isIncomingRequestLogMessage**: Checks if the arguments are part of an incomingRequest message, i.e. the first argument contains the text 'incomingRequest'
--   **isEqualOrHigherMinLogLevel**: Checks if the log level is equal or higher than the minimum log level.
--   **containsAsyncAttributeError**: Check if the message contains an async attribute error like "Accessing resource attributes before async attributes settled".
+- **createLogEntry**: Creates and returns a log entry of type **LogEntry** with the provided information.
+- **logMessage**: Central function being called by all **DiagLogger** interface functions. Calls **createLogEntry**, stringifies the result and calls **console.log()**.
+- **formatMessage**: Formats the message. If the message contains an object or array wrap it in JSON.stringify to avoid these being interpreted as JSON objects.
+- **setOptions**: Sets the **LoggerOptions** to be used for logging. Can be called after constructor call to set new/other options.
+- **containsTimeout**: Check if the message contains a Timeout information like "4 DEADLINE_EXCEEDED" or "14 UNAVAILABLE".
+- **isIncomingRequestLogMessage**: Checks if the arguments are part of an incomingRequest message, i.e. the first argument contains the text 'incomingRequest'
+- **isEqualOrHigherMinLogLevel**: Checks if the log level is equal or higher than the minimum log level.
+- **containsAsyncAttributeError**: Check if the message contains an async attribute error like "Accessing resource attributes before async attributes settled".
 
 ### DiagLogger interface functions
 
--   **debug**: Logs a debug message
--   **error**: Logs an error message
--   **info**: Logs an info message
--   **verbose**: Logs a verbose message
--   **warn**: Logs a warn message
+- **debug**: Logs a debug message
+- **error**: Logs an error message
+- **info**: Logs an info message
+- **verbose**: Logs a verbose message
+- **warn**: Logs a warn message
 
 ### LogLevel enum values
 
--   **DEBUG**
--   **ERROR**
--   **INFO**
--   **OFF** : Do not log these entries!
--   **VERBOSE**
--   **WARN**
+- **DEBUG**
+- **ERROR**
+- **INFO**
+- **OFF** : Do not log these entries!
+- **VERBOSE**
+- **WARN**
 
 ## Contact
 
