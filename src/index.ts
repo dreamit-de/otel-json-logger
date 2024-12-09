@@ -89,7 +89,7 @@ export interface LoggerOptions {
  */
 export class JsonDiagLogger implements DiagLogger {
     loggerOptions: LoggerOptions
-    firstIncomingRequestLogged: boolean = false
+    firstIncomingRequestLogged = false
 
     /**
      * Creates a new instance of Logger.
@@ -113,9 +113,9 @@ export class JsonDiagLogger implements DiagLogger {
             message.includes('Registered a global')
         ) {
             this.logMessage({
-                message,
                 logArguments: arguments_,
                 loglevel: this.loggerOptions.logLevelForRegisterGlobalMessages,
+                message,
             })
         } else if (this.loggerOptions.logFirstIncomingRequest) {
             if (
@@ -123,9 +123,9 @@ export class JsonDiagLogger implements DiagLogger {
                 this.isIncomingRequestLogMessage(arguments_)
             ) {
                 this.logMessage({
-                    message: 'First incoming request',
                     logArguments: [],
                     loglevel: LogLevel.info,
+                    message: 'First incoming request',
                 })
                 this.firstIncomingRequestLogged = true
             } else if (
@@ -136,16 +136,16 @@ export class JsonDiagLogger implements DiagLogger {
                 !this.isIncomingRequestLogMessage(arguments_)
             ) {
                 this.logMessage({
-                    message,
                     logArguments: arguments_,
                     loglevel: LogLevel.debug,
+                    message,
                 })
             }
         } else {
             this.logMessage({
-                message,
                 logArguments: arguments_,
                 loglevel: LogLevel.debug,
+                message,
             })
         }
     }
@@ -172,33 +172,33 @@ export class JsonDiagLogger implements DiagLogger {
         }
 
         this.logMessage({
-            message,
             logArguments: arguments_,
             loglevel: logLevel,
+            message,
         })
     }
 
     info(message: string, ...arguments_: unknown[]): void {
         this.logMessage({
-            message,
             logArguments: arguments_,
             loglevel: LogLevel.info,
+            message,
         })
     }
 
     verbose(message: string, ...arguments_: unknown[]): void {
         this.logMessage({
-            message,
             logArguments: arguments_,
             loglevel: this.loggerOptions.logLevelForVerbose ?? LogLevel.verbose,
+            message,
         })
     }
 
     warn(message: string, ...arguments_: unknown[]): void {
         this.logMessage({
-            message,
             logArguments: arguments_,
             loglevel: LogLevel.warn,
+            message,
         })
     }
 

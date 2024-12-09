@@ -38,9 +38,9 @@ test.each`
         expectedLogLevel,
     }) => {
         const logEntry = logger.createLogEntry({
-            message,
             logArguments,
             loglevel,
+            message,
         })
         expect(logEntry.message).toBe(expectedLogMessage)
         expect(logEntry.level).toBe(expectedLogLevel)
@@ -67,13 +67,13 @@ test.each`
         const testLogger = new JsonDiagLogger({
             loggerName: 'test-logger',
             serviceName: 'test-service',
-            truncatedText: truncatedText,
             truncateLimit: truncateLimit,
+            truncatedText: truncatedText,
         })
         const logEntry = testLogger.createLogEntry({
-            message,
             logArguments: [],
             loglevel: LogLevel.info,
+            message,
         })
         expect(logEntry.message).toBe(expectedLogMessage)
     },
@@ -134,9 +134,9 @@ describe('Logger writes expected output to command line', () => {
 
         // Should log service request message on info if option "logLevelForServiceRequestErrorMessages" is set to INFO
         logger.setOptions({
+            logLevelForServiceRequestErrorMessages: LogLevel.info,
             loggerName: 'test-logger',
             serviceName: 'test-service',
-            logLevelForServiceRequestErrorMessages: LogLevel.info,
         })
         logger.error('Service request', 1, { name: 'myname' })
         expect(loggerConsole.log).toHaveBeenNthCalledWith(
@@ -162,9 +162,9 @@ describe('Logger writes expected output to command line', () => {
 
         // Should log Timeout error message on info if option "logLevelForServiceRequestErrorMessages" is set to INFO
         logger.setOptions({
+            logLevelForTimeoutErrorMessages: LogLevel.info,
             loggerName: 'test-logger',
             serviceName: 'test-service',
-            logLevelForTimeoutErrorMessages: LogLevel.info,
         })
         logger.error(timeoutMessage, 1, { name: 'myname' })
         expect(loggerConsole.log).toHaveBeenNthCalledWith(
@@ -190,9 +190,9 @@ describe('Logger writes expected output to command line', () => {
 
         // Should log async attribute error error message on info if option "logLevelForAsyncAttributeError" is set to INFO
         logger.setOptions({
+            logLevelForAsyncAttributeError: LogLevel.info,
             loggerName: 'test-logger',
             serviceName: 'test-service',
-            logLevelForAsyncAttributeError: LogLevel.info,
         })
         logger.error(asyncAttributeErrorMessage, 1, { name: 'myname' })
         expect(loggerConsole.log).toHaveBeenNthCalledWith(
@@ -211,9 +211,9 @@ describe('Logger writes expected output to command line', () => {
     test('Test downgrading and ignoring verbose message', () => {
         // Downgrade verbose log entry
         logger.setOptions({
+            logLevelForVerbose: LogLevel.debug,
             loggerName: 'test-logger',
             serviceName: 'test-service',
-            logLevelForVerbose: LogLevel.debug,
         })
         logger.verbose('test', 1, { name: 'myname' })
         expect(loggerConsole.log).toHaveBeenNthCalledWith(
@@ -223,9 +223,9 @@ describe('Logger writes expected output to command line', () => {
 
         // Do not log verbose log entry
         logger.setOptions({
+            logLevelForVerbose: LogLevel.off,
             loggerName: 'test-logger',
             serviceName: 'test-service',
-            logLevelForVerbose: LogLevel.off,
         })
         logger.verbose('test', 1, { name: 'myname' })
         expect(loggerConsole.log).toHaveBeenCalledTimes(1)
@@ -234,18 +234,18 @@ describe('Logger writes expected output to command line', () => {
     test('Test downgrading and ignoring error messages', () => {
         // Do not log service request error message
         logger.setOptions({
+            logLevelForServiceRequestErrorMessages: LogLevel.off,
             loggerName: 'test-logger',
             serviceName: 'test-service',
-            logLevelForServiceRequestErrorMessages: LogLevel.off,
         })
         logger.error('Service request', 1, { name: 'myname' })
         expect(loggerConsole.log).toHaveBeenCalledTimes(0)
 
         // Do not log timeout error message
         logger.setOptions({
+            logLevelForTimeoutErrorMessages: LogLevel.off,
             loggerName: 'test-logger',
             serviceName: 'test-service',
-            logLevelForTimeoutErrorMessages: LogLevel.off,
         })
         logger.error(timeoutMessage, 1, { name: 'myname' })
         expect(loggerConsole.log).toHaveBeenCalledTimes(0)
@@ -253,9 +253,9 @@ describe('Logger writes expected output to command line', () => {
 
     test('Test logging only first incoming message and no other debug messages', () => {
         const incomingMessageLogger = new JsonDiagLogger({
+            logFirstIncomingRequest: true,
             loggerName: 'test-logger',
             serviceName: 'test-service',
-            logFirstIncomingRequest: true,
         })
         // Should not log other debug message
         incomingMessageLogger.debug(testMessage, { name: 'myname' })
@@ -294,10 +294,10 @@ describe('Logger writes expected output to command line', () => {
             ' debug or higher',
         () => {
             const incomingMessageLogger = new JsonDiagLogger({
-                loggerName: 'test-logger',
-                serviceName: 'test-service',
                 logFirstIncomingRequest: true,
+                loggerName: 'test-logger',
                 minLogLevel: LogLevel.verbose,
+                serviceName: 'test-service',
             })
             // Should log other debug message
             incomingMessageLogger.debug(testMessage, 1, { name: 'myname' })
@@ -345,9 +345,9 @@ describe('Logger writes expected output to command line', () => {
 
     test('Test logging registered global message on info level', () => {
         const messageLogger = new JsonDiagLogger({
+            logLevelForRegisterGlobalMessages: LogLevel.info,
             loggerName: 'test-logger',
             serviceName: 'test-service',
-            logLevelForRegisterGlobalMessages: LogLevel.info,
         })
         // Should log message on info level
         const registeredGlobalMessage =
@@ -416,8 +416,8 @@ test.each`
     ({ logLevel, minLogLevel, expectedResult }) => {
         const testLogger = new JsonDiagLogger({
             loggerName: 'test-logger',
-            serviceName: 'test-service',
             minLogLevel: minLogLevel,
+            serviceName: 'test-service',
         })
         expect(testLogger.isEqualOrHigherMinLogLevel(logLevel)).toBe(
             expectedResult,
