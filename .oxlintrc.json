@@ -44,6 +44,7 @@
         "eslint/no-ternary": "off",
         "eslint/sort-imports": "off",
         "eslint/yoda": "off",
+        "import/exports-last": "off",
         "import/max-dependencies": "off",
         "import/no-amd": "error",
         "import/no-commonjs": "error",
