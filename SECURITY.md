@@ -12,7 +12,7 @@ Please consider using only supported versions.
 
 | Version | Supported          |
 | ------- | ------------------ |
-| 2.7.x   | :white_check_mark: |
+| 3.x.x   | :white_check_mark: |
 | < 2.7   | :x:                |
 
 ## Reporting a Vulnerability

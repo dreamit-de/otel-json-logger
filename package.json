@@ -1,6 +1,6 @@
 {
     "name": "@dreamit/otel-json-logger",
-    "version": "2.7.3",
+    "version": "3.0.0",
     "description": "JSON diagnose logger for OpenTelemetry",
     "scripts": {
         "build": "tsup-node",

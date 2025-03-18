@@ -33,13 +33,13 @@ import { diag, DiagLogLevel } from "@opentelemetry/api";
 const logger = new JsonDiagLogger({
     loggerName: 'test-logger', // The loggerName printed in field "logger"
     serviceName: 'test-service', // The serviceName printed in field "serviceName"
-    minLogLevel: LogLevel.info, // Optional: The minimum log level to use. Default: Does not check for min LogLevel.
-    logFirstIncomingRequest: true, // Optional: If true, the first incoming request will be logged. Other messages on debug level will be log if monLogLevel is set to debug or higher. Default: false. Note: If you use diag.setLogger ensure that at least "LogLevel.debug" is set, otherwise the message will be ignored.
-    logLevelForAsyncAttributeError: LogLevel.info // Optional: The log level to use for the message "Accessing resource attributes before async attributes settled". These errors might not be relevant enough to log them on error level.
-    logLevelForRegisterGlobalMessages: LogLevel.info // Optional: The log level to use for messages "... Registered a global ...". These are helpful to check if OTEL is running properly but are logged on debug level by default. Increase this log level to see these messages.
-    logLevelForServiceRequestErrorMessages: LogLevel.info, // Optional: The log level to use for error message "Service request". These contain request information that might not be logged on error level.
-    logLevelForTimeoutErrorMessages: LogLevel.info, // Optional: The log level to use for Timeout related messages. These might be of short nature and be downgraded or ignored.
-    logLevelForVerbose: LogLevel.off // Optional: Set LogLevel for verbose entries or ignore them
+    minLogLevel: 'INFO', // Optional: The minimum log level to use. Default: Does not check for min LogLevel.
+    logFirstIncomingRequest: true, // Optional: If true, the first incoming request will be logged. Other messages on debug level will be log if minLogLevel is set to debug or higher. Default: false. Note: If you use diag.setLogger ensure that at least "DEBUG" is set, otherwise the message will be ignored.
+    logLevelForAsyncAttributeError: 'INFO' // Optional: The log level to use for the message "Accessing resource attributes before async attributes settled". These errors might not be relevant enough to log them on error level.
+    logLevelForRegisterGlobalMessages: 'INFO' // Optional: The log level to use for messages "... Registered a global ...". These are helpful to check if OTEL is running properly but are logged on debug level by default. Increase this log level to see these messages.
+    logLevelForServiceRequestErrorMessages: 'INFO', // Optional: The log level to use for error message "Service request". These contain request information that might not be logged on error level.
+    logLevelForTimeoutErrorMessages: 'INFO', // Optional: The log level to use for Timeout related messages. These might be of short nature and be downgraded or ignored.
+    logLevelForVerbose: 'OFF' // Optional: Set LogLevel for verbose entries or ignore them
     truncateLimit: 200 // Optional:  The length of the message before the message gets truncated. Default: undefined/0 (off).
     truncatedText: '_TRC_' // Optional: The text to display if a message is truncated.
 })
@@ -70,7 +70,7 @@ diag.setLogger(logger, DiagLogLevel.ERROR)
 - **verbose**: Logs a verbose message
 - **warn**: Logs a warn message
 
-### LogLevel enum values
+### LogLevel values
 
 - **DEBUG**
 - **ERROR**
@@ -78,6 +78,12 @@ diag.setLogger(logger, DiagLogLevel.ERROR)
 - **OFF** : Do not log these entries!
 - **VERBOSE**
 - **WARN**
+
+## Changelog
+
+### v3.x
+
+_LogLevel_ has been changed from enum to string type.
 
 ## Contact
 

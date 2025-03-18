@@ -1,5 +1,5 @@
 /* eslint-disable max-len */
-import { JsonDiagLogger, LogLevel, loggerConsole } from '@/index'
+import { JsonDiagLogger, loggerConsole } from '@/index'
 import { afterEach, beforeEach, describe, expect, test, vi } from 'vitest'
 
 const logger = new JsonDiagLogger({
@@ -16,18 +16,18 @@ circularStructure.push(circularStructure)
 const complexObject = { one: { two: { three: { message: 'test' } } } }
 
 test.each`
-    message                            | logArguments                            | loglevel            | expectedLogMessage                                                                           | expectedLogLevel
-    ${undefined}                       | ${undefined}                            | ${LogLevel.verbose} | ${undefined + '. Log arguments are: undefined'}                                              | ${LogLevel.verbose}
-    ${testMessage}                     | ${undefined}                            | ${LogLevel.info}    | ${testMessage + '. Log arguments are: undefined'}                                            | ${LogLevel.info}
-    ${testMessage}                     | ${1}                                    | ${LogLevel.warn}    | ${testMessage + '. Log arguments are: 1'}                                                    | ${LogLevel.warn}
-    ${testMessage}                     | ${[1, 'test']}                          | ${LogLevel.error}   | ${testMessage + ". Log arguments are: [ 1, 'test' ]"}                                        | ${LogLevel.error}
-    ${''}                              | ${[]}                                   | ${LogLevel.debug}   | ${'. Log arguments are: []'}                                                                 | ${LogLevel.debug}
-    ${'{context: {info:"something"}}'} | ${undefined}                            | ${LogLevel.info}    | ${'\'{context: {info:"something"}}\'. Log arguments are: undefined'}                         | ${LogLevel.info}
-    ${'["one", "two"]'}                | ${undefined}                            | ${LogLevel.info}    | ${'\'["one", "two"]\'. Log arguments are: undefined'}                                        | ${LogLevel.info}
-    ${testMessage}                     | ${[{ context: { info: 'something' } }]} | ${LogLevel.warn}    | ${testMessage + ". Log arguments are: [ { context: { info: 'something' } } ]"}               | ${LogLevel.warn}
-    ${testMessage}                     | ${circularStructure}                    | ${LogLevel.warn}    | ${testMessage + ". Log arguments are: <ref *1> [ 1, 'test', [Circular *1] ]"}                | ${LogLevel.warn}
-    ${testMessage}                     | ${complexObject}                        | ${LogLevel.info}    | ${testMessage + ". Log arguments are: {\n  one: { two: { three: { message: 'test' } } }\n}"} | ${LogLevel.info}
-    ${JSON.stringify(complexObject)}   | ${[1, 'test']}                          | ${LogLevel.info}    | ${'\'{"one":{"two":{"three":{"message":"test"}}}}\'. Log arguments are: [ 1, \'test\' ]'}    | ${LogLevel.info}
+    message                            | logArguments                            | loglevel     | expectedLogMessage                                                                           | expectedLogLevel
+    ${undefined}                       | ${undefined}                            | ${'VERBOSE'} | ${undefined + '. Log arguments are: undefined'}                                              | ${'VERBOSE'}
+    ${testMessage}                     | ${undefined}                            | ${'INFO'}    | ${testMessage + '. Log arguments are: undefined'}                                            | ${'INFO'}
+    ${testMessage}                     | ${1}                                    | ${'WARN'}    | ${testMessage + '. Log arguments are: 1'}                                                    | ${'WARN'}
+    ${testMessage}                     | ${[1, 'test']}                          | ${'ERROR'}   | ${testMessage + ". Log arguments are: [ 1, 'test' ]"}                                        | ${'ERROR'}
+    ${''}                              | ${[]}                                   | ${'DEBUG'}   | ${'. Log arguments are: []'}                                                                 | ${'DEBUG'}
+    ${'{context: {info:"something"}}'} | ${undefined}                            | ${'INFO'}    | ${'\'{context: {info:"something"}}\'. Log arguments are: undefined'}                         | ${'INFO'}
+    ${'["one", "two"]'}                | ${undefined}                            | ${'INFO'}    | ${'\'["one", "two"]\'. Log arguments are: undefined'}                                        | ${'INFO'}
+    ${testMessage}                     | ${[{ context: { info: 'something' } }]} | ${'WARN'}    | ${testMessage + ". Log arguments are: [ { context: { info: 'something' } } ]"}               | ${'WARN'}
+    ${testMessage}                     | ${circularStructure}                    | ${'WARN'}    | ${testMessage + ". Log arguments are: <ref *1> [ 1, 'test', [Circular *1] ]"}                | ${'WARN'}
+    ${testMessage}                     | ${complexObject}                        | ${'INFO'}    | ${testMessage + ". Log arguments are: {\n  one: { two: { three: { message: 'test' } } }\n}"} | ${'INFO'}
+    ${JSON.stringify(complexObject)}   | ${[1, 'test']}                          | ${'INFO'}    | ${'\'{"one":{"two":{"three":{"message":"test"}}}}\'. Log arguments are: [ 1, \'test\' ]'}    | ${'INFO'}
 `(
     'expects a correct logEntry is created for given $message , $logArguments and $loglevel ',
     ({
@@ -72,7 +72,7 @@ test.each`
         })
         const logEntry = testLogger.createLogEntry({
             logArguments: [],
-            loglevel: LogLevel.info,
+            loglevel: 'INFO',
             message,
         })
         expect(logEntry.message).toBe(expectedLogMessage)
@@ -134,7 +134,7 @@ describe('Logger writes expected output to command line', () => {
 
         // Should log service request message on info if option "logLevelForServiceRequestErrorMessages" is set to INFO
         logger.setOptions({
-            logLevelForServiceRequestErrorMessages: LogLevel.info,
+            logLevelForServiceRequestErrorMessages: 'INFO',
             loggerName: 'test-logger',
             serviceName: 'test-service',
         })
@@ -162,7 +162,7 @@ describe('Logger writes expected output to command line', () => {
 
         // Should log Timeout error message on info if option "logLevelForServiceRequestErrorMessages" is set to INFO
         logger.setOptions({
-            logLevelForTimeoutErrorMessages: LogLevel.info,
+            logLevelForTimeoutErrorMessages: 'INFO',
             loggerName: 'test-logger',
             serviceName: 'test-service',
         })
@@ -190,7 +190,7 @@ describe('Logger writes expected output to command line', () => {
 
         // Should log async attribute error error message on info if option "logLevelForAsyncAttributeError" is set to INFO
         logger.setOptions({
-            logLevelForAsyncAttributeError: LogLevel.info,
+            logLevelForAsyncAttributeError: 'INFO',
             loggerName: 'test-logger',
             serviceName: 'test-service',
         })
@@ -211,7 +211,7 @@ describe('Logger writes expected output to command line', () => {
     test('Test downgrading and ignoring verbose message', () => {
         // Downgrade verbose log entry
         logger.setOptions({
-            logLevelForVerbose: LogLevel.debug,
+            logLevelForVerbose: 'DEBUG',
             loggerName: 'test-logger',
             serviceName: 'test-service',
         })
@@ -223,7 +223,7 @@ describe('Logger writes expected output to command line', () => {
 
         // Do not log verbose log entry
         logger.setOptions({
-            logLevelForVerbose: LogLevel.off,
+            logLevelForVerbose: 'OFF',
             loggerName: 'test-logger',
             serviceName: 'test-service',
         })
@@ -234,7 +234,7 @@ describe('Logger writes expected output to command line', () => {
     test('Test downgrading and ignoring error messages', () => {
         // Do not log service request error message
         logger.setOptions({
-            logLevelForServiceRequestErrorMessages: LogLevel.off,
+            logLevelForServiceRequestErrorMessages: 'OFF',
             loggerName: 'test-logger',
             serviceName: 'test-service',
         })
@@ -243,7 +243,7 @@ describe('Logger writes expected output to command line', () => {
 
         // Do not log timeout error message
         logger.setOptions({
-            logLevelForTimeoutErrorMessages: LogLevel.off,
+            logLevelForTimeoutErrorMessages: 'OFF',
             loggerName: 'test-logger',
             serviceName: 'test-service',
         })
@@ -296,7 +296,7 @@ describe('Logger writes expected output to command line', () => {
             const incomingMessageLogger = new JsonDiagLogger({
                 logFirstIncomingRequest: true,
                 loggerName: 'test-logger',
-                minLogLevel: LogLevel.verbose,
+                minLogLevel: 'VERBOSE',
                 serviceName: 'test-service',
             })
             // Should log other debug message
@@ -345,7 +345,7 @@ describe('Logger writes expected output to command line', () => {
 
     test('Test logging registered global message on info level', () => {
         const messageLogger = new JsonDiagLogger({
-            logLevelForRegisterGlobalMessages: LogLevel.info,
+            logLevelForRegisterGlobalMessages: 'INFO',
             loggerName: 'test-logger',
             serviceName: 'test-service',
         })
@@ -368,49 +368,49 @@ describe('Logger writes expected output to command line', () => {
 })
 
 test.each`
-    logLevel            | minLogLevel         | expectedResult
-    ${LogLevel.debug}   | ${undefined}        | ${true}
-    ${LogLevel.error}   | ${undefined}        | ${true}
-    ${LogLevel.info}    | ${undefined}        | ${true}
-    ${LogLevel.off}     | ${undefined}        | ${true}
-    ${LogLevel.verbose} | ${undefined}        | ${true}
-    ${LogLevel.warn}    | ${undefined}        | ${true}
-    ${LogLevel.debug}   | ${LogLevel.debug}   | ${true}
-    ${LogLevel.debug}   | ${LogLevel.error}   | ${false}
-    ${LogLevel.debug}   | ${LogLevel.info}    | ${false}
-    ${LogLevel.debug}   | ${LogLevel.off}     | ${true}
-    ${LogLevel.debug}   | ${LogLevel.verbose} | ${true}
-    ${LogLevel.debug}   | ${LogLevel.warn}    | ${false}
-    ${LogLevel.error}   | ${LogLevel.debug}   | ${true}
-    ${LogLevel.error}   | ${LogLevel.error}   | ${true}
-    ${LogLevel.error}   | ${LogLevel.info}    | ${true}
-    ${LogLevel.error}   | ${LogLevel.off}     | ${true}
-    ${LogLevel.error}   | ${LogLevel.verbose} | ${true}
-    ${LogLevel.error}   | ${LogLevel.warn}    | ${true}
-    ${LogLevel.info}    | ${LogLevel.debug}   | ${true}
-    ${LogLevel.info}    | ${LogLevel.error}   | ${false}
-    ${LogLevel.info}    | ${LogLevel.info}    | ${true}
-    ${LogLevel.info}    | ${LogLevel.off}     | ${true}
-    ${LogLevel.info}    | ${LogLevel.verbose} | ${true}
-    ${LogLevel.info}    | ${LogLevel.warn}    | ${false}
-    ${LogLevel.off}     | ${LogLevel.debug}   | ${false}
-    ${LogLevel.off}     | ${LogLevel.error}   | ${false}
-    ${LogLevel.off}     | ${LogLevel.info}    | ${false}
-    ${LogLevel.off}     | ${LogLevel.off}     | ${true}
-    ${LogLevel.off}     | ${LogLevel.verbose} | ${false}
-    ${LogLevel.off}     | ${LogLevel.warn}    | ${false}
-    ${LogLevel.verbose} | ${LogLevel.debug}   | ${false}
-    ${LogLevel.verbose} | ${LogLevel.error}   | ${false}
-    ${LogLevel.verbose} | ${LogLevel.info}    | ${false}
-    ${LogLevel.verbose} | ${LogLevel.off}     | ${true}
-    ${LogLevel.verbose} | ${LogLevel.verbose} | ${true}
-    ${LogLevel.verbose} | ${LogLevel.warn}    | ${false}
-    ${LogLevel.warn}    | ${LogLevel.debug}   | ${true}
-    ${LogLevel.warn}    | ${LogLevel.error}   | ${false}
-    ${LogLevel.warn}    | ${LogLevel.info}    | ${true}
-    ${LogLevel.warn}    | ${LogLevel.off}     | ${true}
-    ${LogLevel.warn}    | ${LogLevel.verbose} | ${true}
-    ${LogLevel.warn}    | ${LogLevel.warn}    | ${true}
+    logLevel     | minLogLevel  | expectedResult
+    ${'DEBUG'}   | ${undefined} | ${true}
+    ${'ERROR'}   | ${undefined} | ${true}
+    ${'INFO'}    | ${undefined} | ${true}
+    ${'OFF'}     | ${undefined} | ${true}
+    ${'VERBOSE'} | ${undefined} | ${true}
+    ${'WARN'}    | ${undefined} | ${true}
+    ${'DEBUG'}   | ${'DEBUG'}   | ${true}
+    ${'DEBUG'}   | ${'ERROR'}   | ${false}
+    ${'DEBUG'}   | ${'INFO'}    | ${false}
+    ${'DEBUG'}   | ${'OFF'}     | ${true}
+    ${'DEBUG'}   | ${'VERBOSE'} | ${true}
+    ${'DEBUG'}   | ${'WARN'}    | ${false}
+    ${'ERROR'}   | ${'DEBUG'}   | ${true}
+    ${'ERROR'}   | ${'ERROR'}   | ${true}
+    ${'ERROR'}   | ${'INFO'}    | ${true}
+    ${'ERROR'}   | ${'OFF'}     | ${true}
+    ${'ERROR'}   | ${'VERBOSE'} | ${true}
+    ${'ERROR'}   | ${'WARN'}    | ${true}
+    ${'INFO'}    | ${'DEBUG'}   | ${true}
+    ${'INFO'}    | ${'ERROR'}   | ${false}
+    ${'INFO'}    | ${'INFO'}    | ${true}
+    ${'INFO'}    | ${'OFF'}     | ${true}
+    ${'INFO'}    | ${'VERBOSE'} | ${true}
+    ${'INFO'}    | ${'WARN'}    | ${false}
+    ${'OFF'}     | ${'DEBUG'}   | ${false}
+    ${'OFF'}     | ${'ERROR'}   | ${false}
+    ${'OFF'}     | ${'INFO'}    | ${false}
+    ${'OFF'}     | ${'OFF'}     | ${true}
+    ${'OFF'}     | ${'VERBOSE'} | ${false}
+    ${'OFF'}     | ${'WARN'}    | ${false}
+    ${'VERBOSE'} | ${'DEBUG'}   | ${false}
+    ${'VERBOSE'} | ${'ERROR'}   | ${false}
+    ${'VERBOSE'} | ${'INFO'}    | ${false}
+    ${'VERBOSE'} | ${'OFF'}     | ${true}
+    ${'VERBOSE'} | ${'VERBOSE'} | ${true}
+    ${'VERBOSE'} | ${'WARN'}    | ${false}
+    ${'WARN'}    | ${'DEBUG'}   | ${true}
+    ${'WARN'}    | ${'ERROR'}   | ${false}
+    ${'WARN'}    | ${'INFO'}    | ${true}
+    ${'WARN'}    | ${'OFF'}     | ${true}
+    ${'WARN'}    | ${'VERBOSE'} | ${true}
+    ${'WARN'}    | ${'WARN'}    | ${true}
 `(
     'expects for logLevel $logLevel and minLogLevel $minLogLevel be calculated correctly $expectedResult',
     ({ logLevel, minLogLevel, expectedResult }) => {

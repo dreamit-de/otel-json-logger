@@ -8,23 +8,17 @@ export const loggerConsole: Console = new Console(
     false,
 )
 
-export enum LogLevel {
-    debug = 'DEBUG',
-    error = 'ERROR',
-    info = 'INFO',
-    off = 'OFF',
-    warn = 'WARN',
-    verbose = 'VERBOSE',
-}
+export type LogLevel = 'DEBUG' | 'ERROR' | 'INFO' | 'OFF' | 'VERBOSE' | 'WARN'
 
-const logLevelByScope = [
+// eslint-disable-next-line @typescript-eslint/array-type
+const logLevelByScope: Array<LogLevel | undefined> = [
     undefined,
-    LogLevel.off,
-    LogLevel.verbose,
-    LogLevel.debug,
-    LogLevel.info,
-    LogLevel.warn,
-    LogLevel.error,
+    'OFF',
+    'VERBOSE',
+    'DEBUG',
+    'INFO',
+    'WARN',
+    'ERROR',
 ]
 
 export interface LogEntry {
@@ -124,7 +118,7 @@ export class JsonDiagLogger implements DiagLogger {
             ) {
                 this.logMessage({
                     logArguments: [],
-                    loglevel: LogLevel.info,
+                    loglevel: 'INFO',
                     message: 'First incoming request',
                 })
                 this.firstIncomingRequestLogged = true
@@ -137,21 +131,21 @@ export class JsonDiagLogger implements DiagLogger {
             ) {
                 this.logMessage({
                     logArguments: arguments_,
-                    loglevel: LogLevel.debug,
+                    loglevel: 'DEBUG',
                     message,
                 })
             }
         } else {
             this.logMessage({
                 logArguments: arguments_,
-                loglevel: LogLevel.debug,
+                loglevel: 'DEBUG',
                 message,
             })
         }
     }
 
     error(message: string, ...arguments_: unknown[]): void {
-        let logLevel
+        let logLevel: LogLevel
         if (
             this.loggerOptions.logLevelForServiceRequestErrorMessages &&
             message === 'Service request'
@@ -168,7 +162,7 @@ export class JsonDiagLogger implements DiagLogger {
         ) {
             logLevel = this.loggerOptions.logLevelForAsyncAttributeError
         } else {
-            logLevel = LogLevel.error
+            logLevel = 'ERROR'
         }
 
         this.logMessage({
@@ -181,7 +175,7 @@ export class JsonDiagLogger implements DiagLogger {
     info(message: string, ...arguments_: unknown[]): void {
         this.logMessage({
             logArguments: arguments_,
-            loglevel: LogLevel.info,
+            loglevel: 'INFO',
             message,
         })
     }
@@ -189,7 +183,7 @@ export class JsonDiagLogger implements DiagLogger {
     verbose(message: string, ...arguments_: unknown[]): void {
         this.logMessage({
             logArguments: arguments_,
-            loglevel: this.loggerOptions.logLevelForVerbose ?? LogLevel.verbose,
+            loglevel: this.loggerOptions.logLevelForVerbose ?? 'VERBOSE',
             message,
         })
     }
@@ -197,14 +191,14 @@ export class JsonDiagLogger implements DiagLogger {
     warn(message: string, ...arguments_: unknown[]): void {
         this.logMessage({
             logArguments: arguments_,
-            loglevel: LogLevel.warn,
+            loglevel: 'WARN',
             message,
         })
     }
 
     logMessage(logEntryInput: LogEntryInput): void {
         if (
-            logEntryInput.loglevel !== LogLevel.off &&
+            logEntryInput.loglevel !== 'OFF' &&
             this.isEqualOrHigherMinLogLevel(logEntryInput.loglevel)
         ) {
             loggerConsole.log(
