@@ -2,13 +2,13 @@ import { DiagLogger } from '@opentelemetry/api'
 import { Console } from 'node:console'
 import { inspect } from 'node:util'
 
-export const loggerConsole: Console = new Console(
+const loggerConsole: Console = new Console(
     process.stdout,
     process.stderr,
     false,
 )
 
-export type LogLevel = 'DEBUG' | 'ERROR' | 'INFO' | 'OFF' | 'VERBOSE' | 'WARN'
+type LogLevel = 'DEBUG' | 'ERROR' | 'INFO' | 'OFF' | 'VERBOSE' | 'WARN'
 
 // eslint-disable-next-line @typescript-eslint/array-type
 const logLevelByScope: Array<LogLevel | undefined> = [
@@ -21,7 +21,7 @@ const logLevelByScope: Array<LogLevel | undefined> = [
     'ERROR',
 ]
 
-export interface LogEntry {
+interface LogEntry {
     logger: string
     timestamp: string
     message: string
@@ -29,7 +29,7 @@ export interface LogEntry {
     serviceName: string
 }
 
-export interface LogEntryInput {
+interface LogEntryInput {
     message: string
     logArguments: unknown[]
     loglevel: LogLevel
@@ -63,7 +63,7 @@ export interface LogEntryInput {
  * Default: undefined/0 (off).
  * @param {string} truncatedText - The text to display if a message is truncated.
  */
-export interface LoggerOptions {
+interface LoggerOptions {
     loggerName: string
     serviceName: string
     logFirstIncomingRequest?: boolean
@@ -81,7 +81,7 @@ export interface LoggerOptions {
  * Logger implementation that outputs log entries as JSON text to console.
  * Can be useful for log aggregation tools.
  */
-export class JsonDiagLogger implements DiagLogger {
+class JsonDiagLogger implements DiagLogger {
     loggerOptions: LoggerOptions
     firstIncomingRequestLogged = false
 
@@ -305,4 +305,13 @@ export class JsonDiagLogger implements DiagLogger {
     containsAsyncAttributeError(message: string): boolean {
         return message.includes('before async attributes settled')
     }
+}
+
+export {
+    JsonDiagLogger,
+    LogEntry,
+    LogEntryInput,
+    loggerConsole,
+    LoggerOptions,
+    LogLevel,
 }
