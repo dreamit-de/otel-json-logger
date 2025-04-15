@@ -14,7 +14,9 @@
         "paths": {
             "@/*": ["src/*"],
             "~/*": ["./*"]
-        }
+        },
+        "verbatimModuleSyntax": true,
+        "erasableSyntaxOnly": true
     },
     "include": ["tsup.config.ts", "vitest.config.js", "src/*", "tests/*"],
     "exclude": ["node_modules"]
