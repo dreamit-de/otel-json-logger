@@ -1,4 +1,4 @@
-import { DiagLogger } from '@opentelemetry/api'
+import type { DiagLogger } from '@opentelemetry/api'
 import { Console } from 'node:console'
 import { inspect } from 'node:util'
 
@@ -307,11 +307,6 @@ class JsonDiagLogger implements DiagLogger {
     }
 }
 
-export {
-    JsonDiagLogger,
-    LogEntry,
-    LogEntryInput,
-    loggerConsole,
-    LoggerOptions,
-    LogLevel,
-}
+export { JsonDiagLogger, loggerConsole }
+
+export type { LogEntry, LogEntryInput, LoggerOptions, LogLevel }
