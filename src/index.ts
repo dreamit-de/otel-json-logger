@@ -266,7 +266,10 @@ class JsonDiagLogger implements DiagLogger {
     containsTimeout(message: string): boolean {
         return (
             message.includes('4 DEADLINE_EXCEEDED') ||
-            message.includes('14 UNAVAILABLE')
+            message.includes('14 UNAVAILABLE') ||
+            message.includes('ECONNREFUSED') ||
+            message.includes('EPERM') ||
+            message.includes('Timeout')
         )
     }
 
