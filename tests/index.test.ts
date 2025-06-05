@@ -152,33 +152,43 @@ describe('Logger writes expected output to command line', () => {
         )
     })
 
-    test('Test Timeout error message logging', () => {
-        // Should log Timeout message on error if option "logLevelForTimeoutErrorMessages" is not set
-        logger.error(timeoutMessage, 1, { name: 'myname' })
-        expect(loggerConsole.log).toHaveBeenNthCalledWith(
-            1,
-            generateExpectedTimeoutMessage('ERROR'),
-        )
+    test.each([
+        '14 UNAVAILABLE',
+        '4 DEADLINE_EXCEEDED',
+        'ECONNREFUSED',
+        'EPERM',
+        'Timeout',
+    ])(
+        'Test Timeout error message logging for message containing "%s"',
+        (message: string) => {
+            // Should log Timeout message on error if option "logLevelForTimeoutErrorMessages" is not set
+            const messageToLog = `{"stack":"Error: ${message}: Does not matter!}`
+            logger.error(messageToLog, 1, { name: 'myname' })
+            expect(loggerConsole.log).toHaveBeenNthCalledWith(
+                1,
+                generateExpectedTimeoutMessage('ERROR', message),
+            )
 
-        // Should log Timeout error message on info if option "logLevelForServiceRequestErrorMessages" is set to INFO
-        logger.setOptions({
-            logLevelForTimeoutErrorMessages: 'INFO',
-            loggerName: 'test-logger',
-            serviceName: 'test-service',
-        })
-        logger.error(timeoutMessage, 1, { name: 'myname' })
-        expect(loggerConsole.log).toHaveBeenNthCalledWith(
-            2,
-            generateExpectedTimeoutMessage('INFO'),
-        )
+            // Should log Timeout error message on info if option "logLevelForServiceRequestErrorMessages" is set to INFO
+            logger.setOptions({
+                logLevelForTimeoutErrorMessages: 'INFO',
+                loggerName: 'test-logger',
+                serviceName: 'test-service',
+            })
+            logger.error(messageToLog, 1, { name: 'myname' })
+            expect(loggerConsole.log).toHaveBeenNthCalledWith(
+                2,
+                generateExpectedTimeoutMessage('INFO', message),
+            )
 
-        // Should not set log level for other messages to info
-        logger.error(testMessage, 1, { name: 'myname' })
-        expect(loggerConsole.log).toHaveBeenNthCalledWith(
-            3,
-            generateExpectedLogMessage(testMessage, 'ERROR'),
-        )
-    })
+            // Should not set log level for other messages to info
+            logger.error(testMessage, 1, { name: 'myname' })
+            expect(loggerConsole.log).toHaveBeenNthCalledWith(
+                3,
+                generateExpectedLogMessage(testMessage, 'ERROR'),
+            )
+        },
+    )
 
     test('Test async attribute error message logging', () => {
         // Should log async attribute error message on error if option "logLevelForAsyncAttributeError" is not set
@@ -433,6 +443,9 @@ function generateExpectedLogMessage(
     return `{"level":"${loglevel}","logger":"test-logger","message":"${message}. Log arguments are: ${logArguments}","serviceName":"test-service","timestamp":"2023-09-06T00:00:00.000Z"}`
 }
 
-function generateExpectedTimeoutMessage(loglevel: string): string {
-    return `{"level":"${loglevel}","logger":"test-logger","message":"'{\\"stack\\":\\"Error: 14 UNAVAILABLE: No connection established}'. Log arguments are: [ 1, { name: 'myname' } ]","serviceName":"test-service","timestamp":"2023-09-06T00:00:00.000Z"}`
+function generateExpectedTimeoutMessage(
+    loglevel: string,
+    message: string,
+): string {
+    return `{"level":"${loglevel}","logger":"test-logger","message":"'{\\"stack\\":\\"Error: ${message}: Does not matter!}'. Log arguments are: [ 1, { name: 'myname' } ]","serviceName":"test-service","timestamp":"2023-09-06T00:00:00.000Z"}`
 }
