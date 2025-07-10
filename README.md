@@ -2,6 +2,8 @@
 
 JSON diagnose logger for OpenTelemetry
 
+**Deprecated**: This library will no longer be maintained. Use at your own risk!
+
 ## Installation
 
 ```sh
