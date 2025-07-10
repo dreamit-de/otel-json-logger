@@ -23,6 +23,6 @@ jobs:
       - run: npm run lint
       - run: npm run check
       - run: npm run test
-      - run: npm publish --provenance --access public
+      - run: npm deprecate @dreamit/otel-json-logger "@dreamit/otel-json-logger is deprecated and will no longer be maintained. Use at your own risk!"
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_PUBLISH_TOKEN}}
